@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "装饰公司",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-tag": "@vant/weapp/tag/index"
+  }
+}

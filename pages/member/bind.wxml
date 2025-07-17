@@ -1,0 +1,36 @@
+<!--pages/member/bind.wxml-->
+<view class="page" wx:if="{{ !loading }}">
+
+  <view class="spacer" />
+
+  <van-cell-group>
+    <van-field
+      label="持卡人："
+      model:value="{{ realname }}"
+      placeholder="请输入持卡人姓名"
+    />
+    <van-cell title="开户行：" title-class="custom-title" arrow-direction="down" is-link>
+      <picker 
+        bindchange="bindPickerChange" 
+        value="{{ currentBank }}" 
+        range="{{ bankList }}"
+        range-key="bankname"
+      >
+        <view class="picker">
+          {{ currentBank >= 0 ? bankList[currentBank].bankname : '请选择开户行' }}
+        </view>
+      </picker>
+    </van-cell>
+    <van-field
+      label="卡号："
+      type="number"
+      model:value="{{ bankcard }}"
+      placeholder="请输入银行卡号"
+    />
+  </van-cell-group>
+
+  <view class="full-handle mgt120">
+    <van-button type="primary" block bindtap="submit">保存</van-button>
+  </view>
+
+</view>

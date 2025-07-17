@@ -1,0 +1,89 @@
+<!--pages/live/player/player.wxml-->
+<view class="player">
+    <video 
+    id="video"
+    src=""
+    controls="{{ false }}"
+    autoplay="{{ true }}"
+    />
+
+    <view class="player_top">
+      <view class="player_title">
+          <image src="../../../images/img01.png"/>
+          <text>杭州直播展工地实时画面</text>
+          <image src="../../../images/img02.png"/>
+      </view>
+      <view class="player_txt">
+        <view>【工地名称】牛牛搭新家装</view>
+        <view>【联系电话】15612345678</view>
+      </view>
+    </view>
+
+    <view class="control">
+      <image src="../../../images/img03.png"/>
+      <view class="control_center">
+        <image src="../../../images/img03.png"/>
+        <text></text>
+        <image src="../../../images/img03.png"/>
+      </view>
+      <image class="control_bottom" src="../../../images/img03.png"/>
+    </view>
+
+    <view class="player_bottom">
+      <view class="player_bottom_left">
+        <view>
+          <image src="../../../images/img04.png"></image>
+          <text>分享</text>
+        </view>
+        <view>
+          <image src="../../../images/img05.png"></image>
+          <text>截图</text>
+        </view>
+      </view>
+      <button bindtap="showPopup">申请登记</button>
+    </view>
+
+    <van-popup show="{{ show }}" position="bottom">
+      <view class="popup_form">
+        <view class="form_title">
+          <text>申请登记</text>
+          <van-icon bindtap="hidePopup" class="icon" name="close" />
+        </view>
+        <view class="form">
+          <view class="form-item">
+            <van-field label="联系人：" title-width="160rpx" model:value="{{ name }}" placeholder="请输入您的姓名" border="{{ false }}"/>
+          </view>
+          <view class="form-item">
+            <van-field label="手机号：" title-width="160rpx" type="number" model:value="{{ phone }}" placeholder="请输入您的手机号" border="{{ false }}"/>
+          </view>
+          <view class="form-item">
+            <van-field
+              model:value="{{ code }}"
+              center
+              clearable
+              type="number"
+              label="验证码："
+              title-width="160rpx"
+              placeholder="请输入短信验证码"
+              border="{{ false }}"
+              use-button-slot
+            >
+              <view slot="button" class="getCode">
+                获取验证码
+              </view>
+            </van-field>
+          </view>
+          <view class="form-item">
+            <van-field label="详细地址：" title-width="160rpx" type="textarea" autosize  model:value="{{ adress }}" placeholder="请输入您的详细地址" border="{{ false }}"/>
+          </view>
+          <view class="form-item">
+            <van-field label="您的需求：" title-width="160rpx" type="textarea" autosize="{{autosize}}" model:value="{{ needs }}" placeholder="请输入您的需求，比如：无甲醛装修,购买无甲醛装饰材料等" border="{{ false }}"/>
+          </view>
+
+          <view class="form-btn">
+            <button>确认提交</button>
+          </view>
+        </view>
+      </view>
+    </van-popup>
+</view>

@@ -1,0 +1,3 @@
+/* pages/company/index.wxss */
+
+@import '../dealer/index.wxss';

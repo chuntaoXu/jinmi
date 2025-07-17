@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "意向登记",
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index"
+  }
+}

@@ -1,0 +1,228 @@
+<!--pages/goods/detail.wxml-->
+<import src="./detail.skeleton.wxml" />
+<template is="skeleton" wx:if="{{ !goods }}" />
+
+<view class="page">
+
+  <!-- banner -->
+  <view class="section-banner">
+    <swiper autoplay circular class="section-banner__swiper" bindchange="setCurrent">
+      <block wx:for="{{ goods.thumbs }}" wx:key="index">
+        <swiper-item class="section-banner__swiper-item">
+          <image class="full-block" src="{{ item }}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="section-banner__dots">{{ currentBanner + 1 }}/{{ goods.thumbs.length }}</view>
+  </view>
+
+  <!-- info -->
+  <view class="section-goods">
+    <view class="section-goods__info">
+      <view class="section-goods__info-text">{{ goods.title }}</view>
+      <view class="section-goods__info-desc">
+        浏览量：
+        <view class="section-goods__amount">
+          <!-- <view class="sign">¥</view> -->
+          {{ goods.viewcount }}
+          <!-- <view class="sign">.{{ goods.pointPrice }}/m</view> -->
+        </view>
+      </view>
+    </view>
+    <!-- <view 
+      class="section-goods__after {{ goods.favorite == '1' ? 'current' : '' }}"
+      bindtap="onChangeFavorite"
+    >
+      <van-icon name="star" size="40rpx" custom-class="section-goods__after-icon" />
+      <view class="section-goods__after-text">{{ goods.favorite == '0' ? '收藏' : '已收藏' }}</view>
+    </view> -->
+  </view>
+
+  <!-- attr -->
+  <van-cell-group border="{{ false }}">
+    <van-cell title="产品型号：" value="{{ goods.productsn }}" />
+    <van-cell title="甲醛释放量：" titleWidth="200rpx">
+      <view class="custom-jiaquan">
+        {{ goods.fhydea || '0mg/m³' }}
+      </view>
+    </van-cell>
+    <van-cell title="绿色建材：" titleWidth="200rpx">
+      <view class="custom-jiaquan">
+        <van-button type="primary" plain size="mini" data-type="1" bindtap="previewImage">查看证书</van-button>
+      </view>
+    </van-cell>
+    <van-cell title="保险承保：" titleWidth="200rpx" border="{{ false }}">
+      <view class="custom-jiaquan">
+        <van-button type="primary" plain size="mini" data-type="2" bindtap="previewImage">查看保单</van-button>
+      </view>
+    </van-cell>
+  </van-cell-group>
+  <!-- <view class="full-handle c-white-bg" wx:if="{{ goods.ischeckreport == '1' }}">
+    <navigator hover-class="none" url="/pages/project/report_detail?type=jcbg&id={{ goods.id }}&source=goods">
+      <van-button type="primary" block>查看检测报告</van-button>
+    </navigator>
+  </view> -->
+
+  <view class="spacer" />
+
+  <van-cell 
+    center
+    use-label-slot
+  >
+    <image slot="icon" class="custon-icon" src="{{ goods.merchlogo }}" />
+    <view slot="title" class="custom-title">
+      {{ goods.merchname }}
+      <image class="custom-title__icon" src="{{ goods.groupid == '1' ? '/images/scgc.png' : '/images/jxs.png' }}" />
+    </view>
+    <!-- <view slot="label" class="custom-label">
+      <view class="custom-label__item">
+        <navigator 
+          url="/pages/firm/detail?id={{ goods.merchid }}" 
+          hover-class="none"
+          class="custom-label__item-nav"
+        >
+          <van-icon name="shop-o" />
+          公司介绍
+          <van-icon name="arrow" />
+        </navigator>
+      </view>
+      <view class="custom-label__item">
+        <navigator 
+          url="/pages/store/list?id={{ goods.merchid }}" 
+          hover-class="none"
+          class="custom-label__item-nav"
+        >
+          <van-icon name="location-o" />
+          查看经销门店
+          <van-icon name="arrow" />
+        </navigator>
+      </view>
+    </view> -->
+  </van-cell>
+
+  <view class="spacer" />
+
+  <view class="section-detail">
+    <view class="section-detail__title">商品详情</view>
+    <towxml nodes="{{ goods.content }}" />
+  </view>
+
+  <view class="bottom">
+    <view class="bottom_left">
+      <view 
+       class="section-goods__after {{ goods.favorite == '1' ? 'current' : '' }}"
+       bindtap="onChangeFavorite"
+      >
+       <van-icon name="star" size="40rpx" custom-class="section-goods__after-icon" />
+       <view class="section-goods__after-text">{{ goods.favorite == '0' ? '收藏' : '已收藏' }}</view>
+      </view>
+      <van-button custom-class="bottom_share" bindtap="toCompany">
+        <image src="../../images/gs.png"></image>
+        <text>公司</text>
+      </van-button>
+      <van-button custom-class="bottom_share" bindtap="toStore">
+        <image src="../../images/md.png"></image>
+        <text>门店</text>
+      </van-button>
+      <van-button custom-class="bottom_share" bindtap="showShare">
+        <image src="../../images/fx.png"></image>
+        <text>分享</text>
+      </van-button>
+    </view>
+    <view class="bottom_right" bindtap="showFrom">意向咨询</view>
+    <view class="bottom_right">
+      <navigator hover-class="none" url="/pages/project/report_detail?type=jcbg&id={{ goods.id }}&source=goods">查看检测报告</navigator>
+    </view>
+  </view>
+
+  <van-popup
+    show="{{ showPopup }}"
+    round
+    closeable
+    position="{{popupPosition}}"
+    bind:close="onClose"
+  >
+    <!-- 分享 -->
+    <view class="popup" wx:if="{{popupType == 1}}">  
+      <view class="popup_top">
+        <van-button custom-class="bottom_share" open-type="share" >
+          <van-icon name="wechat" size="40rpx" color="#3FBB5D"/>
+          <text>微信好友</text>
+        </van-button>
+        <view class="popup_image" bindtap="formSubmit">
+          <van-icon name="photo" size="40rpx" color="#FF9900"/>
+          <text>生成海报</text>
+        </view>
+      </view>
+      <view class="popup_bottom" bindtap="onClose">取消</view>
+    </view>
+    <!-- 了解咨询 -->
+    <view class="popup_form" wx:if="{{popupType == 2}}">
+      <van-field 
+        value="{{ name }}" 
+        clearable 
+        label="姓名：" 
+        title-width="150rpx"
+        required
+        placeholder="请输入姓名" 
+        border="{{ false }}" 
+        data-key="name"
+        bind:change="setInput"
+      />
+      <van-cell 
+        title="性别："
+        title-width="150rpx"
+        required
+        border="{{ false }}"
+      >
+        <van-radio-group value="{{ gender }}" class="radio" bind:change="radioChange">
+          <van-radio name="1">男</van-radio>
+          <van-radio name="0">女</van-radio>
+        </van-radio-group>
+      </van-cell>
+      <van-field 
+        value="{{ mobile }}" 
+        clearable
+        type="number" 
+        required
+        label="联系方式：" 
+        error-message="{{ errmobile }}"
+        title-width="150rpx"
+        placeholder="请输入联系方式" 
+        border="{{ false }}" 
+        data-key="mobile"
+        bind:change="setInput"
+      />
+      <van-cell 
+        title="城市区域："
+        title-width="150rpx"
+        required
+        border="{{ false }}"
+      >
+        <picker 
+          mode="region" 
+          bindchange="bindRegionChange" 
+          value="{{ region }}" 
+        >
+          <view class="picker">
+            {{ region.length === 0 ? '请选择所在地' : region[0] + ' ' + region[1] + ' ' + region[2]  }}
+          </view>
+        </picker>
+      </van-cell>
+      <view class="popup_submit" bindtap="submit">提交</view>
+    </view>
+  </van-popup>
+
+  <!-- 海报 -->
+  <view class='imagePathBox' hidden="{{maskHidden == false}}">
+      <image src="{{imagePath}}" class='shengcheng' ></image>
+      <view class="bao_btn">
+        <button class='quxiao' bindtap='cancel'>取消</button>
+        <button class='baocun' bindtap='baocun'>保存图片</button>
+      </view>
+  </view>
+  <view hidden="{{maskHidden == false}}" class="mask"></view> 
+  <view class="canvas-box">
+      <canvas style="width:345px;height:534px;position:fixed;top:9999px" canvas-id="mycanvas"/>
+  </view>  
+</view>

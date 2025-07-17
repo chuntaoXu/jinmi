@@ -1,0 +1,129 @@
+<!--pages/member/account.wxml-->
+<view class="page" wx:if="{{ !loading }}">
+  <!-- 建材厂家/装饰公司 -->
+  <van-cell-group wx:if="{{ merch_groupid == '1' || merch_groupid == '5' || merch_groupid == '6' }}">
+    <van-cell 
+      title="账户信息" 
+      url="/pages/member/edit"
+      is-link
+    />
+    <van-cell 
+      title="我的银行卡" 
+      url="/pages/member/bind"
+      is-link
+    />
+    <van-cell 
+      title="我要开票" 
+      url="/pages/member/invoice"
+      is-link
+    />
+  </van-cell-group>
+
+  <!-- 检测机构 -->
+  <block wx:elif="{{ merch_groupid == '3' }}">
+    <van-cell-group>
+      <van-cell 
+        title="账户信息" 
+        url="/pages/member/edit"
+        is-link
+      />
+      <van-cell 
+        title="我的银行卡" 
+        url="/pages/member/bind"
+        is-link
+      />
+      <van-cell 
+        title="我要开票" 
+        url="/pages/member/invoice"
+        is-link
+      />
+    </van-cell-group>
+
+    <view class="spacer"></view>
+
+    <van-cell-group>
+      <van-cell 
+        title="检测报告" 
+        url="/pages/project/report"
+        is-link
+      />
+    </van-cell-group>
+  </block>
+
+  <!-- 治理机构 -->
+  <block wx:elif="{{ merch_groupid == '4' }}">
+    <van-cell-group>
+      <van-cell 
+        title="账户信息" 
+        url="/pages/member/edit"
+        is-link
+      />
+      <van-cell 
+        title="我的银行卡" 
+        url="/pages/member/bind"
+        is-link
+      />
+      <van-cell 
+        title="我要开票" 
+        url="/pages/member/invoice"
+        is-link
+      />
+    </van-cell-group>
+
+    <view class="spacer"></view>
+
+    <van-cell-group>
+      <van-cell 
+        title="治理报告" 
+        url="/pages/project/report?type=zlbg"
+        is-link
+      />
+    </van-cell-group>
+  </block>
+
+  <!-- 业务员 -->
+  <van-cell-group wx:elif="{{ saler == '1' }}">
+    <van-cell 
+      title="账户信息" 
+      url="/pages/member/edit"
+      is-link
+    />
+    <van-cell 
+      title="我的银行卡" 
+      url="/pages/member/bind"
+      is-link
+    />
+  </van-cell-group>
+
+  <block wx:else>
+    <!-- 普通用户 -->
+    <van-cell-group>
+      <van-cell 
+        title="账户信息" 
+        url="/pages/member/edit"
+        is-link
+      />
+      <van-cell 
+        title="我的银行卡" 
+        url="/pages/member/bind"
+        is-link
+      />
+    </van-cell-group>
+
+    <view class="spacer"></view>
+
+    <van-cell-group>
+      <van-cell 
+        title="检测报告" 
+        url="/pages/project/report"
+        is-link
+      />
+      <van-cell 
+        title="治理报告" 
+        url="/pages/project/report?type=zlbg"
+        is-link
+      />
+    </van-cell-group>
+  </block>
+
+</view>

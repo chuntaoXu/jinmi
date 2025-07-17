@@ -1,0 +1,30 @@
+<!--components/empty/index.wxml-->
+<wxs src="./filter.wxs" module="filter" />
+
+<view class="loading-container" wx:if="{{ loading }}">
+	<van-loading custom-class="loading" size="24px" />
+</view>
+
+<view class="loading-container" wx:if="{{ !loading && !more && len > 0 && type !== 'cart' }}">
+  <view class="no-more">没有更多了</view>
+</view>
+
+<view class="empty-info" wx:if="{{ !loading && !more && len <= 0 }}">
+  <image class="empty-info__thumb" src="{{ filter.imageFilter(type)['icon'] }}"></image>
+  <view class="empty-info__text">{{ text ? text : filter.imageFilter(type)['text'] }}</view>
+  <view class="empty-info__handle" wx:if="{{ url }}">
+    <navigator 
+      hover-class="none" 
+      class="empty-info__entry" 
+      url="{{ url }}"
+      open-type="{{ urlType }}"
+    >
+      <van-button 
+        custom-class="btn-handle"
+        plain 
+        hairline 
+        type="primary"
+      >{{ urlText }}</van-button>
+    </navigator>
+  </view>
+</view>

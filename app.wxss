@@ -1,0 +1,178 @@
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+
+/**app.wxss**/
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
+  background-color: #f7f7f7;
+  --page: #f7f7f7;
+  --develop-color: #f2f3f5;
+  --theme-color: #3FBB5D;
+  --dark-theme-color: #40BC5E;
+  --plain-theme-color: #F6FCF7;
+  --color-red: #F90F1F;
+  --color-orange: #FAA114;
+  --text-primary: #333;
+  --text-secondary: #999;
+  --text-light: #666;
+  --text-size: 30rpx;
+  --border: #ccc;
+  --light-border: #e1e1e1;
+  --dark-border: #9A9A9A;
+  --button-normal-font-size: 32rpx;
+  --button-border-radius: 10rpx;
+  --button-primary-background-color: #3FBB5D;
+  --button-primary-border-color: #3FBB5D;
+  --tab-text-color: #333;
+  --cell-font-size: 30rpx;
+  --field-label-color: #333;
+  --tab-font-size: 30rpx;
+  --tab-active-text-color: #3FBB5D;
+  --tabs-bottom-bar-height: 10rpx;
+  --tabs-bottom-bar-color: #3FBB5D;
+  --index-anchor-line-height: 88rpx;
+  --tag-primary-color: #3FBB5D;
+}
+
+.page {
+  height: 100%;
+  padding-bottom: 20rpx;
+}
+
+.arrow-right,
+.arrow-down {
+  position: relative;
+}
+
+.arrow-right::after,
+.arrow-down::after {
+  content: " ";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  border-width: 1px 1px 0 0;
+  border-color: var(--text-secondary);
+  border-style: solid;
+}
+
+.arrow-right::after {
+  transform: translateY(-50%) matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+.arrow-down::after {
+  transform: translateY(-50%) matrix(0.71, 0.71, 0.71, -0.71, 0, 0);
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10rpx 9rpx 0 9rpx;
+  border-color: var(--text-secondary) transparent transparent transparent;
+}
+
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 9rpx 10rpx 9rpx;
+  border-color: transparent transparent var(--text-secondary) transparent;
+}
+
+/* public */
+.full-block {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* just for develop */
+  background-color: var(--develop-color);
+}
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+.spacer {
+  height: 20rpx;
+  width: 100%;
+  overflow: hidden;
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.text-danger {
+  color: var(--color-red) !important;
+}
+
+.mgl30 {
+  margin-left: 30rpx;
+}
+
+.mgr10 {
+  margin-right: 10rpx;
+}
+
+.mgr30 {
+  margin-right: 30rpx;
+}
+
+.mgb20 {
+  margin-bottom: 20rpx;
+}
+
+.mgt24 {
+  margin-top: 24rpx;
+}
+
+.mgt42 {
+  margin-top: 42rpx;
+}
+
+.mgt120 {
+  margin-top: 120rpx;
+}
+
+.c-theme-text {
+  color: var(--theme-color);
+}
+
+.c-white-bg {
+  background-color: #fff;
+}
+
+.full-handle {
+  padding: 24rpx 30rpx 44rpx 30rpx;
+}
+
+/* reset */
+.van-cell__icon {
+  display: inline-block;
+  width: 42rpx;
+  height: 42rpx;
+  margin-top: 2rpx;
+  margin-right: 24rpx;
+}
+
+.btn-normal {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  line-height: normal;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.btn-normal::after {
+  content: none;
+}
+
+/* reset vant */
+.van-tab {
+  font-weight: 500 !important;
+}

@@ -1,0 +1,128 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.19.0",
+  "appid": "wx4f272ea653e0592e",
+  "projectname": "jinmi",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/live/index",
+          "pathName": "pages/live/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/live/detectionEchart/detectionEchart",
+          "pathName": "pages/live/detectionEchart/detectionEchart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/live/advertisement/advertisement",
+          "pathName": "pages/live/advertisement/advertisement",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/live/advertisement/form",
+          "pathName": "pages/live/advertisement/form",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/live/list/list",
+          "pathName": "pages/live/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/live/index",
+          "pathName": "pages/live/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/live/player/player",
+          "pathName": "pages/live/player/player",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/live/h5/h5",
+          "pathName": "pages/live/h5/h5",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

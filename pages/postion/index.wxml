@@ -1,0 +1,31 @@
+<!--pages/postion/index.wxml-->
+<view class="page">
+	<view class="current-city">
+		<view class="title">你所在当前所选城市</view>
+		<view class="current-city__list">
+			<view class="box" wx:if="{{ city }}"> {{ city }} </view>
+			<view class="no-auth" wx:else>
+        定位：
+        <button 
+          class="btn-normal tips" 
+          open-type="openSetting"
+          bindopensetting="getSetting"
+        ><van-icon name="replay" /> 点击授权获取位置</button>
+			</view>
+		</view>
+	</view>
+	<van-index-bar scroll-top="{{ scrollTop }}">
+		<view wx:for="{{ indexList }}" wx:key="index">
+			<van-index-anchor index="{{ item.key }}" />
+			<block wx:for="{{ item.list }}" wx:for-index="idx" wx:for-item="citem" wx:key="id">
+				<van-cell
+					clickable 
+					title="{{ citem.name }}" 
+					data-id="{{ citem.id }}" 
+					data-name="{{ citem.name }}" 
+					bindtap="onSelect" 
+				/>
+			</block>
+		</view>
+	</van-index-bar>
+</view>

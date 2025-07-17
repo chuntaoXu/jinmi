@@ -1,0 +1,234 @@
+/* pages/goods/list.wxss */
+page {
+  background-color: #fff;
+}
+
+.section-search {
+  padding: 20rpx 30rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.section-search__wrap {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx 30rpx;
+  border-radius: 999rpx;
+  background-color: var(--page);
+  overflow: hidden;
+}
+
+.section-search__box {
+  padding: 0 20rpx;
+}
+
+.section-search__box.current {
+  flex: 1;
+}
+
+.section-search__box-placeholder {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.section-search__box-input {
+  width: 100%;
+  font-size: 28rpx;
+}
+
+.section-filterbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+}
+
+.section-filterbar__item {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* .section-filterbar .section-filterbar__item:first-child {
+  justify-content: flex-start;
+}
+
+.section-filterbar .section-filterbar__item:last-of-type {
+  justify-content: flex-end;
+} */
+
+.section-filterbar__item-text {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: var(--text-primary);
+}
+
+.section-filterbar__item-icon {
+  color: var(--text-secondary) !important;
+}
+
+.section-filterbar__item .triangle-down,
+.section-filterbar__item .triangle-up {
+  margin-left: 8rpx;
+}
+
+.section-filterbar__item.current .section-filterbar__item-text,
+.section-filterbar__item.current .section-filterbar__item-icon {
+  color: var(--theme-color) !important;
+}
+
+.section-filterbar__item.current .triangle-down {
+  border-top-color: var(--theme-color);
+}
+
+.section-filterbar__item.current .triangle-up {
+  border-bottom-color: var(--theme-color);
+}
+
+.section-filterbar__item-options {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  z-index: 100;
+}
+
+.section-item {
+  padding: 0 30rpx;
+  background-color: #fff;
+}
+
+.section-item__wrap {
+  padding: 30rpx 0;
+  display: flex;
+}
+
+.section-item__thumb {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+  margin-right: 24rpx;
+  overflow: hidden;
+  position: relative;
+}
+.section-item__thumb_image{
+  width: 38rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.section-item__main {
+  flex: 1;
+}
+
+.section-item__text {
+  font-size: 28rpx;
+  color: var(--text-primary);
+  margin-bottom: 8rpx;
+}
+
+.section-item__info {
+  display: flex;
+  flex-wrap: wrap;
+  word-break: break-all;
+  font-size: 26rpx;
+  line-height: 32rpx;
+  color: var(--text-secondary);
+}
+
+.section-item__info.tag{
+  justify-content: space-between;
+}
+
+.section-item__info .sign {
+  color: var(--theme-color);
+}
+
+.section-item__info-icon {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.section-item__after {
+  padding-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-item__after-icon,
+.section-item__after-text {
+  color: var(--border);
+}
+
+.section-item__after-text {
+  padding-top: 8rpx;
+  font-size: 20rpx;
+  color: var(--text-secondary);
+}
+
+.section-item__after.current .section-item__after-icon,
+.section-item__after.current .section-item__after-text {
+  color: var(--theme-color);
+}
+
+.filter-panel {
+  height: 100vh;
+  position: relative;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.filter-panel__container {
+  height: calc(100vh - 148rpx);
+  width: 100%;
+}
+
+.filter-panel__title {
+  font-size: 32rpx;
+  color: var(--text-primary);
+  padding: 20rpx 0;
+  text-align: center;
+}
+
+.filter-panel__box-title {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  padding: 20rpx 0;
+}
+
+.filter-panel__box-item {
+  display: inline-block;
+  padding: 14rpx 24rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  background-color: var(--page);
+  border-radius: 60rpx;
+  margin: 0 10rpx 20rpx 0
+}
+
+.filter-panel__box-item.current {
+  color: #fff;
+  background-color: var(--theme-color);
+}
+
+.filter-panel__foot {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20rpx 30rpx 40rpx 60rpx;
+  display: flex;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.filter-panel__foot-cell {
+  flex: 1;
+  padding: 0 10rpx;
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的收藏",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index"
+  }
+}

@@ -1,0 +1,63 @@
+/* pages/member/index.wxss */
+
+.section-member {
+  background-color: #fff;
+}
+
+.section-member__wrap {
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.section-member__thumb {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.section-member__main {
+  flex: 1;
+}
+
+.section-member__text {
+  font-size: 32rpx;
+  color: var(--text-primary);
+  margin-bottom: 20rpx;
+}
+
+.section-member__info {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.section-member__welt {
+  padding: 30rpx;
+}
+
+.section-member__message {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+}
+
+.section-member__reject {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-member__reject-head {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: var(--color-orange);
+}
+
+.contact-handle{
+  font-size: 30rpx;
+  line-height: 48rpx;
+  color: var(--cell-value-color);
+}

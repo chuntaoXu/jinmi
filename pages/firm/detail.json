@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "公司介绍",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "towxml": "/towxml/towxml",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  }
+}

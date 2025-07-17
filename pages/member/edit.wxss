@@ -1,0 +1,5 @@
+/* pages/member/edit.wxss */
+
+.section-edit {
+  margin: 180rpx 30rpx;
+}

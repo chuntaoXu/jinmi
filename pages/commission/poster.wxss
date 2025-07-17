@@ -1,0 +1,48 @@
+/* pages/commission/poster.wxss */
+page {
+  background-color: #fff;
+}
+
+.poster-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.poster {
+  width: 520rpx;
+  height: 780rpx;
+  margin: 0 auto;
+  border: 2rpx solid var(--theme-color);
+}
+
+.poster-handler {
+  width: 100%;
+  text-align: center;
+  padding: 30rpx;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.poster-handler__text {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.poster-tips {
+  padding-top: 20rpx;
+  font-size: 26rpx;
+  color: #000;
+  text-align: center;
+}
+
+.poster-tips__sub {
+  font-size: 22rpx;
+  color: #000;
+  text-align: center;
+  margin-bottom: 8rpx;
+}

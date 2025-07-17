@@ -1,0 +1,117 @@
+<!--pages/nearby/index.wxml-->
+<view class="page">
+
+  <!-- filter bar -->
+  <view class="filter-section van-hairline--bottom">
+    <navigator 
+      class="filter-section__city"
+      hover-class="none"
+      url="/pages/postion/index"
+    >
+      <van-icon name="/images/sy_dw.png" size="42rpx" />
+      {{ city ? city : '去选择' }}
+    </navigator>
+    <view class="filter-section__after" bindtap="openFilter">
+      筛选
+      <view class="triangle-down" hidden="{{ showFilter }}" />
+      <view class="triangle-up" hidden="{{ !showFilter }}" />
+    </view>
+  </view>
+  
+  <van-popup
+    show="{{ showFilter }}"
+    position="top"
+    bind:click-overlay="onClose"
+  >
+    <view class="filter-container" bindtap="onChangeFilter">
+      <view 
+        class="filter-item van-hairline--bottom {{ groupid == 0 ? 'current' : '' }}"
+        data-id="0"
+      >
+        <view class="filter-item__text">全部</view>
+        <van-icon name="success" custom-class="custom-icon" wx:if="{{ groupid == 0 }}" />
+      </view>
+      <block wx:for="{{ groupList }}" wx:key="index">
+        <view 
+          class="filter-item van-hairline--bottom {{ groupid == item.id ? 'current' : '' }}"
+          data-id="{{ item.id }}"
+        >
+          <view class="filter-item__text">{{ item.name }}</view>
+          <van-icon name="success" custom-class="custom-icon" wx:if="{{ groupid == item.id }}" />
+        </view>
+      </block>
+    </view>
+  </van-popup>
+
+  <view class="spacer mgb20 mgt24" />
+  <view class="spacer mgb20 mgt24" />
+
+  <!-- 数据列表 -->
+  <view 
+    class="section-item"
+    wx:for="{{ list }}"
+    wx:key="index"
+  >
+    <view
+      class="section-item__wrap van-hairline--bottom"
+      data-index="{{ index }}"
+      bindtap="linkTo"
+    >
+      <view class="section-item__thumb">
+        <image class="full-block" src="{{ item.logo }}" />
+      </view>
+      <view class="section-item__main">
+        <view class="section-item__text van-multi-ellipsis--l2">
+          {{ item.merchname }}
+          <view class="section-item__text-welt" wx:if="{{ item.dast }}">
+            <van-tag color="transparent" text-color="#999" size="medium">{{ item.dast }}</van-tag>
+          </view>
+        </view>
+        <view 
+          class="section-item__info" 
+        >
+          电话：{{ item.tel }}
+          <view class="section-item__info-tag">进入看看</view>
+          <view 
+            class="section-item__info-icon" 
+            wx:if="{{ item.tel }}"
+            data-index="{{ index }}"
+            catchtap="makeCall"
+          >
+            <van-icon 
+              name="phone-o" 
+              size="48rpx" 
+              color="#3FBB5D" 
+              custom-class="custom-icon" 
+            />
+          </view>
+        </view>
+        <view 
+          class="section-item__info"
+        >
+          地址：{{ item.province + item.city + item.area + item.address }}
+          <view 
+            class="section-item__info-icon" 
+            wx:if="{{ item.lat && item.lng }}"
+            data-index="{{ index }}"
+            catchtap="getLocation"
+          >
+            <van-icon 
+              name="/images/sy_map.png" 
+              size="44rpx" 
+              color="#3FBB5D" 
+              custom-class="custom-icon" 
+            />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <loading 
+    loading="{{ isLoading }}" 
+    more="{{ hasMore }}" 
+    len="{{ list.length }}" 
+  />
+
+</view>

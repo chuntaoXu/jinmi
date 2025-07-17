@@ -1,0 +1,20 @@
+<!--pages/live/list.wxml-->
+<view class="list">
+  <image src="{{url}}" class="advert_image"/>
+
+  <view class="list_content">
+    <view class="list_item" wx:for="{{list}}" wx:key="index" data-item="{{item}}" bindtap="toLive">
+      <image src="{{item.thumb}}" class="item_bg"/>
+      <view class="item_mask">
+        <view>{{item.title}}</view>
+        <image src="../../../images/fj@2x.png"/>
+      </view>
+      <view class="item_title">设计施工：{{item.build_company}}</view>
+      <view class="item_bottom">
+        <text>独家冠名</text>
+        <image src="{{item.sponsor_logo}}"></image>
+        <text>{{item.sponsor_name}}</text>
+      </view>
+    </view>
+  </view>
+</view>

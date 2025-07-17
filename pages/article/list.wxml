@@ -1,0 +1,44 @@
+<!--pages/article/list.wxml-->
+<view class="page">
+
+  <van-sticky>
+    <van-tabs active="{{ currentCate }}" bind:change="onChange" border="{{ false }}">
+      <block wx:for="{{ cates }}" wx:key="index">
+        <van-tab title="{{ item.name }}" name="{{ item.id }}" />
+      </block>
+    </van-tabs>
+  </van-sticky>
+
+  <view class="spacer" />
+
+  <view class="section-article">
+    <view class="section-body">
+      <block wx:for="{{ list }}" wx:key="index">
+        <view class="section-article__item van-hairline--bottom">
+          <navigator 
+            hover-class="none"
+            class="section-article__item-entry" 
+            url="/pages/article/index?id={{ item.id }}"
+          >
+            <image 
+              class="section-article__item-thumb" 
+              src="{{ item.thumb }}" 
+              mode="aspectFill"
+            />
+            <view class="section-article__item-main">
+              <view class="section-article__item-text van-multi-ellipsis--l2">{{ item.title }}</view>
+              <view class="section-article__item-sign">{{ item.createtime }}</view>
+            </view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <loading 
+    loading="{{ isLoading }}" 
+    more="{{ hasMore }}" 
+    len="{{ list.length }}" 
+  />
+
+</view>

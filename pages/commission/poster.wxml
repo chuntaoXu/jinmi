@@ -1,0 +1,31 @@
+<!--pages/commission/poster.wxml-->
+<view class="page" wx:if="{{ poster }}">
+
+  <view class="poster-container">
+    <image class="poster" src="{{ poster }}" mode="aspectFill" />
+    <view class="poster-tips">大尺寸海报印刷制作常规尺寸和要求</view>
+    <view class="poster-tips__sub">易拉宝展架:80X180CM;贴于店内海报:60X90CM</view>
+    <view class="poster-tips__sub">格式:JPG;精度:150DPI</view>
+    <view class="poster-tips__sub">下载方式:关注“金米装修查甲醛”公众号:jmcjq110</view>
+    <view class="poster-handler">
+      <van-button 
+        type="primary"
+        custom-class="poster-handler__btn" 
+        block
+        bindtap="checkAuth"
+				wx:if="{{!reAuth}}"
+			>保存图片</van-button>
+      <van-button 
+        type="primary"
+        custom-class="poster-handler__btn" 
+        block
+        bindtap="checkAuth"
+				open-type="openSetting" 
+				bindopensetting="checkOpenSetting" 
+				wx:else
+			>保存图片</van-button>
+      <view class="poster-handler__text">保存至相册可以分享至朋友圈</view>
+    </view>
+  </view>
+
+</view>

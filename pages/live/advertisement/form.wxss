@@ -1,0 +1,29 @@
+/* pages/live/advertisement/form.wxss */
+.form{
+  min-height: 100vh;
+  background-color: #ECF5FD;
+  padding: 30rpx;
+}
+
+.form-item{
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+}
+
+.getCode{
+  color: #0051A3;
+  font-size: 30rpx;
+  vertical-align: middle;
+}
+
+.form-btn{
+  padding-top: 110rpx;
+}
+.form-btn button{
+  background-color: #0051A3;
+  color: #fff;
+  border-radius: 6rpx;
+  font-size: 32rpx;
+}

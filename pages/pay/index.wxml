@@ -1,0 +1,85 @@
+<!--pages/pay/index.wxml-->
+<view class="page">
+
+  <van-cell-group>
+    <van-cell title="入驻类型:" value="{{ regitem.groupname }}" />
+  </van-cell-group>
+
+  <van-cell-group custom-class="mgt24" border="{{ false }}">
+    <van-cell title="请选择平台入驻服务费:" border="{{ false }}" />
+    <view class="servicefee-group">
+      <block wx:for="{{ list }}" wx:key="index">
+        <view 
+          class="servicefee-cell {{ index == current ? 'current' : '' }}"
+          data-index="{{ index }}"
+          bindtap="onChangeFee"
+        >
+          {{ item.year }}年:{{ item.authprice }}元
+        </view>
+      </block>
+    </view>
+  </van-cell-group>
+
+  <view class="section-handle">
+    <van-button 
+      type="primary" 
+      disabled="{{ !(wechat && wechat.success) }}"
+      block 
+      bindtap="submit"
+    >立即支付(推荐)</van-button>
+
+    <van-button
+      custom-class="mgt42" 
+      type="primary" 
+      plain
+      block 
+      bindtap="openPayInfo"
+    >线下支付</van-button>
+  </view>
+
+</view>
+
+<van-popup
+  show="{{ showOffline }}"
+  closeable
+  position="bottom"
+  custom-style="height: 100vh"
+  bind:close="onClose"
+>
+  <van-cell-group custom-class="mgt120">
+    <van-cell title="收款单位:" title-width="6em" value="{{ offlineInfo.payCompany }}" />
+    <van-cell title="开户行:" title-width="6em" value="{{ offlineInfo.payBank }}" />
+    <van-cell title="账号:" title-width="6em" value="{{ offlineInfo.payAccount }}" />
+    <van-cell title="备注:" title-width="6em" value="{{ offlineInfo.payNote }}" />
+  </van-cell-group>
+  <view class="section-form">
+    <view class="section-form__wrap">
+      <van-field required label="上传打款凭证" border="{{ false }}" label-class="section-form__label" />
+      <view class="section-form__upload">
+        <van-uploader 
+          accept="image"
+          max-count="1"
+          preview-size="180rpx"
+          name="payimg"
+          file-list="{{ payimgFile }}"
+          bind:after-read="afterRead"
+          bind:delete="removeFile"
+        >
+          <view class="upload-container">
+            <van-icon name="plus" color="#999" size="60rpx" />
+            <view class="upload-container__text">点击上传</view>
+          </view>
+        </van-uploader>
+      </view>
+    </view>
+  </view>
+  <view class="mgt120 mgl30 mgr30">
+    <van-button
+      type="primary" 
+      block 
+      bindtap="confirm"
+    >确认打款</van-button>
+  </view>
+</van-popup>
+
+<van-dialog id="van-dialog" />

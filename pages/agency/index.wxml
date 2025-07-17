@@ -1,0 +1,97 @@
+<!--pages/agency/index.wxml-->
+<view class="page">
+
+  <!-- search -->
+  <view class="section-searchbar">
+    <navigator 
+      class="section-searchbar__city"
+      hover-class="none"
+      url="/pages/postion/index"
+    >
+      <van-icon name="/images/sy_dw.png" size="42rpx" />
+      {{ city ? city : '去选择' }}
+    </navigator>
+    <view class="section-searchbar__wrap">
+      <van-icon name="search" size="36rpx" color="#999" />
+      <input 
+        class="section-searchbar__wrap-input" 
+        placeholder="搜索{{ typeName }}名称" 
+        bindblur="blurSearch"
+        bindconfirm="Refresh"
+        bindinput="setSearch"
+      />
+    </view>
+  </view>
+
+  <!-- 数据列表 -->
+  <view 
+    class="section-item"
+    wx:for="{{ list }}"
+    wx:key="index"
+  >
+    <view 
+      class="section-item__wrap van-hairline--bottom"
+      data-index="{{ index }}"
+      bindtap="linkTo"
+    >
+      <view class="section-item__thumb">
+        <image class="full-block" src="{{ item.logo }}" />
+      </view>
+      <view class="section-item__main">
+        <view class="section-item__text van-multi-ellipsis--l2">
+          {{ item.merchname }}
+          <view class="section-item__text-welt" wx:if="{{ item.isrecommand == '1' }}">
+            <van-tag plain color="#E1E1E1">热门</van-tag>
+          </view>
+          <view class="section-item__text-welt" wx:else>
+            <van-tag color="transparent" text-color="#999" size="medium">{{ item.dast }}</van-tag>
+          </view>
+        </view>
+        <view 
+          class="section-item__info" 
+        >
+          电话：{{ item.tel }}
+          <view class="section-item__info-tag">进入看看</view>
+          <view 
+            class="section-item__info-icon" 
+            wx:if="{{ item.tel }}"
+            data-index="{{ index }}"
+            catchtap="makeCall"
+          >
+            <van-icon 
+              name="phone-o" 
+              size="48rpx" 
+              color="#3FBB5D" 
+              custom-class="custom-icon" 
+            />
+          </view>
+        </view>
+        <view 
+          class="section-item__info"
+        >
+          地址：{{ item.province + item.city + item.area + item.address }}
+          <view 
+            class="section-item__info-icon" 
+            wx:if="{{ item.lat && item.lng }}"
+            data-index="{{ index }}"
+            catchtap="getLocation"
+          >
+            <van-icon 
+              name="/images/sy_map.png" 
+              size="44rpx" 
+              color="#3FBB5D" 
+              custom-class="custom-icon" 
+            />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <loading 
+    loading="{{ isLoading }}" 
+    more="{{ hasMore }}" 
+    len="{{ list.length }}" 
+  />
+
+</view>

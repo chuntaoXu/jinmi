@@ -1,0 +1,32 @@
+/* pages/store/index.wxss */
+
+@import '../category/index.wxss';
+@import '../dealer/index.wxss';
+
+.store-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.store-item__thumb {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 24rpx;
+}
+
+.store-item__main{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.store-item__title{
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.store-item__info{
+  font-size: 26rpx;
+  color: var(--dark-border);
+}

@@ -1,0 +1,3 @@
+/* pages/join/second.wxss */
+
+@import './index.wxss';

@@ -1,0 +1,755 @@
+<!--pages/join/index.wxml-->
+<view class="page" wx:if="{{ !loading }}">
+
+  <!-- 引导页 -->
+  <van-popup
+    show="{{ isFirst }}"
+    position="top"
+    custom-style="height: 100vh;"
+  >
+    <view class="section-guide">
+      <view class="section-guide__poster">
+        <image class="full-block" src="{{ signimg }}" bindtap="previewImage" />
+      </view>
+      <view class="section-guide__tips">申请入驻成功，可下载海报粘贴于店内宣传</view>
+      <view class="section-guide__tips-sub">特别提示:如果您的产品没有甲醛释放量检测报告，请申请产品检测</view>
+      <view class="section-guide__tips-sub">申请检测的文件和海报可关注“金米装修查甲醛”公众号(jmcjq110)下载</view>
+      <view class="full-handle">
+        <van-button type="primary" block bindtap="startJoin">开始入驻</van-button>
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- reject -->
+  <view class="section-reject" wx:if="{{ applystatus == '-1' }}">
+    <view class="section-reject__head">
+      <van-icon custom-class="mgr10" name="volume-o" color="#FAA114" size="32rpx" />
+      您提交的入驻平台审核资料未通过
+    </view>
+    <view class="section-reject__after">
+      <navigator hover-class="none" url="/pages/join/result?regid={{ applydata.regid }}">
+        <van-button type="primary" size="small">查看原因</van-button>
+      </navigator>
+    </view>
+  </view>
+  <view class="section-reject" wx:elif="{{ applystatus == '0' && applydata.servicepay == '0' }}">
+    <view class="section-reject__head">
+      <van-icon custom-class="mgr10" name="volume-o" color="#FAA114" size="32rpx" />
+      您还没有支付平台服务费
+    </view>
+    <view class="section-reject__after">
+      <navigator hover-class="none" url="/pages/pay/index?regid={{ applydata.regid }}">
+        <van-button type="primary" size="small">去支付</van-button>
+      </navigator>
+    </view>
+  </view>
+  <view class="section-reject" wx:elif="{{ applystatus == '0' && applydata.servicepay > 0 }}">
+    <view class="section-reject__head">
+      <van-icon custom-class="mgr10" name="volume-o" color="#FAA114" size="32rpx" />
+      正在审核中，请耐心等待
+    </view>
+    <view class="section-reject__after"></view>
+  </view>
+
+  <block wx:if="{{ isEdit }}">
+
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field required label="请选择入驻企业类型" border="{{ false }}" label-class="section-form__label" />
+        <van-radio-group value="{{ groupid }}" bind:change="onChange">
+          <view class="section-form__radio-wrap">
+            <block wx:for="{{ grouplist }}" wx:key="index">
+              <view class="section-form__radio">
+                <van-radio 
+                  use-icon-slot name="{{ item.id }}" 
+                  label-class="section-form__radio-label"
+                >
+                  {{ item.name }}
+                  <image class="section-form__radio-icon" slot="icon"
+                    src="{{ groupid == item.id ? '/images/icon_checked.png' : '/images/icon_checked-o.png' }}" />
+                </van-radio>
+              </view>
+            </block>
+          </view>
+        </van-radio-group>
+      </view>
+    </view>
+
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field 
+          value="{{ merchname }}" 
+          required 
+          clearable 
+          label="企业名称：" 
+          placeholder="请输入企业名称" 
+          border="{{ false }}" 
+          data-key="merchname"
+          bind:change="setInput"
+        />
+        <van-cell 
+          title="企业所在地："
+          title-class="custom-title"
+          required
+          border="{{ false }}"
+        >
+          <picker 
+            mode="region" 
+            bindchange="bindRegionChange" 
+            value="{{ region }}" 
+          >
+            <view class="picker">
+              {{ region.length === 0 ? '请选择所在地' : region[0] + ' ' + region[1] + ' ' + region[2]  }}
+            </view>
+          </picker>
+        </van-cell>
+        <van-field 
+          value="{{ address }}" 
+          required
+          clearable 
+          label="企业地址：" 
+          placeholder="请输入企业地址" 
+          border="{{ false }}" 
+          data-key="address"
+          bind:change="setInput"
+        />
+        <van-field 
+          value="{{ represent }}" 
+          required 
+          clearable 
+          label="企业法人：" 
+          placeholder="请输入企业法人姓名" 
+          border="{{ false }}" 
+          data-key="represent"
+          bind:change="setInput"
+        />
+        <van-field 
+          value="{{ brandname }}" 
+          clearable 
+          label="品牌名称：" 
+          placeholder="请输入品牌名称" 
+          border="{{ false }}" 
+          data-key="brandname"
+          bind:change="setInput"
+        />
+      </view>
+    </view>
+
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field 
+          value="{{ realname }}" 
+          required 
+          clearable 
+          label="联系人：" 
+          placeholder="请输入联系人姓名" 
+          border="{{ false }}" 
+          data-key="realname"
+          bind:change="setInput"
+        />
+        <van-field 
+          value="{{ mobile }}" 
+          required 
+          clearable 
+          label="联系电话：" 
+          placeholder="请输入联系电话" 
+          border="{{ false }}" 
+          error-message="{{ errmobile }}"
+          data-key="mobile"
+          bind:change="setInput"
+        />
+      </view>
+    </view>
+
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <view class="section-form__radio">
+          <van-checkbox 
+            use-icon-slot 
+            value="{{ isAgree }}" 
+            bind:change="onChangeAgree"
+            label-class="section-form__radio-label"
+          >
+            <view class="section-form__radio-text">
+              我已同意
+            </view>
+            <image class="section-form__radio-icon" slot="icon"
+              src="{{ isAgree ? '/images/icon_checked.png' : '/images/icon_checked-o.png' }}" />
+          </van-checkbox>
+          <view class="section-form__radio-text">
+            <view class="section-form__radio-link" bindtap="openPact">《{{ currentGroup.applytitle }}》</view>
+            <block wx:if="{{ currentGroup.applytitle2 }}">
+              和
+              <view class="section-form__radio-link" bindtap="openPact2">《{{ currentGroup.applytitle2 }}》</view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="spacer" />
+
+    <view class="section-form">
+      <van-button 
+        type="primary" 
+        block 
+        disabled="{{ !isAgree }}"
+        bindtap="submit"
+      >下一步</van-button>
+    </view>
+
+  </block>
+
+  <block wx:else>
+
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field required label="入驻企业类型" border="{{ false }}" label-class="section-form__label" />
+        <van-radio-group value="{{ applydata.groupid }}" bind:change="onChange">
+          <view class="section-form__radio-wrap">
+            <view class="section-form__radio">
+              <van-radio 
+                use-icon-slot name="{{ applydata.groupid }}" 
+                label-class="section-form__radio-label"
+              >
+                {{ applydata.groupname }}
+                <image class="section-form__radio-icon" slot="icon" src="/images/icon_checked.png" />
+              </van-radio>
+            </view>
+          </view>
+        </van-radio-group>
+      </view>
+    </view>
+
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-cell 
+          title="企业名称：" 
+          value="{{ applydata.merchname }}" 
+          border="{{ false }}" 
+          required
+        />
+        <van-cell 
+          title="企业地址：" 
+          value="{{ applydata.province + applydata.city + applydata.area + applydata.address }}" 
+          border="{{ false }}" 
+          required
+        />
+        <van-cell 
+          title="企业法人：" 
+          value="{{ applydata.represent }}" 
+          border="{{ false }}" 
+          required
+        />
+      </view>
+    </view>
+
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-cell 
+          title="联系人：" 
+          value="{{ applydata.realname }}" 
+          border="{{ false }}" 
+          required
+        />
+        <van-cell 
+          title="联系电话：" 
+          value="{{ applydata.mobile }}" 
+          border="{{ false }}" 
+          required
+        />
+      </view>
+    </view>
+
+    <!-- 建材生产企业 -->
+    <block wx:if="{{ applydata.groupid == '1' }}">
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field required label="企业资质（必填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.营业执照</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="licenseimg"
+              file-list="{{ licenseimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.品牌logo</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="brandlogo"
+              file-list="{{ brandlogoFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">3.商标证书或品牌授权书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="authcertimg"
+              file-list="{{ authcertimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.产品或企业荣誉证书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="honorcertimg"
+              file-list="{{ honorcertimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.工厂实景照片</view>
+            <van-uploader 
+              accept="image"
+              max-count="3"
+              multiple="{{ true }}"
+              preview-size="180rpx"
+              name="factoryimgs"
+              file-list="{{ factoryimgsFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 产品经销商 -->
+    <block wx:if="{{ applydata. groupid == '2' }}">
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field required label="企业资质（必填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.营业执照</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="licenseimg"
+              file-list="{{ licenseimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.生产企业品牌授权经销商证书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="authcertimg"
+              file-list="{{ authcertimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">3.门店照片</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="storeimg"
+              file-list="{{ storeimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.产品或企业荣誉证书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="honorcertimg"
+              file-list="{{ honorcertimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 检测机构 -->
+    <block wx:if="{{ applydata. groupid == '3' }}">
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field required label="企业资质（必填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.营业执照</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="licenseimg"
+              file-list="{{ licenseimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.资质证书</view>
+            <view class="section-form__upload-tips">提示：对提供的资质证书真实性和有效性承担法律责任</view>
+            <van-uploader 
+              accept="image"
+              max-count="6"
+              multiple="{{ true }}"
+              preview-size="180rpx"
+              name="quacertimgs"
+              file-list="{{ quacertimgsFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">3.门店照片</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="storeimg"
+              file-list="{{ storeimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">4.品牌logo</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="brandlogo"
+              file-list="{{ brandlogoFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.荣誉证书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="honorcertimg"
+              file-list="{{ honorcertimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 治理机构 -->
+    <block wx:if="{{ applydata. groupid == '4' }}">
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field required label="企业资质（必填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.营业执照</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="licenseimg"
+              file-list="{{ licenseimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.资质证书</view>
+            <view class="section-form__upload-tips">提示：对提供的资质证书真实性和有效性承担法律责任</view>
+            <van-uploader 
+              accept="image"
+              max-count="6"
+              multiple="{{ true }}"
+              preview-size="180rpx"
+              name="quacertimgs"
+              file-list="{{ quacertimgsFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">3.门店照片</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="storeimg"
+              file-list="{{ storeimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">4.品牌logo</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="brandlogo"
+              file-list="{{ brandlogoFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.产品或企业荣誉证书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="honorcertimg"
+              file-list="{{ honorcertimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.实景照片</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="factoryimgs"
+              file-list="{{ factoryimgsFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 装饰公司 -->
+    <block wx:if="{{ applydata. groupid == '5' }}">
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field 
+            required 
+            label="企业资质（必填）" 
+            border="{{ false }}" 
+            label-class="section-form__label" 
+          />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.营业执照</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="licenseimg"
+              file-list="{{ licenseimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.门店照片</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="storeimg"
+              file-list="{{ storeimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">3.品牌logo</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="brandlogo"
+              file-list="{{ brandlogoFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.荣誉证书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="honorcertimg"
+              file-list="{{ honorcertimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.资质证书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="quacertimgs"
+              file-list="{{ quacertimgsFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 建材城 -->
+    <block wx:if="{{ applydata. groupid == '6' }}">
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field 
+            required 
+            label="企业资质（必填）" 
+            border="{{ false }}" 
+            label-class="section-form__label" 
+          />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.营业执照</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="licenseimg"
+              file-list="{{ licenseimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">2.建材城照片</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="storeimg"
+              file-list="{{ storeimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">3.品牌logo</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="brandlogo"
+              file-list="{{ brandlogoFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+      <view class="section-form">
+        <view class="section-form__wrap">
+          <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+          <view class="section-form__upload">
+            <view class="section-form__upload-text">1.荣誉奖项证书</view>
+            <van-uploader 
+              accept="image"
+              max-count="1"
+              preview-size="180rpx"
+              name="honorcertimg"
+              file-list="{{ honorcertimgFile }}"
+              deletable="{{ false }}"
+              disabled
+            />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view class="section-form" wx:if="{{ (applystatus == '0' && applydata.servicepay == '0') || applystatus == '-1' }}">
+      <van-button 
+        type="primary" 
+        block 
+        bindtap="toEdit"
+      >完善资料</van-button>
+    </view>
+
+  </block>
+
+</view>
+
+<van-popup
+  show="{{ showPact }}"
+  closeable
+  position="bottom"
+  custom-style="height: 100vh"
+  bind:close="onClose"
+>
+  <view class="pact-title">{{ currentGroup.applytitle }}</view>
+  <view class="pact-body">
+    <towxml nodes="{{ currentGroup.applycontent }}" />
+  </view>
+  <view class="pact-foot">
+    <van-button type="primary" block bindtap="onClose">我已阅读</van-button>
+  </view>
+</van-popup>
+
+<van-popup
+  show="{{ showPact2 }}"
+  closeable
+  position="bottom"
+  custom-style="height: 100vh"
+  bind:close="onClose2"
+>
+  <view class="pact-title">{{ currentGroup.applytitle2 }}</view>
+  <view class="pact-body">
+    <towxml nodes="{{ currentGroup.applycontent2 }}" />
+  </view>
+  <view class="pact-foot">
+    <van-button type="primary" block bindtap="onClose2">我已阅读</van-button>
+  </view>
+</van-popup>
+
+<van-notify id="van-notify" />

@@ -1,0 +1,19 @@
+<!--pages/commission/detail.wxml-->
+<view class="page">
+
+  <block wx:for="{{ list }}" wx:key="index">
+    <van-cell 
+      title="{{ item.createtime }}" 
+      value="-{{ item.money }}" 
+      title-class="custom-title" 
+      value-class="custom-value"
+    />
+  </block>
+
+  <loading 
+    loading="{{ isLoading }}" 
+    more="{{ hasMore }}" 
+    len="{{ list.length }}" 
+  />
+
+</view>

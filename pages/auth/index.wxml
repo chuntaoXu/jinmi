@@ -1,0 +1,28 @@
+<!--pages/auth/index.wxml-->
+<view class="page">
+
+	<image class="auth-logo mgt120" src="/images/auth.png" />
+	{{openid }}
+	<view class="full-handle mgt120" wx:if="{{ !userInfo }}">
+		<van-button
+		 type="primary"
+		 block
+		 bind:click="getUserProfile"
+		 wx:if="{{ !openid }}"
+		>点击授权
+		</van-button>
+	</view>
+
+	<view class="full-handle mgt120" wx:else>
+		<van-button
+		 type="primary"
+		 block
+		 open-type="getPhoneNumber"
+		 bindgetphonenumber="getPhoneNumber"
+		 wx:if="{{ !openid }}"
+		>授权手机号完成登录
+		</van-button>
+	</view>
+
+</view>
+

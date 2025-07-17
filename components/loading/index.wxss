@@ -1,0 +1,38 @@
+/* components/empty/index.wxss */
+
+.loading-container {
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.no-more {
+  font-size: 12px;
+  color: #666;
+}
+
+.empty-info {
+  padding: 120rpx 0 0;
+  overflow: hidden;
+}
+
+.empty-info__thumb {
+  display: block;
+  width: 280rpx;
+  height: 280rpx;
+  margin: 50rpx auto;
+}
+
+.empty-info__text {
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 72rpx;
+}
+
+.empty-info__handle {
+  text-align: center;
+}
+
+.empty-info__entry {
+  display: inline-block;
+}

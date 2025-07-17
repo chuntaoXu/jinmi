@@ -1,0 +1,192 @@
+<!--pages/index/index.wxml-->
+<view class="page" wx:if="{{ !loading }}">
+
+	<!-- navigation-bar -->
+	<view class="navigation-section">
+		<navigator class="navigation-section__city" hover-class="none" url="/pages/postion/index">
+			<van-icon name="/images/sy_dw.png" size="42rpx" />
+			{{ city ? city : '去选择' }}
+		</navigator>
+		<view class="navigation-search">
+			<view class="navigation-search__scan" bindtap="scanCode" wx:if="{{!reAuth}}">
+				<van-icon name="/images/sy_sao.png" custom-style="margin-right: 10rpx" size="36rpx" />
+				扫一扫
+			</view>
+		</view>
+	</view>
+
+	<!-- banner -->
+	<view class="section-banner">
+		<view class="section-banner__container">
+			<swiper class="section-banner__swiper" autoplay bindchange="setCurrent">
+				<block wx:for="{{ banner }}" wx:key="index">
+					<swiper-item class="section-banner__swiper-item">
+						<navigator
+						 class="full-block"
+						 hover-class="none"
+						 open-type="{{ item.urlType }}"
+						 url="{{ item.link }}"
+						>
+							<image src="{{ item.thumb }}" class="full-block" />
+						</navigator>
+					</swiper-item>
+				</block>
+			</swiper>
+			<view class="section-banner__dots van-clearfix">
+				<block wx:for="{{ banner }}" wx:key="index">
+					<view class="section-banner__dots-dot {{ index == currentBanner ? 'current' : '' }}" />
+				</block>
+			</view>
+		</view>
+	</view>
+
+	<!-- navs -->
+	<view class="section-cube">
+		<!-- navs -->
+		<view>会员之家</view>
+		<block wx:for="{{ navs }}" wx:key="index">
+			<view class="section-cube__item" wx:if="{{ item.url == 'scanCode' }}">
+				<view class="section-cube__item-entry" bindtap="scanCode" wx:if="{{!reAuth}}">
+					<image src="{{ item.icon }}" class="section-cube__item-entry--icon" />
+					<view class="section-cube__item-entry--text">{{ item.navname }}22</view>
+				</view>
+				<button
+				 class="section-cube__item-entry btn-normal"
+				 bindtap="checkAuth"
+				 wx:else
+				 open-type="openSetting"
+				 bindopensetting="checkOpenSetting"
+				>
+					<image src="{{ item.icon }}" class="section-cube__item-entry--icon" />
+					<view class="section-cube__item-entry--text">{{ item.navname }}22</view>
+				</button>
+			</view>
+			<view class="section-cube__item" wx:else>
+
+				<navigator
+				 class="section-cube__item-entry"
+				 hover-class="none"
+				 url="{{ item.url }}"
+				 open-type="{{ item.urlType }}"
+				>
+					<image src="{{ item.icon }}" class="section-cube__item-entry--icon" />
+					<view class="section-cube__item-entry--text">{{ item.navname }}</view>
+				</navigator>
+			</view>
+		</block>
+	</view>
+
+	<!-- product -->
+	<view class="section-product">
+		<view class="section-head">
+			<view class="section-head__text">热门产品</view>
+		</view>
+		<view class="section-body">
+			<block wx:for="{{ advs }}" wx:key="index">
+				<navigator
+				 hover-class="none"
+				 class="section-product__item"
+				 url="{{ item.link }}"
+				 open-type="{{ item.urlType }}"
+				>
+					<image class="full-block" src="{{ item.thumb }}" />
+				</navigator>
+			</block>
+		</view>
+	</view>
+
+	<!-- brand product -->
+	<view class="section-product">
+		<view class="section-head">
+			<view class="section-head__text">推荐品牌</view>
+		</view>
+		<view class="section-body">
+			<block wx:for="{{ brandadvs }}" wx:key="index">
+				<navigator
+				 hover-class="none"
+				 class="section-product__item"
+				 url="{{ item.link }}"
+				 open-type="{{ item.urlType }}"
+				>
+					<image class="full-block" src="{{ item.thumb }}" />
+				</navigator>
+			</block>
+		</view>
+	</view>
+
+	<!-- article -->
+	<view class="section-article">
+		<view class="section-head">
+			<view class="section-head__text">热门话题</view>
+			<view class="section-head__entry arrow-right">
+				<navigator hover-class="none" url="/pages/article/list">更多</navigator>
+			</view>
+		</view>
+		<view class="section-body">
+			<view class="section-article__wrap">
+				<navigator
+				 hover-class="none"
+				 class="section-article__media"
+				 url="/pages/article/index?id={{ item.id }}"
+				 wx:for="{{ topicvideo }}"
+				 wx:key="index"
+				>
+					<view class="section-article__media-video">
+						<image class="full-block" src="{{ item.thumb }}" />
+					</view>
+					<view class="section-article__media-title van-multi-ellipsis--l2">{{ item.title }}</view>
+					<view class="section-article__media-tag">{{ item.labername }}</view>
+				</navigator>
+			</view>
+			<block wx:for="{{ topicarticle }}" wx:key="index">
+				<view class="section-article__item van-hairline--bottom">
+					<navigator hover-class="none" class="section-article__item-entry" url="/pages/article/index?id={{ item.id }}">
+						<image class="section-article__item-thumb" src="/images/sy_rm.png" />
+						<view class="section-article__item-main">
+							<view class="section-article__item-text van-ellipsis">{{ item.title }}</view>
+						</view>
+					</navigator>
+				</view>
+			</block>
+		</view>
+	</view>
+
+	<!-- intro -->
+	<van-sticky>
+		<van-tabs active="{{ currentTalk }}" bind:change="onChangeTalk" border="{{ false }}">
+			<block wx:for="{{ talk }}" wx:key="index">
+				<van-tab title="{{ item.name }}" name="{{ item.id }}" />
+			</block>
+		</van-tabs>
+	</van-sticky>
+
+	<view class="section-list">
+		<view class="section-item" wx:for="{{ list }}" wx:key="index">
+			<navigator class="section-item__entry" hover-class="none" url="/pages/article/index?id={{ item.id }}&types=1">
+				<view class="section-item__thumb">
+					<image class="full-block" src="{{ item.thumb }}" mode="aspectFill" />
+				</view>
+				<view class="section-item__text">{{ item.title }}</view>
+			</navigator>
+		</view>
+	</view>
+
+	<loading loading="{{ isLoading }}" more="{{ hasMore }}" len="{{ list.length }}" />
+
+</view>
+
+<van-popup
+ show="{{ showPopup }}"
+ closeable
+ round
+ position="center"
+ custom-style="width: 690rpx;height:360rpx"
+ bind:close="onClose"
+>
+	<view class="scancode-result-title">扫码成功</view>
+	<view class="scancode-result-tips">需要跳转至其他小程序，点击下方确认按钮进行跳转</view>
+	<view class="scancode-result-handle">
+		<van-button type="primary" bindtap="navToMp">确认跳转</van-button>
+	</view>
+</van-popup>
+

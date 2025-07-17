@@ -1,0 +1,6 @@
+/* pages/project/report_detail.wxss */
+
+.report-image{
+  display: block;
+  width: 100%;
+}

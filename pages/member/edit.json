@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "账户资料",
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
+  }
+}

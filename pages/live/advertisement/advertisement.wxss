@@ -1,0 +1,88 @@
+/* pages/live/advertisement/advertisement.wxss */
+.advertisement{
+    min-height: 100vh;
+    background-color: #fff;
+    padding: 0 30rpx 120rpx;
+}
+.swiper{
+  width: 100%;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: 40rpx;
+}
+.swiper.swipers{
+  overflow: visible;
+  margin-bottom: 0;
+}
+.swiper-item{
+  background-color: aqua;
+}
+.swiper-item image{
+  width: 100%;
+  height: 100%;
+}
+
+.swiper .wx-swiper-dot-active {
+  width: 24rpx;
+  border-radius: 10rpx;
+}
+
+
+.classList{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 170rpx 170rpx 170rpx 170rpx;
+  font-size: 24rpx;
+  color: #000;
+  text-align: center;
+  margin-bottom: 80rpx;
+}
+.icon-image{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.advert{
+  margin-bottom: 100rpx;
+}
+.advert image{
+  width: 100%;
+  height: 200rpx;
+}
+
+.liveCity_title{
+  font-size: 48rpx;
+  color: #0452A5;
+  text-align: center;
+  margin-bottom: 80rpx;
+}
+.liveCity_title image{
+  width: 34rpx;
+  height: 30rpx;
+}
+.liveCity_title text{
+  margin: 0 60rpx;
+}
+
+.liveCity_city{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 115rpx 115rpx 115rpx 115rpx 115rpx 115rpx;
+  margin-bottom: 60rpx;
+}
+.liveCity_city_block{
+  width: 98rpx;
+  line-height: 80rpx;
+  background-color: #0051A3;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 20rpx;
+}

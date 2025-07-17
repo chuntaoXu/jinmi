@@ -1,0 +1,100 @@
+{
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/vipMenber/index",
+          "pathName": "pages/vipMenber/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/live/index",
+          "pathName": "pages/live/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/detectionEchart/detectionEchart",
+          "pathName": "pages/live/detectionEchart/detectionEchart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/advertisement/advertisement",
+          "pathName": "pages/live/advertisement/advertisement",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/advertisement/form",
+          "pathName": "pages/live/advertisement/form",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/list/list",
+          "pathName": "pages/live/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/index",
+          "pathName": "pages/live/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/player/player",
+          "pathName": "pages/live/player/player",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/h5/h5",
+          "pathName": "pages/live/h5/h5",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/richTxt/richTxt",
+          "pathName": "pages/live/richTxt/richTxt",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/index",
+          "pathName": "pages/live/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/advertisement/form",
+          "pathName": "pages/live/advertisement/form",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/goods/detail",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "商品列表",
+          "pathName": "pages/goods/list",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "libVersion": "3.8.11",
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "jinmi"
+}

@@ -1,0 +1,19 @@
+/* pages/commission/member.wxss */
+
+.custom-icon {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.custom-title {
+  font-size: 30rpx;
+  color: var(--text-primary);
+}
+
+.custom-label {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}

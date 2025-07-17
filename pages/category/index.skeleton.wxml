@@ -1,0 +1,155 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/7/31 上午10:41:32 
+使用方法：
+在 pages/category/index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 pages/category/index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="page">
+      <view is="miniprogram_npm/@vant/weapp/sticky/index">
+        <view class=" van-sticky sticky-index--van-sticky" style="height: 60px;z-index: 99;">
+          <view class="van-sticky-wrap sticky-index--van-sticky-wrap van-sticky-wrap--fixed sticky-index--van-sticky-wrap--fixed" style="top: 0px;z-index: 99;">
+            <view class="section-search" id="searchBar">
+              <view class="section-search__wrap">
+                <view is="miniprogram_npm/@vant/weapp/icon/index">
+                  <view class="van-icon icon-index--van-icon van-icon-search icon-index--van-icon-search sk-pseudo sk-pseudo-circle" style="color: #999;font-size: 20px;">
+                  </view>
+                </view>
+                <view class="section-search__box">
+                  <view class="section-search__box-placeholder sk-transparent sk-text-14-2857-145 sk-text">
+                    搜索项目名称
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <scroll-view scroll-y="true" class="section-category">
+        <view class="category-item current sk-transparent sk-text-14-2857-993 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-6 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-494 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-906 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-704 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-784 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-873 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-859 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-463 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-707 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-458 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-631 sk-text">
+          家具
+        </view>
+        <view class="category-item sk-transparent sk-text-14-2857-831 sk-text">
+          家具
+        </view>
+      </scroll-view>
+      <view class="section-list">
+        <view class="section-list__wrap">
+          <view class="category-guide">
+            <image class="full-block sk-image">
+            </image>
+          </view>
+          <view class="category-title sk-transparent sk-text-14-2857-609 sk-text" style="background-position-x: 50%;">
+            家具
+          </view>
+          <view class="list-container van-clearfix sk-pseudo sk-pseudo-circle">
+            <view class="category-box">
+              <view class="category-box__entry">
+                <image class="category-box__thumb sk-image">
+                </image>
+                <view class="category-box__text sk-transparent sk-text-14-2857-47 sk-text" style="background-position-x: 50%;">
+                  衣柜
+                </view>
+              </view>
+            </view>
+            <view class="category-box">
+              <view class="category-box__entry">
+                <image class="category-box__thumb sk-image">
+                </image>
+                <view class="category-box__text sk-transparent sk-text-14-2857-468 sk-text" style="background-position-x: 50%;">
+                  衣柜
+                </view>
+              </view>
+            </view>
+            <view class="category-box">
+              <view class="category-box__entry">
+                <image class="category-box__thumb sk-image">
+                </image>
+                <view class="category-box__text sk-transparent sk-text-14-2857-128 sk-text" style="background-position-x: 50%;">
+                  衣柜
+                </view>
+              </view>
+            </view>
+            <view class="category-box">
+              <view class="category-box__entry">
+                <image class="category-box__thumb sk-image">
+                </image>
+                <view class="category-box__text sk-transparent sk-text-14-2857-182 sk-text" style="background-position-x: 50%;">
+                  衣柜
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="category-title sk-transparent sk-text-14-2857-490 sk-text" style="background-position-x: 50%;">
+            推荐品牌
+          </view>
+          <view class="list-container van-clearfix sk-pseudo sk-pseudo-circle">
+            <view class="category-box">
+              <view class="category-box__entry">
+                <image class="category-box__thumb sk-image">
+                </image>
+              </view>
+            </view>
+            <view class="category-box">
+              <view class="category-box__entry">
+                <image class="category-box__thumb sk-image">
+                </image>
+              </view>
+            </view>
+            <view class="category-box">
+              <view class="category-box__entry">
+                <image class="category-box__thumb sk-image">
+                </image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

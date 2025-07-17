@@ -1,0 +1,19 @@
+<!--pages/join/result.wxml-->
+<view class="page">
+
+  <view class="section-form">
+    <view class="section-form__wrap">
+      <van-field label="驳回原因：" border="{{ false }}" label-class="section-form__label" />
+      <view class="section-form__result">{{ reason }}</view>
+    </view>
+  </view>
+
+  <view class="spacer" />
+
+  <view class="section-form">
+    <navigator hover-class="none" url="/pages/join/index">
+      <van-button type="primary" block>完善资料</van-button>
+    </navigator>
+  </view>
+
+</view>

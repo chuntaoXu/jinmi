@@ -1,0 +1,11 @@
+/* pages/commission/index.wxss */
+
+.custom-group {
+  padding-bottom: 30rpx;
+  background-color: #fff;
+}
+
+.custom-title {
+  color: var(--color-orange) !important;
+  font-size: 36rpx !important;
+}

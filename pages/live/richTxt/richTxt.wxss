@@ -1,0 +1,4 @@
+/* pages/live/richTxt/richTxt.wxss */
+.richTxt{
+  min-height: 100vh;
+}

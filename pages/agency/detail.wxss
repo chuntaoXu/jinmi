@@ -1,0 +1,3 @@
+/* pages/agency/detail.wxss */
+
+@import '../company/detail.wxss';

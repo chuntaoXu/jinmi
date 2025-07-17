@@ -1,0 +1,36 @@
+<!--pages/live/index.wxml-->
+<view class="live">
+    <view class="live_title">
+        <image src="../../images/img01.png"/>
+        <text>{{list.title}}工地实时画面</text>
+        <image src="../../images/img02.png"/>
+    </view>
+
+    <view class="play">
+        <view class="play_title">
+            <text>{{list.sponsor_name}}赞助支持</text>
+            <text>{{list.build_company}}</text>
+        </view>
+        <view class="play_video">
+            <image src="{{list.cover}}"></image>
+        </view>
+        <view class="play_btn">
+            <button data-type="1" bindtap="toH5">直播</button>
+            <button data-type="2" bindtap="toH5">空气检测</button>
+        </view>
+    </view>
+
+    <view class="classify">
+        <view class="classify_item" wx:for="{{list.advs}}" wx:key="index">
+            <view class="item_title">{{item.showname}}</view>
+            <view class="item_images">
+                <image 
+                wx:for="{{item.thumbs}}" 
+                wx:key="i" 
+                wx:for-item="item2" 
+                wx:for-index="i"
+                src="{{item2}}"/>
+            </view>
+        </view>
+    </view>
+</view>

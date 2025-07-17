@@ -1,0 +1,11 @@
+/* pages/member/bind.wxss */
+
+.custom-title {
+  max-width: 6.2em !important;
+  min-width: 6.2em !important;
+  margin-right: 12px !important;
+}
+
+.picker {
+  text-align: left;
+}

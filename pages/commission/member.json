@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "推荐用户",
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index"
+  }
+}

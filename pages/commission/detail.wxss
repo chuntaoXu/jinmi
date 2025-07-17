@@ -1,0 +1,9 @@
+/* pages/commission/detail.wxss */
+
+.custom-title {
+  color: var(--text-light) !important;
+}
+
+.custom-value {
+  color: var(--text-primary) !important;
+}

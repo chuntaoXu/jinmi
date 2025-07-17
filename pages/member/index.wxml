@@ -1,0 +1,263 @@
+<!--pages/member/index.wxml-->
+<wxs module="tools">
+  var hideNumber = function (phone) {
+    return phone.substring(0, 3) + '****' + phone.substring(7)
+  }
+  module.exports = {
+    hideNumber: hideNumber
+  }
+</wxs>
+
+<view class="page" wx:if="{{ !loading }}">
+
+  <!-- header -->
+  <view class="section-member" wx:if="{{ member }}">
+    <view class="section-member__wrap">
+      <view class="section-member__thumb">
+        <image src="{{ member.avatar }}" class="full-block" />
+      </view>
+      <view class="section-member__main">
+        <view class="section-member__text">
+          {{ !member.realname ? member.nickname : member.realname }}
+        </view>
+        <view class="section-member__info">
+          {{ tools.hideNumber(member.mobile) }}
+          <van-button 
+            plain 
+            custom-class="mgl30" 
+            type="primary" 
+            size="mini"
+            wx:if="{{ member.merch_groupid > 0 && member.merch_status == '1' }}"
+          >已入驻</van-button>
+        </view>
+      </view>
+    </view>
+    <view 
+      class="section-member__welt van-hairline--top" 
+      wx:if="{{ member.reg_status != '0'  }}"
+    >
+      <block wx:if="{{ member.reg_status == '2' }}">
+        <view class="section-member__reject">
+          <view class="section-member__reject-head">
+            <van-icon custom-class="mgr10" name="volume-o" color="#FAA114" size="32rpx" />
+            您还没有支付平台服务费
+          </view>
+          <view class="section-member__reject-after">
+            <navigator hover-class="none" url="/pages/pay/index?regid={{ member.reg_id }}">
+              <van-button type="primary" size="small">去支付</van-button>
+            </navigator>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{ member.reg_status == '-1' }}">
+        <view class="section-member__reject">
+          <view class="section-member__reject-head">
+            <van-icon custom-class="mgr10" name="volume-o" color="#FAA114" size="32rpx" />
+            您提交的入驻平台审核资料未通过
+          </view>
+          <view class="section-member__reject-after">
+            <navigator hover-class="none" url="/pages/join/result?regid={{ member.reg_id }}">
+              <van-button type="primary" size="small">查看原因</van-button>
+            </navigator>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{ member.reg_status == '3' }}">
+        <view class="section-member__reject">
+          <view class="section-member__reject-head">
+            <van-icon custom-class="mgr10" name="volume-o" color="#FAA114" size="32rpx" />
+            您提交的入驻平台审核资料正在审核中
+          </view>
+          <view class="section-member__reject-after"></view>
+        </view>
+      </block>
+      <view 
+        class="section-member__message" 
+        wx:if="{{ member.merch_groupid > 0 && member.merch_valid }}"
+      >{{ member.merch_valid }}</view>
+    </view>
+  </view>
+  <block wx:else>
+    <!-- no auth -->
+    <view class="section-member">
+      <view class="section-member__wrap" wx:if="{{ !userInfo }}">
+        <view class="section-member__thumb">
+          <image src="/images/member/img_logo.png" class="full-block" />
+        </view>
+        <view class="section-member__main">
+          <van-button 
+            plain 
+            round 
+            type="primary" 
+            size="small"
+            bind:click="getUserProfile"
+            wx:if="{{ !openid }}"
+          >点击授权</van-button>
+        </view>
+      </view>
+      <view class="section-member__wrap" wx:else>
+        <view class="section-member__thumb">
+          <image src="{{ userInfo.avatarUrl }}" class="full-block" />
+        </view>
+        <view class="section-member__main">
+          <view class="section-member__text">{{ userInfo.nickName }}</view>
+          <van-button 
+            plain 
+            round 
+            type="primary" 
+            size="small"
+            open-type="getPhoneNumber"
+            bindgetphonenumber="getPhoneNumber"
+            wx:if="{{ !openid }}"
+          >授权手机号完成登录</van-button>
+        </view>
+      </view>
+    </view>
+
+    <view class="spacer"></view>
+
+    <!-- no auth -->
+    <navigator url="/pages/auth/index" hover-class="none">
+      <van-cell-group>
+        <van-cell title="企业入驻" title-class="text-light" is-link>
+          <image slot="icon" src="/images/member/wd_rz.png" class="van-cell__icon" />
+          <view class="c-theme-text">未入驻</view>
+        </van-cell>
+        <van-cell 
+          title="产品申请检测" 
+          title-class="text-light" 
+          is-link
+        >
+          <image slot="icon" src="/images/member/wd_jcrz.png" class="van-cell__icon" />
+          <view class="c-theme-text">甲醛释放量检测报告</view>
+        </van-cell>
+      </van-cell-group>
+
+      <view class="spacer"></view>
+
+      <van-cell-group>
+        <van-cell title="账户资料" title-class="text-light" border="{{ false }}" is-link>
+          <image slot="icon" src="/images/member/wd_ic02.png" class="van-cell__icon" />
+        </van-cell>
+        <van-cell title="系统消息" title-class="text-light" is-link>
+          <image slot="icon" src="/images/member/wd_xtxx.png" class="van-cell__icon" />
+        </van-cell>
+        <van-cell title="我的收藏" title-class="text-light" is-link>
+          <image slot="icon" src="/images/member/wd_ic01.png" class="van-cell__icon" />
+        </van-cell>
+      </van-cell-group>
+
+      <view class="spacer"></view>
+
+      <van-cell-group>
+        <van-cell title="关于我们" title-class="text-light" is-link>
+          <image slot="icon" src="/images/member/wd_gywm.png" class="van-cell__icon" />
+        </van-cell>
+        <van-cell title="意见反馈" title-class="text-light" is-link>
+          <image slot="icon" src="/images/member/wd_yj.png" class="van-cell__icon" />
+        </van-cell>
+        <van-cell title="联系客服" value="" title-class="text-light" border="{{ false }}" is-link>
+          <image slot="icon" src="/images/member/wd_lxkf.png" class="van-cell__icon" />
+        </van-cell>
+      </van-cell-group>
+    </navigator>
+  </block>
+
+  <view class="spacer"></view>
+
+  <block wx:if="{{ member && phoneNumber }}">
+    <van-cell-group>
+      <van-cell 
+        title="企业入驻" 
+        title-class="text-light" 
+        is-link
+        url="{{ member.merch_groupid > 0 && member.merch_status == '1' ? '/pages/commission/poster' : '/pages/join/index' }}"
+      >
+        <image slot="icon" src="/images/member/wd_rz.png" class="van-cell__icon" />
+        <view class="c-theme-text">{{ member.merch_groupid > 0 && member.merch_status == '1' ? '查看海报' : '未入驻' }}</view>
+      </van-cell>
+      <van-cell 
+        title="产品申请检测" 
+        title-class="text-light" 
+        url="/pages/member/auth"
+        is-link
+      >
+        <image slot="icon" src="/images/member/wd_jcrz.png" class="van-cell__icon" />
+        <view class="c-theme-text">甲醛释放量检测报告</view>
+      </van-cell>
+    </van-cell-group>
+
+    <view class="spacer"></view>
+
+    <van-cell-group>
+      <van-cell 
+        title="账户资料" 
+        title-class="text-light" 
+        url="/pages/member/account"
+        is-link
+      >
+        <image slot="icon" src="/images/member/wd_ic02.png" class="van-cell__icon" />
+      </van-cell>
+      <van-cell 
+        title="推广奖励" 
+        title-class="text-light" 
+        url="/pages/commission/index"
+        is-link
+        wx:if="{{ (member.merch_groupid > 0 && member.merch_valid) || member.saler == '1' }}"
+      >
+        <image slot="icon" src="/images/member/wd_ic05.png" class="van-cell__icon" />
+      </van-cell>
+      <van-cell 
+        title="系统消息" 
+        title-class="text-light" 
+        url="/pages/message/index"
+        is-link
+      >
+        <image slot="icon" src="/images/member/wd_xtxx.png" class="van-cell__icon" />
+      </van-cell>
+      <van-cell 
+        title="我的收藏" 
+        title-class="text-light" 
+        url="/pages/member/favorites"
+        is-link
+      >
+        <image slot="icon" src="/images/member/wd_ic01.png" class="van-cell__icon" />
+      </van-cell>
+    </van-cell-group>
+
+    <view class="spacer"></view>
+
+    <van-cell-group>
+      <van-cell 
+        title="关于我们" 
+        title-class="text-light" 
+        url="/pages/article/index?type=about"
+        is-link
+      >
+        <image slot="icon" src="/images/member/wd_gywm.png" class="van-cell__icon" />
+      </van-cell>
+      <van-cell 
+        title="意见反馈" 
+        title-class="text-light" 
+        url="/pages/member/feedback"
+        is-link
+      >
+        <image slot="icon" src="/images/member/wd_yj.png" class="van-cell__icon" />
+      </van-cell>
+      <van-cell 
+        title="联系客服" 
+        title-class="text-light" 
+        border="{{ false }}"
+      >
+        <image slot="icon" src="/images/member/wd_lxkf.png" class="van-cell__icon" />
+        <button
+          class="btn-normal contact-handle"
+          open-type="contact"
+        >
+          {{ member.customerPhone }}
+        </button>
+      </van-cell>
+    </van-cell-group>
+  </block>
+
+</view>

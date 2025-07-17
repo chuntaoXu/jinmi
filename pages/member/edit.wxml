@@ -1,0 +1,25 @@
+<!--pages/member/edit.wxml-->
+<view class="page" wx:if="{{ member }}">
+
+  <van-cell-group custom-class="mgb20">
+    <van-field 
+      label="用户名：" 
+      placeholder="请输入用户名" 
+      value="{{ realname }}" 
+      border="{{ false }}" 
+      input-align="right" 
+      bind:change="onChange" 
+    />
+  </van-cell-group>
+
+  <van-cell-group custom-class="mgb20">
+    <van-field label="手机号：" value="{{ member.mobile }}" border="{{ false }}" input-align="right" readonly disabled />
+  </van-cell-group>
+
+  <view class="section-edit">
+    <van-button type="primary" block bindtap="submit">保存</van-button>
+  </view>
+
+</view>
+
+<van-toast id="van-toast" />

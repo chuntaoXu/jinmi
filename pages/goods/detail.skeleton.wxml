@@ -1,0 +1,94 @@
+<!--
+此文件为开发者工具生成，生成时间: 2020/8/3 上午10:20:29 
+使用方法：
+在 pages/goods/detail.wxml 引入模板
+
+```
+<import src="detail.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 pages/goods/detail.wxss 中引入样式
+```
+@import "./detail.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="page">
+      <view class="section-banner">
+        <swiper class="section-banner__swiper">
+          <swiper-item class="section-banner__swiper-item" style="position: absolute; width: 100%; height: 100%; transform: translate(0%, 0px) translateZ(0px);">
+            <image class="full-block sk-image">
+            </image>
+          </swiper-item>
+        </swiper>
+        <view class="section-banner__dots sk-transparent sk-text-14-2857-280 sk-text">
+          1/4
+        </view>
+      </view>
+      <view class="section-goods">
+        <view class="section-goods__info">
+          <view class="section-goods__info-text sk-transparent sk-text-14-2857-629 sk-text">
+            缪斯香颂系列 全屋整体衣柜轻奢工业风缪斯香颂系列 全屋整体衣柜轻奢工业风
+          </view>
+          <view class="section-goods__info-desc sk-transparent">
+            市场参考价：
+            <view class="section-goods__amount sk-transparent">
+              <view class="sign sk-transparent sk-opacity">
+                ¥
+              </view>
+              208
+              <view class="sign sk-transparent sk-text-14-2857-913 sk-text">
+                .00/m
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="section-goods__after">
+          <view is="miniprogram_npm/@vant/weapp/icon/index">
+            <view class="section-goods__after-icon van-icon icon-index--van-icon van-icon-star icon-index--van-icon-star sk-pseudo sk-pseudo-circle" style="color: ;font-size: 20px;">
+            </view>
+          </view>
+          <view class="section-goods__after-text sk-transparent sk-text-14-2857-639 sk-text">
+            收藏
+          </view>
+        </view>
+      </view>
+      <view is="miniprogram_npm/@vant/weapp/cell-group/index">
+        <view class=" van-cell-group group-index--van-cell-group">
+          <view is="miniprogram_npm/@vant/weapp/cell/index">
+            <view class="van-cell cell-index--van-cell sk-pseudo sk-pseudo-circle" hover-class="van-cell--hover hover-class" hover-stay-time="70" style="true">
+              <view class="van-cell__title cell-index--van-cell__title sk-transparent sk-text-20-8333-954 sk-text" style="true">
+                产品型号：
+              </view>
+              <view class="van-cell__value cell-index--van-cell__value sk-transparent sk-text-20-8333-442 sk-text" style="background-position-x: 100%;">
+                GWSK-MSXS1
+              </view>
+            </view>
+          </view>
+          <view is="miniprogram_npm/@vant/weapp/cell/index">
+            <view class="van-cell cell-index--van-cell van-cell--borderless cell-index--van-cell--borderless sk-pseudo sk-pseudo-circle" hover-class="van-cell--hover hover-class" hover-stay-time="70" style="true">
+              <view class="van-cell__title cell-index--van-cell__title sk-transparent sk-text-20-8333-401 sk-text" style="true">
+                甲醛释放量：
+              </view>
+              <view class="van-cell__value cell-index--van-cell__value sk-transparent sk-text-20-8333-745 sk-text" style="background-position-x: 100%;">
+                0mg/m³
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="spacer">
+      </view>
+      <view is="miniprogram_npm/@vant/weapp/cell/index">
+        <view class="van-cell cell-index--van-cell van-cell--center cell-index--van-cell--center van-cell--clickable cell-index--van-cell--clickable sk-pseudo sk-pseudo-circle" hover-class="van-cell--hover hover-class" hover-stay-time="70" style="true">
+          <image class="custon-icon sk-image">
+          </image>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

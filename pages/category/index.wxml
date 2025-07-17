@@ -1,0 +1,78 @@
+<!--pages/category/index.wxml-->
+
+<import src="./index.skeleton.wxml" />
+<template is="skeleton" wx:if="{{loading}}" />
+
+<view class="page">
+
+  <!-- search -->
+  <van-sticky>
+    <view class="section-search" id="searchBar">
+      <navigator class="section-search__wrap" hover-class="none" url="/pages/goods/list?nohcho={{ nohcho }}">
+        <van-icon name="search" color="#999" size="40rpx" />
+        <view class="section-search__box">
+          <view class="section-search__box-placeholder">搜索项目名称</view>
+        </view>
+      </navigator>
+    </view>
+  </van-sticky>
+
+  <!-- left category -->
+  <scroll-view scroll-y class="section-category" wx:if="{{ !loading }}">
+    <block wx:for="{{ categories }}" wx:key="index">
+      <view 
+        class="category-item {{ index == currentCate ? 'current' : '' }}"
+        data-index="{{ index }}"
+        bindtap="onSelected"
+      >{{ item.name }}</view>
+    </block>
+  </scroll-view>
+
+  <!-- 数据列表 -->
+  <view class="section-list">
+    <view class="section-list__wrap">
+      <navigator 
+        hover-class="none" 
+        url="{{ categories[currentCate].advurl }}" 
+        class="category-guide"
+      >
+        <image class="full-block" src="{{ categories[currentCate].advimg }}" />
+      </navigator>
+      <view class="category-title">{{ categories[currentCate].name }}</view>
+      <view class="list-container van-clearfix">
+        <view 
+          class="category-box"
+          wx:for="{{ categories[currentCate].child }}"
+          wx:key="index"
+        >
+          <navigator 
+            class="category-box__entry" 
+            hover-class="none" 
+            url="/pages/goods/list?nohcho={{ nohcho }}&cid={{ item.id }}"
+          >
+            <image class="category-box__thumb" src="{{ item.thumb }}" />
+            <view class="category-box__text">{{ item.name }}</view>
+          </navigator>
+        </view>
+      </view>
+      <view class="category-title">推荐品牌</view>
+      <view class="list-container van-clearfix">
+        <view 
+          class="category-box"
+          wx:for="{{ categories[currentCate].brandlist }}"
+          wx:key="index"
+        >
+          <navigator 
+            class="category-box__entry" 
+            hover-class="none" 
+            url="/pages/goods/list?nohcho={{ nohcho }}&cid={{ categories[currentCate].id }}&bid={{ item.id }}"
+          >
+            <image class="category-box__thumb" src="{{ item.thumb }}" />
+            <view class="category-box__text">{{ item.name }}</view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

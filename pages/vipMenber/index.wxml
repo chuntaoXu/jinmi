@@ -1,0 +1,7 @@
+<!--pages/index/index.wxml-->
+<view class="page" wx:if="{{ !loading }}">
+
+	<view>ces </view>
+
+</view>
+

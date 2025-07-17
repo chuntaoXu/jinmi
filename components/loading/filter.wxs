@@ -1,0 +1,21 @@
+var imageFilter = function (type) {
+  var mapTypes = {
+    'normal': {
+      icon: '/images/meiyoushuju.png',
+      text: "没有数据"
+    },
+    'cart': {
+      icon: '/images/gwc_none.png',
+      text: "您的购物车中没有商品哦"
+    },
+    'order': {
+      icon: '/images/dd_none.png',
+      text: "您暂时没有任何订单哦"
+    }
+  }
+  return mapTypes[type]
+}
+
+module.exports = {
+  imageFilter: imageFilter
+}

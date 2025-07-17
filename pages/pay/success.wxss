@@ -1,0 +1,20 @@
+/* pages/pay/success.wxss */
+
+.success-tips {
+  padding: 30rpx;
+  margin: 60rpx 30rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.success-tips__line {
+  font-size: 30rpx;
+  line-height: 60rpx;
+  color: var(--text-primary);
+}
+
+.success-handle{
+  margin: 120rpx 30rpx;
+  overflow: hidden;
+}

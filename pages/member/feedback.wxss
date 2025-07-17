@@ -1,0 +1,28 @@
+/* pages/member/feedback.wxss */
+
+.feedback-section {
+  padding: 50rpx 30rpx 100rpx 30rpx;
+}
+
+.feedback-textarea {
+  line-height: 30rpx;
+  width: 100%;
+  height: 210rpx;
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.feedback-input {
+  width: 100%;
+  height: 88rpx;
+  padding: 24rpx 20rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.error{
+  padding: 12rpx 0;
+  font-size: 24rpx;
+  color: var(--color-red);
+}

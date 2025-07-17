@@ -1,0 +1,17 @@
+/* pages/member/auth.wxss */
+
+@import '../join//index.wxss';
+
+.section-form__wrap-title{
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.section-form__wrap-tips{
+  padding: 0 30rpx;
+  font-size: 20rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}

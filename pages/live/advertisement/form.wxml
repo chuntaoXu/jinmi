@@ -1,0 +1,37 @@
+<!--pages/live/advertisement/form.wxml-->
+<view class="form">
+  <view class="form-item">
+    <van-field label="联系人:" required title-width="70px" model:value="{{ name }}" placeholder="请输入您的姓名" border="{{ false }}"/>
+  </view>
+  <view class="form-item">
+    <van-field label="手机号:" required title-width="70px" type="number" model:value="{{ phone }}" placeholder="请输入您的手机号" border="{{ false }}"/>
+  </view>
+  <view class="form-item">
+    <van-field
+      model:value="{{ code }}"
+      center
+      clearable
+      type="number"
+      required
+      label="验证码:"
+      title-width="70px"
+      placeholder="请输入短信验证码"
+      border="{{ false }}"
+      use-button-slot
+    >
+      <view slot="button" class="getCode" bindtap="getCode">
+        获取验证码{{isGet? '('+downTime+')' : ''}}
+      </view>
+    </van-field>
+  </view>
+  <view class="form-item">
+    <van-field label="详细地址:" required title-width="70px" type="textarea" autosize model:value="{{ adress }}" placeholder="请输入您的详细地址" border="{{ false }}"/>
+  </view>
+  <view class="form-item">
+    <van-field label="您的需求:" required title-width="70px" type="textarea" autosize="{{autosize}}" model:value="{{ needs }}" placeholder="请输入您的需求，比如:无甲醛装修,购买无甲醛装饰材料等" border="{{ false }}"/>
+  </view>
+
+  <view class="form-btn">
+    <button bindtap="submit">确认提交</button>
+  </view>
+</view>

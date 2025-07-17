@@ -1,0 +1,301 @@
+<!--pages/goods/list.wxml-->
+<view class="page">
+
+  <!-- search -->
+  <view class="section-search" wx:if="{{ !showSearch }}">
+    <view class="section-search__wrap" bindtap="toSearch">
+      <van-icon name="search" color="#999" size="40rpx" />
+      <view class="section-search__box">
+        <view class="section-search__box-placeholder">搜索项目名称</view>
+      </view>
+    </view>
+  </view>
+  <view class="section-search" wx:else>
+    <view class="section-search__wrap">
+      <van-icon name="search" color="#999" size="40rpx" />
+      <view class="section-search__box current">
+        <input 
+          focus="{{ showSearch }}"
+          bindblur="blurSearch"
+          bindconfirm="Refresh"
+          bindinput="setSearch"
+          placeholder="搜索项目名称" 
+          class="section-search__box-input" 
+          placeholder-style="color: #999;" 
+        />
+      </view>
+    </view>
+  </view>
+
+  <!-- filter bar -->
+  <!-- <van-sticky>
+    <view class="section-filterbar van-hairline--bottom">
+      <view 
+        class="section-filterbar__item {{ order == 'fhydea' ? 'current' : '' }}" 
+      >
+        <view 
+          class="section-filterbar__item-wrap" 
+          data-order="fhydea"
+          bindtap="openOptions"
+        >
+          <view class="section-filterbar__item-text">
+            甲醛释放量
+            <block wx:if="{{ order == 'fhydea' }}">
+              <view class="triangle-down" wx:if="{{ by === 'DESC' }}" />
+              <view class="triangle-up" wx:else />
+            </block>
+            <view class="triangle-down" wx:else />
+          </view>
+        </view>
+      </view>
+      <view 
+        class="section-filterbar__item {{ order == 'fhydeatime' ? 'current' : '' }}" 
+      >
+        <view 
+          class="section-filterbar__item-wrap" 
+          data-order="fhydeatime"
+          bindtap="openOptions"
+        >
+          <view class="section-filterbar__item-text">
+            检测时间
+            <block wx:if="{{ order == 'fhydeatime' }}">
+              <view class="triangle-down" wx:if="{{ by === 'DESC' }}" />
+              <view class="triangle-up" wx:else />
+            </block>
+            <view class="triangle-down" wx:else />
+          </view>
+        </view>
+      </view>
+      <view 
+        class="section-filterbar__item {{ order == 'tracqr' ? 'current' : '' }}" 
+      >
+        <view 
+          class="section-filterbar__item-wrap" 
+          data-order="tracqr"
+          bindtap="openOptions"
+        >
+          <view class="section-filterbar__item-text">
+            溯源二维码
+            <block wx:if="{{ order == 'tracqr' }}">
+              <view class="triangle-down" wx:if="{{ by === 'DESC' }}" />
+              <view class="triangle-up" wx:else />
+            </block>
+            <view class="triangle-down" wx:else />
+          </view>
+        </view>
+      </view>
+      <view 
+        class="section-filterbar__item {{ order == 'normal' ? 'current' : '' }}" 
+      >
+        <view class="section-filterbar__item-wrap" bindtap="onShowFilter">
+          <view class="section-filterbar__item-text">
+            筛选
+            <van-icon name="filter-o" size="30rpx" custom-class="section-filterbar__item-icon" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-sticky> -->
+
+  <van-sticky>
+    <view class="section-filterbar van-hairline--bottom">
+      <view 
+        class="section-filterbar__item {{ bid ? 'current' : '' }}" 
+      >
+        <!-- <view 
+          class="section-filterbar__item-wrap" 
+          data-order="brand"
+          bindtap="openOptions"
+        >
+          <view class="section-filterbar__item-text">
+            {{brandName || '品牌'}}
+            <view class="triangle-down" />
+          </view>
+        </view> -->
+        <view 
+          class="section-filterbar__item-wrap" 
+          data-order="brand"
+        >
+        <picker bindchange="bindPickerChange" value="{{brandlistIndex}}" range-key="name" range="{{brandlist}}">
+          <view class="section-filterbar__item-text">
+            {{brandName || '品牌'}}
+            <view class="triangle-down" />
+          </view>
+        </picker>
+        </view>
+      </view>
+      <view 
+        class="section-filterbar__item {{ iscert ? 'current' : '' }}" 
+      >
+        <view 
+          class="section-filterbar__item-wrap"
+          data-name="iscert"
+          bindtap="screenOptions"
+        >
+          <view class="section-filterbar__item-text">
+            绿色建材
+            <view class="triangle-down" />
+          </view>
+        </view>
+      </view>
+      <view 
+        class="section-filterbar__item {{ order == 'merch' ? 'current' : '' }}" 
+      >
+        <view 
+          class="section-filterbar__item-wrap" 
+          data-order="merch"
+          bindtap="openOptions"
+        >
+          <view class="section-filterbar__item-text"> 
+            附近门店
+            <view class="triangle-down" />
+          </view>
+        </view>
+      </view>
+      <view 
+        class="section-filterbar__item {{ order == 'normal' ? 'current' : '' }}" 
+      >
+        <view class="section-filterbar__item-wrap" bindtap="onShowFilter">
+          <view class="section-filterbar__item-text">
+            筛选
+            <van-icon name="filter-o" size="30rpx" custom-class="section-filterbar__item-icon" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-sticky>
+
+  <!-- 数据列表 -->
+  <van-skeleton title avatar row="3" wx:if="{{ loading }}" />
+  <block wx:else>
+    <view 
+      class="section-item"
+      wx:for="{{ list }}"
+      wx:key="index"
+    > 
+      <navigator 
+        class="section-item__wrap van-hairline--bottom" 
+        hover-class="none"
+        url="/pages/goods/detail?id={{ item.id }}"
+      >
+        <view class="section-item__thumb">
+          <image class="full-block" src="{{ item.thumb }}" />
+          <image wx:if="{{index == 0}}" class="section-item__thumb_image" src="../../images/1.png"></image>
+          <image wx:if="{{index == 1}}" class="section-item__thumb_image" src="../../images/2.png"></image>
+          <image wx:if="{{index == 2}}" class="section-item__thumb_image" src="../../images/3.png"></image>
+        </view>
+        <view class="section-item__main">
+          <view class="section-item__text van-multi-ellipsis--l2">{{ item.title }}</view>
+          <view class="section-item__info">{{ item.brandname || '' }}</view>
+          <view class="section-item__info">甲醛释放量：<view class="sign">{{ item.fhydea || '0' }}mg/m³</view>
+          </view>
+          <view 
+            class="section-item__info tag" 
+            wx:if="{{ item.fhydeatime }}"
+          >
+            检测时间：{{ item.fhydeatime }}
+            <van-tag 
+              type="primary" 
+              custom-class="mgl30"
+              wx:if="{{ item.cmlabels }}"
+            >{{ item.cmlabels }}</van-tag>
+          </view>
+        </view>
+        <view 
+          class="section-item__after {{ item.favorite == '1' ? 'current' : '' }}"
+          data-index="{{ index }}"
+          catchtap="onChangeFavorite"
+        >
+          <van-icon name="star" size="40rpx" custom-class="section-item__after-icon" />
+          <view class="section-item__after-text">
+            {{ item.favorite == '1' ? '已收藏' : '收藏' }}
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <loading 
+      loading="{{ isLoading }}" 
+      more="{{ hasMore }}" 
+      len="{{ list.length }}" 
+    />
+
+  </block>
+
+</view>
+
+<van-popup 
+  show="{{ showFilters }}" 
+  position="right" 
+  custom-style="height: 100%;width: 70%"
+  bind:close="onClose"
+>
+  <view class="filter-panel">
+    <scroll-view scroll-y class="filter-panel__container">
+      <view class="filter-panel__title">筛选商品</view>
+      <view class="filter-panel__box">
+        <view class="filter-panel__box-title">品牌筛选</view>
+        <view class="filter-panel__box-list van-clearfix">
+          <view 
+            class="filter-panel__box-item {{ bid == item.id ? 'current' : '' }}"
+            data-id="{{ item.id }}"
+            data-name="{{ item.name }}"
+            wx:for="{{ brandlist }}"
+            wx:key="index"
+            bindtap="onSelectBrand"
+          >{{ item.name }}</view>
+        </view>
+      </view>
+      <view 
+        class="filter-panel__box"
+        wx:for="{{ labellist }}"
+        wx:key="index"
+      >
+        <view class="filter-panel__box-title">{{ item.label }}</view>
+        <view class="filter-panel__box-list van-clearfix">
+          <view 
+            class="filter-panel__box-item {{ citem.id === item.selected ? 'current' : '' }}"
+            wx:for="{{ item.items }}"
+            wx:for-index="idx"
+            wx:for-item="citem"
+            wx:key="idx"
+            data-index="{{ index }}"
+            data-idx="{{ idx }}"
+            bindtap="onSelectLabel"
+          >{{ citem.labelname }}</view>
+        </view>
+      </view>
+      <view class="filter-panel__box">
+        <view class="filter-panel__box-title">保险承保</view>
+        <view class="filter-panel__box-list van-clearfix">
+          <view 
+            class="filter-panel__box-item {{ isinsure ? 'current' : '' }}"
+            data-name="isinsure"
+            bindtap="screenOptions"
+          >保险承保</view>
+        </view>
+      </view>
+      <view class="filter-panel__box">
+        <view class="filter-panel__box-title">排序</view>
+        <view class="filter-panel__box-list van-clearfix">
+          <view 
+            class="filter-panel__box-item {{ order == item.value ? 'current' : '' }}"
+            data-order="{{ item.value }}"
+            wx:for="{{ sortList }}"
+            wx:key="index"
+            bindtap="openOptions"
+          >{{ item.name }}</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="filter-panel__foot">
+      <view class="filter-panel__foot-cell">
+        <van-button type="primary" size="small" block plain bindtap="resetFilter">清空</van-button>
+      </view>
+      <view class="filter-panel__foot-cell">
+        <van-button type="primary" size="small" block bindtap="generateFilter">确认</van-button>
+      </view>
+    </view>
+  </view>
+</van-popup>

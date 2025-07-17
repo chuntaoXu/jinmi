@@ -1,0 +1,53 @@
+<!--pages/live/advertisement/advertisement.wxml-->
+<view class="advertisement">
+    <swiper 
+    class="swiper"
+    indicator-dots="{{true}}" 
+    autoplay="{{true}}" 
+    circular="{{true}}" 
+    indicator-color="rgba(255, 255, 255, .7)" 
+    indicator-active-color="#fff">
+        <block wx:for="{{list.banner}}" wx:key="index">
+          <swiper-item class="swiper-item">
+            <image src="{{ item.thumb }}"></image>
+          </swiper-item>
+        </block>
+    </swiper>
+
+    <view class="classList">
+        <navigator wx:for="{{list.navs}}" wx:key="index" url="{{item.link}}">
+          <image src="{{item.icon}}" class="icon-image"/>
+          <view>{{item.navname}}</view>
+        </navigator>
+    </view>
+
+    <view class="advert">
+      <image src="{{list.advs.thumb}}"/>
+    </view>
+
+    <view class="liveCity">
+      <view class="liveCity_title">
+        <image src="../../../images/liveCity2.png"></image>
+        <text>直播城市</text>
+        <image src="../../../images/liveCity1.png"></image>
+      </view>
+
+      <view class="liveCity_city">
+        <view class="liveCity_city_block" wx:for="{{list.roomlist}}" wx:key="index" bindtap="toLive" data-id="{{item.id}}">{{item.title}}</view>
+      </view>
+    </view>
+
+    <swiper 
+    class="swiper swipers"
+    indicator-dots="{{true}}" 
+    autoplay="{{true}}" 
+    circular="{{true}}" 
+    indicator-color="rgba(4, 82, 165, .6)" 
+    indicator-active-color="#fff">
+        <block wx:for="{{list.footbanner}}" wx:key="index">
+          <swiper-item class="swiper-item">
+            <image src="{{item.thumb}}"></image>
+          </swiper-item>
+        </block>
+    </swiper>
+</view>

@@ -1,0 +1,4 @@
+<!--pages/live/richTxt/richTxt.wxml-->
+<view class="richTxt">
+  <towxml nodes="{{ list.content }}" />
+</view>

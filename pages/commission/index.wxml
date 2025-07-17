@@ -1,0 +1,47 @@
+<!--pages/commission/index.wxml-->
+<view class="page">
+
+  <van-cell-group custom-class="custom-group" border="{{ false }}">
+    <van-cell 
+      title="{{ total_credit2 }}" 
+      label="累计推荐佣金(元)" 
+      title-class="custom-title" 
+      label-class="custom-label" 
+    />
+    <van-cell 
+      title="{{ credit2 }}" 
+      label="累计推荐佣金(元)" 
+      border="{{ false }}" 
+      title-class="custom-title" 
+      label-class="custom-label"
+      center
+    >
+      <van-button 
+        slot="right-icon" 
+        type="primary" 
+        size="small"
+        bindtap="showDialog"
+        wx:if="{{ !isbank }}"
+      >提现</van-button>
+      <navigator 
+        slot="right-icon" 
+        hover-class="none" 
+        url="/pages/commission/withdraw"
+        wx:else
+      >
+        <van-button type="primary" size="small">提现</van-button>
+      </navigator>
+    </van-cell>
+  </van-cell-group>
+
+  <view class="spacer" />
+
+  <van-cell-group border="{{ false }}">
+    <van-cell title="提现明细" url="/pages/commission/detail" is-link />
+    <van-cell title="我推荐的用户" url="/pages/commission/member" is-link />
+    <van-cell title="邀请用户" url="/pages/commission/poster" is-link />
+  </van-cell-group>
+
+</view>
+
+<van-dialog id="van-dialog" />

@@ -1,0 +1,55 @@
+<!--pages/project/index.wxml-->
+<view class="page">
+
+  <!-- search -->
+  <view class="section-search" wx:if="{{ !showSearch }}">
+    <view class="section-search__wrap" bindtap="toSearch">
+      <van-icon name="search" color="#999" size="40rpx" />
+      <view class="section-search__box">
+        <view class="section-search__box-placeholder">搜索项目名称</view>
+      </view>
+    </view>
+  </view>
+  <view class="section-search" wx:else>
+    <view class="section-search__wrap">
+      <van-icon name="search" color="#999" size="40rpx" />
+      <view class="section-search__box current">
+        <input 
+          focus="{{ showSearch }}"
+          bindblur="blurSearch"
+          bindconfirm="Refresh"
+          bindinput="setSearch"
+          placeholder="搜索项目名称" 
+          class="section-search__box-input" 
+          placeholder-style="color: #999;" 
+        />
+      </view>
+    </view>
+  </view>
+
+  <view class="section-project">
+    <view 
+      class="section-project__item"
+      wx:for="{{ list }}"
+      wx:key="index"
+    >
+      <navigator 
+        hover-class="none" 
+        url="/pages/article/index?type=project&id={{ item.id }}"
+        class="section-project__item-entry"
+      >
+        <view class="section-project__item-thumb">
+          <image class="full-block" src="{{ item.thumb }}" />
+        </view>
+        <view class="section-project__item-text van-multi-ellipsis--l2">{{ item.title }}</view>
+      </navigator>
+    </view>
+  </view>
+
+  <loading 
+    loading="{{ isLoading }}" 
+    more="{{ hasMore }}" 
+    len="{{ list.length }}" 
+  />
+
+</view>

@@ -1,0 +1,32 @@
+<!--pages/message/index.wxml-->
+<view class="page">
+
+  <!-- list -->
+  <van-skeleton title row="3" wx:if="{{ loading }}" />
+  <block wx:else>
+    <view 
+      class="seciont-message {{ item.isread == '0' ? 'newest' : '' }}"
+      wx:for="{{ list }}"
+      wx:key="index"
+    >
+      <view 
+        class="seciont-message__entry van-hairline--bottom"
+        data-index="{{ index }}"
+        bindtap="changeRead"
+      >
+        <view class="seciont-message__head">
+          <view class="seciont-message__head-text">{{ item.title }}</view>
+          <view class="seciont-message__head-after">{{ item.createtime }}</view>
+        </view>
+        <view class="seciont-message__body">{{ item.message }}</view>
+      </view>
+    </view>
+  </block>
+
+  <loading 
+		loading="{{ isLoading }}" 
+		more="{{ hasMore }}" 
+		len="{{ list.length }}" 
+	/>
+
+</view>

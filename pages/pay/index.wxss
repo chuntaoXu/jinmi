@@ -1,0 +1,35 @@
+/* pages/pay/index.wxss */
+
+@import '../join//index.wxss';
+
+.page {
+  --button-plain-background-color: transparent;
+}
+
+.section-handle {
+  padding: 120rpx 30rpx;
+}
+
+.servicefee-group {
+  padding: 24rpx 30rpx 60rpx 30rpx;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100rpx, 1fr));
+  gap: 46rpx;
+}
+
+.servicefee-cell {
+  padding: 18rpx 0;
+  font-size: 28rpx;
+  color: var(--text-light);
+  text-align: center;
+  border-radius: 6rpx;
+  border: 1rpx solid var(--dark-border);
+  background-color: #fff;
+}
+
+.servicefee-cell.current {
+  color: var(--dark-theme-color);
+  border-color: var(--theme-color);
+  background-color: var(--plain-theme-color);
+}

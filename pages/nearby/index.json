@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "附近",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index"
+  }
+}

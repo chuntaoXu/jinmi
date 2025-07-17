@@ -1,0 +1,41 @@
+/* pages/brand/index.wxss */
+
+.index-bar__container {
+  padding: 40rpx 40rpx 10rpx 30rpx;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25%, 1fr));
+  background-color: #fff;
+}
+
+.index-bar__container-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 40rpx 30rpx 0 30rpx;
+  background-color: #fff;
+}
+
+.brand-item {
+  margin-bottom: 24rpx;
+}
+
+.brand-item__entry {
+  width: 140rpx;
+}
+
+.brand-item__thumb {
+  display: block;
+  width: 140rpx;
+  height: 140rpx;
+  border: 1rpx solid var(--light-border);
+  border-radius: 10rpx;
+  /* just for develop */
+  background-color: #f2f3f5;
+}
+
+.brand-item__text {
+  padding: 12rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--text-primary);
+}

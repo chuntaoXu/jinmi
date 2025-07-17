@@ -1,0 +1,38 @@
+<!--pages/commission/withdraw.wxml-->
+<view class="page">
+
+  <van-cell 
+    title="{{ credit }}" 
+    label="可提现佣金(元)" 
+    title-class="custom-title" 
+    label-class="custom-label" 
+  />
+
+  <view class="spacer" />
+
+  <view class="recharge-container">
+		<view class="recharge-title">提现金额</view>
+		<view class="recharge-field van-hairline--bottom">
+			<view class="recharge-field__text">¥</view>
+			<input 
+        class="recharge-field__input" 
+        placeholder="请输入提现金额" 
+        placeholder-style="font-size:15px;color:#CCCCCC;"
+        type="digit" 
+				bindinput="setAmount"
+      />
+		</view>
+  </view>
+  
+  <view class="recharge-handle">
+		<van-button 
+			type="primary" 
+			disabled="{{ isDisabled }}" 
+			block
+			bindtap="submit"
+		>立即提现</van-button>
+  </view>
+  
+  <view class="tips">提现成功后1至7个工作日到账</view>
+
+</view>

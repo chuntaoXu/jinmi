@@ -1,0 +1,41 @@
+/* pages/commission/withdraw.wxss */
+
+@import './index.wxss';
+
+.recharge-container {
+  padding: 0 30rpx 24rpx 30rpx;
+  background-color: #fff;
+}
+
+.recharge-title {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  padding: 42rpx 0;
+}
+
+.recharge-field {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0 32rpx 0;
+}
+
+.recharge-field__text {
+  font-size: 36rpx;
+  color: var(--text-primary);
+  padding-right: 24rpx;
+}
+
+.recharge-field__input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.recharge-handle {
+  padding: 120rpx 30rpx 80rpx 30rpx;
+}
+
+.tips {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  text-align: center;
+}

@@ -1,0 +1,11 @@
+<!--pages/article/index.wxml-->
+<view class="page">
+
+  <view class="section-article">
+    <view class="section-article__title">{{ title }}</view>
+    <view class="section-article__info">{{ createtime }}</view>
+  </view>
+
+  <towxml nodes="{{ content }}" />
+
+</view>

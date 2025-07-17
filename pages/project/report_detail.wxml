@@ -1,0 +1,16 @@
+<!--pages/project/report_detail.wxml-->
+<view class="page">
+
+  <image
+    wx:for="{{ thumbs }}"
+    wx:key="index"
+    src="{{ item.src }}"
+    class="report-image"
+    style="width: 100%;height: {{ item.height }}px"
+    id="{{ index }}"
+    data-index="{{ index }}"
+    bindload="setImage"
+    bindtap="previewImage"
+  />
+  
+</view>

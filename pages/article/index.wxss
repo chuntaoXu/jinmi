@@ -1,0 +1,20 @@
+/* pages/article/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.section-article {
+  padding: 30rpx;
+}
+
+.section-article__title {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  margin-bottom: 24rpx;
+}
+
+.section-article__info {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}

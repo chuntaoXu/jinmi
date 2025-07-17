@@ -1,0 +1,23 @@
+<!--pages/pay/success.wxml-->
+<view class="page">
+
+  <view class="success-tips">
+    <view class="success-tips__line">您已成功提交入驻资料，请等待审核;</view>
+    <view class="success-tips__line">我们将已短信的方式通知您;</view>
+    <view class="success-tips__line">如有疑问请咨询客服。</view>
+  </view>
+
+  
+  <navigator 
+    hover-class="none" 
+    url="/pages/index/index" 
+    open-type="switchTab" 
+    class="success-handle"
+  >
+    <van-button 
+      type="primary" 
+      block 
+    >返回主页</van-button>
+  </navigator>
+
+</view>

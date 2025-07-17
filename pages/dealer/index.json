@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "经销商",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-tag": "@vant/weapp/tag/index"
+  }
+}

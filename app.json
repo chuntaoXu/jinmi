@@ -1,0 +1,103 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/message/index",
+    "pages/join/index",
+    "pages/member/index",
+    "pages/join/second",
+    "pages/join/result",
+    "pages/project/index",
+    "pages/member/favorites",
+    "pages/project/report",
+    "pages/member/edit",
+    "pages/project/report_detail",
+    "pages/commission/index",
+    "pages/commission/detail",
+    "pages/commission/member",
+    "pages/commission/poster",
+    "pages/category/index",
+    "pages/goods/list",
+    "pages/goods/detail",
+    "pages/dealer/index",
+    "pages/company/index",
+    "pages/company/detail",
+    "pages/agency/index",
+    "pages/agency/detail",
+    "pages/firm/detail",
+    "pages/article/index",
+    "pages/webview/index",
+    "pages/article/list",
+    "pages/pay/index",
+    "pages/commission/withdraw",
+    "pages/brand/index",
+    "pages/nearby/index",
+    "pages/member/account",
+    "pages/member/feedback",
+    "pages/member/bind",
+    "pages/member/invoice",
+    "pages/store/index",
+    "pages/auth/index",
+    "pages/member/auth",
+    "pages/store/list",
+    "pages/pay/success",
+    "pages/postion/index",
+    "pages/material/index",
+    "pages/live/index",
+    "pages/live/list/list",
+    "pages/live/advertisement/advertisement",
+    "pages/live/advertisement/form",
+    "pages/live/player/player",
+    "pages/live/h5/h5",
+    "pages/live/richTxt/richTxt",
+    "pages/vipMenber/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "...",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#3FBB5D",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabbar/foot_sy01.png",
+        "selectedIconPath": "/images/tabbar/foot_sy02.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "产品",
+        "iconPath": "/images/tabbar/cp01.png",
+        "selectedIconPath": "/images/tabbar/cp02.png"
+      },
+      {
+        "pagePath": "pages/nearby/index",
+        "text": "附近",
+        "iconPath": "/images/tabbar/fj01.png",
+        "selectedIconPath": "/images/tabbar/fj02.png"
+      },
+      {
+        "pagePath": "pages/member/index",
+        "text": "我的",
+        "iconPath": "/images/tabbar/foot_wd01.png",
+        "selectedIconPath": "/images/tabbar/foot_wd02.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "loading": "/components/loading/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-toast": "@vant/weapp/toast/index"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}

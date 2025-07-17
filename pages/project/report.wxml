@@ -1,0 +1,25 @@
+<!--pages/project/report.wxml-->
+<view class="page">
+
+  <van-cell-group 
+    custom-class="mgb20"
+    wx:for="{{ list }}"
+    wx:key="index"
+  >
+    <van-cell 
+      title="{{ item.title }}" 
+      label="{{ item.createtime }}" 
+      border="{{ false }}" 
+      url="/pages/project/report_detail?type={{ type }}&id={{ item.id }}" 
+      is-link 
+      center 
+    />
+  </van-cell-group>
+
+  <loading 
+    loading="{{ isLoading }}" 
+    more="{{ hasMore }}" 
+    len="{{ list.length }}" 
+  />
+
+</view>

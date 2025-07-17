@@ -1,0 +1,145 @@
+<!--pages/member/favorites.wxml-->
+<view class="page">
+
+  <!-- tabs -->
+  <van-tabs active="{{ type }}" border="{{ false }}" sticky bind:change="onChange">
+    <van-tab title="建材家具" name="0"></van-tab>
+    <van-tab title="装饰公司" name="5"></van-tab>
+    <van-tab title="检测机构" name="3"></van-tab>
+    <van-tab title="治理机构" name="4"></van-tab>
+  </van-tabs>
+
+  <!-- switch -->
+  <view class="section-switchbar">
+    <view class="section-switchbar__main">请设置是否让商家查看收藏</view>
+    <view class="section-switchbar__after">
+      <van-switch 
+        checked="{{ merch1_show }}" 
+        active-color="#3FBB5D" 
+        inactive-color="#ccc" 
+        size="48rpx" 
+        bind:change="onChangeSwitch"
+        wx:if="{{ type == '0' }}"
+      />
+      <van-switch 
+        checked="{{ merch2_show }}" 
+        active-color="#3FBB5D" 
+        inactive-color="#ccc" 
+        size="48rpx" 
+        bind:change="onChangeSwitch"
+        wx:elif="{{ type == '3' }}"
+      />
+      <van-switch 
+        checked="{{ merch3_show }}" 
+        active-color="#3FBB5D" 
+        inactive-color="#ccc" 
+        size="48rpx" 
+        bind:change="onChangeSwitch"
+        wx:elif="{{ type == '4' }}"
+      />
+      <van-switch 
+        checked="{{ merch4_show }}" 
+        active-color="#3FBB5D" 
+        inactive-color="#ccc" 
+        size="48rpx" 
+        bind:change="onChangeSwitch"
+        wx:elif="{{ type == '5' }}"
+      />
+    </view>
+  </view>
+
+  <view class="spacer" />
+
+  <!-- 数据列表 -->
+  <block wx:if="{{ type == '0' }}">
+    <van-swipe-cell
+      wx:for="{{ list }}"
+      wx:key="index"
+      id="{{ index }}"
+      right-width="{{ 80 }}"
+      async-close
+      bind:close="onClose"
+    >
+      <view class="section-item">
+        <navigator 
+          url="{{ item.url }}" 
+          hover-class="none" 
+          class="section-item__wrap van-hairline--bottom"
+        >
+          <view class="section-item__thumb">
+            <image class="full-block" src="{{ item.thumb }}" />
+          </view>
+          <view class="section-item__main">
+            <view class="section-item__text van-multi-ellipsis--l2">{{ item.title }}</view>
+            <view class="section-item__info">{{ item.brandname }}</view>
+            <view class="section-item__info">
+              甲醛释放量：<view class="sign">{{ item.fhydea }}mg/m³</view>
+            </view>
+            <view class="section-item__info">检测时间：{{ item.fhydeatime }}</view>
+          </view>
+        </navigator>
+      </view>
+      <view slot="right" class="swiper-cell-btn">取消收藏</view>
+    </van-swipe-cell>
+  </block>
+  <block wx:else>
+    <van-swipe-cell
+      wx:for="{{ list }}"
+      wx:key="index"
+      id="{{ index }}"
+      right-width="{{ 65 }}"
+      async-close
+      bind:close="onClose"
+    >
+      <view class="section-item">
+        <navigator 
+          url="{{ item.url }}" 
+          hover-class="none" 
+          class="section-item__wrap van-hairline--bottom"
+        >
+          <view class="section-item__thumb">
+            <image class="full-block" src="{{ item.logo }}" />
+          </view>
+          <view class="section-item__main">
+            <view class="section-item__text van-multi-ellipsis--l2">{{ item.merchname }}</view>
+            <view 
+              class="section-item__info"
+            >
+              电话：{{ item.tel }}
+              <view class="section-item__info-tag">进入看看</view>
+              <view 
+                class="section-item__info-icon" 
+                wx:if="{{ item.tel }}"
+                catchtap="makeCall"
+                data-index="{{ index }}"
+              >
+                <van-icon name="phone-o" size="36rpx" color="#3FBB5D" />
+              </view>
+            </view>
+            <view 
+              class="section-item__info"
+            >
+              地址：{{ item.province + item.city + item.area + item.address }}
+              <view 
+                class="section-item__info-icon"
+                wx:if="{{ item.lat && item.lng }}"
+                catchtap="getLocation"
+                data-index="{{ index }}"
+              >
+                <van-icon name="/images/sy_map.png" size="36rpx" color="#3FBB5D" />
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+      <view slot="right" class="swiper-cell-btn">删除</view>
+    </van-swipe-cell>
+  </block>
+
+  <loading 
+    loading="{{ isLoading }}" 
+    more="{{ hasMore }}" 
+    len="{{ list.length }}" 
+  />
+
+</view>

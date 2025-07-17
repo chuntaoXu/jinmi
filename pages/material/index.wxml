@@ -1,0 +1,59 @@
+<!--pages/material/index.wxml-->
+
+<view class="page">
+
+<!-- search -->
+<van-sticky>
+  <view class="section-searchbar" id="searchBar">
+    <view class="section-searchbar__wrap">
+      <van-icon name="search" size="36rpx" color="#999" />
+      <input 
+        class="section-searchbar__wrap-input" 
+        placeholder="搜索经销商名称" 
+        bindblur="blurSearch"
+        bindconfirm="Refresh"
+        bindinput="setSearch"
+      />
+    </view>
+  </view>
+</van-sticky>
+
+<!-- left category -->
+<scroll-view scroll-y class="section-category" wx:if="{{ !loading }}">
+  <block wx:for="{{ categories }}" wx:key="index">
+    <view 
+      class="category-item {{ index == currentCate ? 'current' : '' }}"
+      data-index="{{ index }}"
+      bindtap="onSelected"
+    >{{ item.name }}</view>
+  </block>
+</scroll-view>
+
+<!-- 数据列表 -->
+<view class="section-list">
+  <view class="section-list__wrap">
+    <navigator
+      class="store-item van-hairline--bottom"
+      wx:for="{{ list }}"
+      wx:key="index"
+      hover-class="none"
+      url="/pages/firm/detail?id={{ item.id }}"
+    >
+      <view class="store-item__thumb">
+        <image class="full-block" src="{{ item.logo }}" />
+      </view>
+      <view class="store-item__main">
+        <view class="store-item__title">{{ item.merchname }}</view>
+        <view class="store-item__info">
+          电话: {{ item.tel }}
+        </view>
+        <view class="store-item__info">
+          地址: {{ item.address }}
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+</view>
+

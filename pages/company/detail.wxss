@@ -1,0 +1,94 @@
+/* pages/company/detail.wxss */
+
+.section-thumb {
+  width: 100%;
+  height: 400rpx;
+}
+
+.section-company {
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.section-company__title {
+  display: flex;
+  margin-bottom: 24rpx;
+}
+
+.section-company__title-text {
+  flex: 1;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.section-company__title-after {
+  padding-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-company__title-after--icon {
+  color: var(--border);
+}
+
+.section-company__title-after--text {
+  font-size: 20rpx;
+  color: var(--text-secondary);
+}
+
+.section-company__title-after.current .section-company__title-after--icon,
+.section-company__title-after.current .section-company__title-after--text {
+  color: var(--theme-color);
+}
+
+.section-company__info {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  margin-bottom: 18rpx;
+}
+
+.section-company__info-after {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.section-list {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+.section-item {
+  flex-basis: 50%;
+  display: flex;
+}
+
+.section-list .section-item:nth-child(2n) {
+  justify-content: flex-end;
+}
+
+.section-item__entry {
+  width: 320rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-item__thumb {
+  width: 320rpx;
+  height: 300rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.section-item__text {
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: var(--text-primary);
+  text-align: center;
+}

@@ -1,0 +1,72 @@
+<!--pages/member/auth.wxml-->
+<view class="page">
+
+  <view class="section-form">
+    <view class="section-form__wrap">
+      <view class="section-form__wrap-title">特别提示: </view>
+      <view class="section-form__wrap-tips">如果您的产品没有甲醛释放量检测报告，请在此申请。</view>
+      <view class="section-form__wrap-tips">申请检测的正式文件可关注“金米装修查甲醛”公众号(jmcjq110)下载</view>
+    </view>
+  </view>
+
+  <view class="section-form">
+    <view class="section-form__wrap">
+      <van-field 
+        value="{{ name }}" 
+        required
+        clearable 
+        label="联系人：" 
+        placeholder="请输入联系人" 
+        border="{{ false }}" 
+        data-key="name"
+        bind:input="setInput"
+      />
+      <van-field 
+        value="{{ mobile }}" 
+        required
+        clearable 
+        label="联系电话：" 
+        placeholder="请输入联系电话" 
+        error-message="{{ errmobile }}"
+        border="{{ false }}" 
+        data-key="mobile"
+        bind:input="setInput"
+      />
+      <van-field 
+        value="{{ industry }}" 
+        clearable 
+        label="行业：" 
+        placeholder="请输入行业" 
+        border="{{ false }}" 
+        data-key="industry"
+        bind:input="setInput"
+      />
+    </view>
+  </view>
+
+  <view class="section-form">
+    <view class="section-form__wrap">
+      <van-field 
+        label="需求描述：" 
+        placeholder="填写需求描述"
+        type="textarea" 
+        autosize="{{ {maxHeight: 100, minHeight: 100} }}"
+        border="{{ false }}" 
+        data-key="remark"
+        bind:input="setInput"
+      />
+    </view>
+  </view>
+
+  <view class="spacer" />
+
+  <view class="section-form">
+    <van-button 
+      type="primary" 
+      block 
+      bindtap="submit"
+    >提交</van-button>
+  </view>
+
+
+</view>

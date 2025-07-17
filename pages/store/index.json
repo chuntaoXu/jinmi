@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "建材城产品分类",
+  "usingComponents": {
+    "van-sticky": "@vant/weapp/sticky/index"
+  }
+}

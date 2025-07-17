@@ -1,0 +1,608 @@
+<!--pages/join/second.wxml-->
+<view class="page">
+
+  <!-- 建材生产企业 -->
+  <block wx:if="{{ groupid == '1' }}">
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field required label="企业资质（必填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.营业执照</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="licenseimg"
+            file-list="{{ licenseimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.品牌logo</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="brandlogo"
+            file-list="{{ brandlogoFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">3.商标证书或品牌授权书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="authcertimg"
+            file-list="{{ authcertimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.荣誉奖项证书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="honorcertimg"
+            file-list="{{ honorcertimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.工厂实景照片</view>
+          <van-uploader 
+            accept="image"
+            max-count="3"
+            multiple="{{ true }}"
+            preview-size="180rpx"
+            name="factoryimgs"
+            file-list="{{ factoryimgsFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+              <view class="upload-container__sign">(最多3张)</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 产品经销商 -->
+  <block wx:if="{{ groupid == '2' }}">
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field required label="企业资质（必填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.营业执照</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="licenseimg"
+            file-list="{{ licenseimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.生产企业品牌授权经销商证书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="authcertimg"
+            file-list="{{ authcertimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">3.门店照片</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="storeimg"
+            file-list="{{ storeimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.产品或企业荣誉证书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="honorcertimg"
+            file-list="{{ honorcertimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 检测机构 -->
+  <block wx:if="{{ groupid == '3' }}">
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field required label="企业资质（必填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.营业执照</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="licenseimg"
+            file-list="{{ licenseimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.资质证书</view>
+          <view class="section-form__upload-tips">提示：对提供的资质证书真实性和有效性承担法律责任</view>
+          <van-uploader 
+            accept="image"
+            max-count="6"
+            multiple="{{ true }}"
+            preview-size="180rpx"
+            name="quacertimgs"
+            file-list="{{ quacertimgsFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+              <view class="upload-container__sign">(最多6张)</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">3.门店照片</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="storeimg"
+            file-list="{{ storeimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">4.品牌logo</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="brandlogo"
+            file-list="{{ brandlogoFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.荣誉证书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="honorcertimg"
+            file-list="{{ honorcertimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 治理机构 -->
+  <block wx:if="{{ groupid == '4' }}">
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field required label="企业资质（必填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.营业执照</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="licenseimg"
+            file-list="{{ licenseimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.资质证书</view>
+          <view class="section-form__upload-tips">提示：对提供的资质证书真实性和有效性承担法律责任</view>
+          <van-uploader 
+            accept="image"
+            max-count="6"
+            multiple="{{ true }}"
+            preview-size="180rpx"
+            name="quacertimgs"
+            file-list="{{ quacertimgsFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+              <view class="upload-container__sign">(最多6张)</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">3.门店照片</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="storeimg"
+            file-list="{{ storeimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">4.品牌logo</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="brandlogo"
+            file-list="{{ brandlogoFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.产品或企业荣誉证书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="honorcertimg"
+            file-list="{{ honorcertimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.实景照片</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="factoryimgs"
+            file-list="{{ factoryimgsFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 装饰公司 -->
+  <block wx:if="{{ groupid == '5' }}">
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field 
+          required 
+          label="企业资质（必填）" 
+          border="{{ false }}" 
+          label-class="section-form__label" 
+        />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.营业执照</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="licenseimg"
+            file-list="{{ licenseimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.门店照片</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="storeimg"
+            file-list="{{ storeimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">3.品牌logo</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="brandlogo"
+            file-list="{{ brandlogoFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.荣誉证书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="honorcertimg"
+            file-list="{{ honorcertimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.资质证书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="quacertimgs"
+            file-list="{{ quacertimgsFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 建材城 -->
+  <block wx:if="{{ groupid == '6' }}">
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field 
+          required 
+          label="企业资质（必填）" 
+          border="{{ false }}" 
+          label-class="section-form__label" 
+        />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.营业执照</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="licenseimg"
+            file-list="{{ licenseimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">2.建材城照片</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="storeimg"
+            file-list="{{ storeimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">3.品牌logo</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="brandlogo"
+            file-list="{{ brandlogoFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+    <view class="section-form">
+      <view class="section-form__wrap">
+        <van-field label="其他资质（选填）" border="{{ false }}" label-class="section-form__label" />
+        <view class="section-form__upload">
+          <view class="section-form__upload-text">1.荣誉奖项证书</view>
+          <van-uploader 
+            accept="image"
+            max-count="1"
+            preview-size="180rpx"
+            name="honorcertimg"
+            file-list="{{ honorcertimgFile }}"
+            bind:after-read="afterRead"
+            bind:delete="removeFile"
+          >
+            <view class="upload-container">
+              <van-icon name="plus" color="#999" size="60rpx" />
+              <view class="upload-container__text">点击上传</view>
+            </view>
+          </van-uploader>
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+  <view class="spacer" />
+
+  <view class="section-form">
+    <van-button type="primary" block bindtap="submit">下一步</van-button>
+  </view>
+
+</view>
+
+<van-notify id="van-notify" />
