@@ -1,0 +1,119 @@
+<!--pages/index/index.wxml-->
+<view class="page">
+	<!-- 吸顶的搜索区域 -->
+	<view class="search-container">
+		<view class="search-bar">
+			<van-dropdown-menu active-color="#1677ff">
+				<van-dropdown-item
+				 value="{{ profession }}"
+				 options="{{ professionOptions }}"
+				 placeholder="选择专业"
+				 bind:change="onProfessionChange"
+				/>
+				<van-dropdown-item
+				 value="{{ title }}"
+				 options="{{ twoOption }}"
+				 placeholder="选择头衔"
+				 bind:change="onTitleChange"
+				/>
+			</van-dropdown-menu>
+		</view>
+		<view class="search-row">
+			<van-field
+			 class="name-input"
+			 value="{{ name }}"
+			 placeholder="姓名/企业名称/证书编号"
+			 border="{{ true }}"
+			 bind:change="onNameChange"
+			 required="{{ true }}"
+			/>
+			<van-button type="primary" size="small" bind:click="onSearch">
+				查询 {{title}}
+			</van-button>
+		</view>
+	</view>
+
+	<!-- 内容区域（需要添加顶部间距，避免被吸顶区域遮挡） -->
+	<view class="container">
+		<view
+		 wx:for="{{loopArray}}"
+		 wx:key="index"
+		 class="result-item"
+		 wx:if="{{ title == '个人会员'}}"
+		>
+			<van-cell-group>
+				<van-cell title="姓名" border="{{ false }}" value="{{ selectedName }}" />
+				<van-cell title="性别" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="类别" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
+				<van-cell title="证书有效期" border="{{ false }}" value="{{ selectedIssueDate }}" />
+				<van-cell title="工作单位" border="{{ false }}" value="{{ selectedWorkUnit }}" />
+			</van-cell-group>
+		</view>
+		<view
+		 wx:for="{{loopArray}}"
+		 wx:key="index"
+		 class="result-item"
+		 wx:if="{{ title == '单位会员'}}"
+		>
+			<van-cell-group>
+				<van-cell title="单位名称" border="{{ false }}" value="{{ selectedName }}" />
+				<van-cell title="类别" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="法人" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
+				<van-cell title="证书有效期" border="{{ false }}" value="{{ selectedIssueDate }}" />
+				<van-cell title="工作单位" border="{{ false }}" value="{{ selectedWorkUnit }}" />
+			</van-cell-group>
+		</view>
+		<view
+		 wx:for="{{loopArray}}"
+		 wx:key="index"
+		 class="result-item"
+		 wx:if="{{ title == 'IFI会员'}}"
+		>
+			<van-cell-group>
+				<van-cell title="姓名" border="{{ false }}" value="{{ selectedName }}" />
+				<van-cell title="性别" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="发证日期" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
+				<van-cell title="发证日期" border="{{ false }}" value="{{ selectedIssueDate }}" />
+
+			</van-cell-group>
+		</view>
+
+		<view
+		 wx:for="{{loopArray}}"
+		 wx:key="index"
+		 class="result-item"
+		 wx:if="{{ profession == '专业会员'}}"
+		>
+			<van-cell-group>
+				<van-cell title="姓名" border="{{ false }}" value="{{ selectedName }}" />
+				<van-cell title="性别" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="工作单位" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="证书等级" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
+				<van-cell title="发证日期" border="{{ false }}" value="{{ selectedIssueDate }}" />
+
+			</van-cell-group>
+		</view>
+
+		<view
+		 wx:for="{{loopArray}}"
+		 wx:key="index"
+		 class="result-item"
+		 wx:if="{{ profession == '企业评价'}}"
+		>
+			<van-cell-group>
+				<van-cell title="企业名称" border="{{ false }}" value="{{ selectedName }}" />
+				<van-cell title="注册地址" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="企业法人" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="证书等级" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
+				<van-cell title="发证日期" border="{{ false }}" value="{{ selectedIssueDate }}" />
+
+			</van-cell-group>
+		</view>
+	</view>
+</view>
+

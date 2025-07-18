@@ -52,7 +52,9 @@
     "pages/vipMenber/index",
     "pages/vipMenber/unit",
     "pages/vipMenber/addform",
-    "pages/vipMenber/qrcode"
+    "pages/vipMenber/qrcode",
+    "pages/vipMenber/member",
+    "pages/vipMenber/search"
   ],
   "window": {
     "backgroundTextStyle": "dark",

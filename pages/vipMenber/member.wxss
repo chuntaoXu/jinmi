@@ -1,0 +1,33 @@
+/* pages/index/index.wxss */
+
+page {
+  background-color: #fff;
+}
+.contain {
+  margin-top: 50rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.company {
+  width: 80%;
+  margin: 0 auto;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #e3f2fd;
+  border-radius: 10rpx;
+  margin: 40rpx 0;
+  text-align: center;
+  padding: 0 20rpx;
+  color: #1976d2;
+}
+.person {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+.book {
+  background-color: #fffde7;
+  color: #bfa100;
+}

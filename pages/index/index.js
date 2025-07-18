@@ -265,9 +265,12 @@ Page({
   },
   onConfirmPicker(e) {
     if (e.detail.index == 0) {
-      console.log('1', 1)
       wx.navigateTo({
         url: '/pages/vipMenber/index'
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/vipMenber/member'
       })
     }
     this.setData({

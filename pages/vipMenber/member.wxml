@@ -1,0 +1,9 @@
+<!--pages/index/index.wxml-->
+<view class="page">
+	<view class="contain">
+		<view class="company" bindtap="showMemberPicker" data-id="1">查询系统</view>
+		<view class="company person" bindtap="showMemberPicker" data-id="2">加入协会</view>
+	</view>
+
+</view>
+
