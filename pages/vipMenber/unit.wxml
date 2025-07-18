@@ -1,0 +1,152 @@
+<view class="page">
+	<view class="notice-content">
+		<view wx:if="{{number == 1}}">
+			<view class="notice-title">中国室内装饰协会单位会员入会须知</view>
+			<view class="notice-section">
+				<view class="notice-section-content">一、凡涉及室内设计、室内陈设、室内环保、室内装饰装修等相关产业，从事设计、陈设、环保、施工、材料、用品、科研科技、流通、教学、中介服务等生产经营企业、事业单位、社会团体，可申请成为本协会单位会员。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">二、入会条件：</view>
+				<view class="notice-section-content">
+					（一）有加入本协会的意愿；</view>
+				<view class="notice-section-content">（二）拥护本协会的章程；
+				</view>
+				<view class="notice-section-content">（三）在本行业领域内具有一定的影响；</view>
+				<view class="notice-section-content">（四）依法登记并取得法人地位。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">三、入会程序：</view>
+				<view class="notice-section-content">（一）提交入会申请书、营业执照复印件、法人身份证复印件及其他相关资料；</view>
+				<view class="notice-section-content">（二）由协会会员部审核后，邮件通知审核结果；</view>
+				<view class="notice-section-content">（三）缴纳会费：</view>
+				<view class="notice-section-content indent">单位会员会费3000元/年；</view>
+				<view class="notice-section-content indent">理事/常务理事单位会费5000元/年；</view>
+				<view class="notice-section-content indent">副会长单位会费30000元/年；</view>
+				<view class="notice-section-content indent">注：首次办理团体会员需缴纳铜牌制作费500元</view>
+				<view class="notice-section-content">（四）由协会会员部颁发会员证书和铜牌。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">四、会员权利：</view>
+				<view class="notice-section-content">（一）使用“中国室内装饰协会会员”名衔；</view>
+				<view class="notice-section-content">（二）本协会的选举权、被选举权和表决权；</view>
+				<view class="notice-section-content">（三）参加本协会的活动；</view>
+				<view class="notice-section-content">（四）获得本协会服务的会员权限；</view>
+				<view class="notice-section-content">（五）对本协会工作的批评建议权和监督权；</view>
+				<view class="notice-section-content">（六）有提请本协会保护其合法权益不受侵害的权力。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">五、会员义务：</view>
+				<view class="notice-section-content">（一）遵守本会的章程和各项规定；</view>
+				<view class="notice-section-content">（二）执行本会的决议；</view>
+				<view class="notice-section-content">（三）按规定交纳会费；</view>
+				<view class="notice-section-content">（四）维护本会的合法权益；</view>
+				<view class="notice-section-content">（五）向本会反映情况，提供有关资料；</view>
+				<view class="notice-section-content">（六）维护本会的声誉；</view>
+				<view class="notice-section-content">（七）完成本会交办的工作。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-content ">六、 会员退会应书面通知本协会，并交回会员证。会员如果2年不交纳会费、2年不参加本协会活动、不再符合会员条件或丧失民事行为能力的，视为自动退会。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">七、其它事项</view>
+				<view class="notice-section-content">（一）中国室内装饰协会会员部</view>
+				<view class="notice-section-content ">电话：010-88312032 88312052</view>
+				<view class="notice-section-content ">地址:北京市西城区车公庄大街9号五栋大楼C座803室</view>
+				<view class="notice-section-content ">电邮：cidahyb@163.com</view>
+				<view class="notice-section-content">（二）汇款账户</view>
+				<view class="notice-section-content ">户名：中国室内装饰协会</view>
+				<view class="notice-section-content ">帐号：0200003609014400248</view>
+				<view class="notice-section-content ">开户行：中国工商银行北京礼士路支行</view>
+				<view class="notice-section-content">（三）有意向申请理事、常务理事、副会长的单位，请在申请表中勾选相关项，根据章程相关规定另行审核。</view>
+			</view>
+		</view>
+		<view wx:if="{{number == 2}}">
+			<view class="notice-title">中国室内装饰协会个人会员入会须知</view>
+			<view class="notice-section">
+				<view class="notice-section-title">一、凡室内装饰以及相关行业领域内的专业人士及从业人员，可申请成为本协会个人会员。个人会员分为两类，第一类为专业会员，第二类为普通会员。</view>
+				<view class="notice-section-content">
+					（一）专业会员；</view>
+				<view class="notice-section-content">凡具有大专以上文化水平，从事室内设计或室内陈设工作二年以上的专业人员，可申请成为中国室内装饰协会专业会员。</view>
+				<view class="notice-section-content">
+					（二）普通会员；</view>
+				<view class="notice-section-content">凡从事室内装饰工程环保、施工、材料、用品、科研科技、流通、教学、中介服务和管理工作的人员，均可申请成为中国室内装饰协会普通会员。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">二、 入会程序：</view>
+				<view class="notice-section-content">
+					（一） 提交入会申请书、学历证明、在职证明、身份证复印件、一寸证件照及其他相关资料；</view>
+				<view class="notice-section-content">（二） 由协会会员部审核后，邮件通知审核结果；
+				</view>
+				<view class="notice-section-content">（三） 缴纳会费：个人会员会费500元/年；</view>
+				<view class="notice-section-content">（四） 由协会会员部颁发会员证书。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">三、会员权利：</view>
+				<view class="notice-section-content">（一） 使用“中国室内装饰协会会员”或“中国室内装饰协会专业会员”名衔；</view>
+				<view class="notice-section-content">（二） 本协会的选举权、被选举权和表决权；</view>
+				<view class="notice-section-content">（三） 参加本协会的活动；</view>
+				<view class="notice-section-content">（四） 获得本协会服务的会员权限；</view>
+				<view class="notice-section-content">（五） 对本协会工作的批评建议权和监督权；</view>
+				<view class="notice-section-content">（六） 有提请本协会保护其合法权益不受侵害的权力。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">四、 会员义务：</view>
+				<view class="notice-section-content">（一） 遵守本会的章程和各项规定；</view>
+				<view class="notice-section-content">（二） 执行本会的决议；</view>
+				<view class="notice-section-content">（三） 按规定交纳会费；</view>
+				<view class="notice-section-content">（四） 维护本会的合法权益；</view>
+				<view class="notice-section-content">（五） 向本会反映情况，提供有关资料；</view>
+				<view class="notice-section-content">（六） 维护本会的声誉；</view>
+				<view class="notice-section-content">（七） 完成本会交办的工作。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">五、 会员退会应书面通知本协会，并交回会员证。会员如果2年不交纳会费、2年不参加本协会活动、不再符合会员条件或丧失民事行为能力的，视为自动退会。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">六、 其它事项</view>
+				<view class="notice-section-content">（一）中国室内装饰协会会员部</view>
+				<view class="notice-section-content "> 电话：010-88312032 88312052</view>
+				<view class="notice-section-content "> 地址:北京市西城区车公庄大街9号五栋大楼C座803室</view>
+				<view class="notice-section-content "> 电邮：cidahyb@163.com</view>
+				<view class="notice-section-content">（二）汇款账户</view>
+				<view class="notice-section-content ">户名：中国室内装饰协会</view>
+				<view class="notice-section-content ">帐号：0200003609014400248</view>
+				<view class="notice-section-content ">开户行：中国工商银行北京礼士路支行</view>
+				<view class="notice-section-content">（三） 有意向申请理事、常务理事、副会长的个人，请在申请表中勾选相关项，根据章程相关规定另行审核。</view>
+			</view>
+		</view>
+		<view wx:if="{{number == 3}}">
+			<view class="notice-title">中国室内装饰协会会员证书年检须知</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">一、纸质资料</view>
+				<view class="notice-section-content comeCenter "> 旧证书原件；</view>
+				<view class="notice-section-content comeCenter"> 一张一寸证件照（底色不限）；</view>
+				<view class="notice-section-content comeCenter"> 证书回寄信息（姓名、联系电话、邮寄地址、邮箱）；</view>
+				<view class="notice-section-content comeCenter"> 发票抬头（个人或单位+税号）；</view>
+				<view class="notice-section-content comeCenter"> 证书年检费用汇款凭证（备注会费和年检人姓名）；</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">二、收费标准</view>
+				<view class="notice-section-content comeCenter">500元/年；</view>
+
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">三、邮寄地址</view>
+				<view class="notice-section-content comeCenter"> 中国室内装饰协会会员部；</view>
+				<view class="notice-section-content comeCenter"> 电话：010-88312032 88312052；</view>
+				<view class="notice-section-content comeCenter"> 电邮：cidahyb@163.com；</view>
+
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">四、汇款账户</view>
+				<view class="notice-section-content comeCenter"> 户名：中国室内装饰协会；</view>
+				<view class="notice-section-content comeCenter"> 帐号：0200003609014400248；</view>
+				<view class="notice-section-content comeCenter"> 开户行：中国工商银行北京礼士路支行；</view>
+
+			</view>
+		</view>
+	</view>
+	<view class="button-section{{time !== 0 ? ' button-disabled' : ''}}" wx:if="{{time !== 0}}"> 请阅读文件{{time}}秒</view>
+	<view class="button-section" wx:else>加入协会</view>
+</view>
+

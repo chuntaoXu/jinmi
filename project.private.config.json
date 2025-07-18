@@ -7,8 +7,15 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/vipMenber/index",
-          "pathName": "pages/vipMenber/index",
+          "name": "pages/vipMenber/qrcode",
+          "pathName": "pages/vipMenber/qrcode",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/join/second",
+          "pathName": "pages/join/second",
           "query": "",
           "launchMode": "default",
           "scene": null

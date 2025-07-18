@@ -49,7 +49,10 @@
     "pages/live/player/player",
     "pages/live/h5/h5",
     "pages/live/richTxt/richTxt",
-    "pages/vipMenber/index"
+    "pages/vipMenber/index",
+    "pages/vipMenber/unit",
+    "pages/vipMenber/addform",
+    "pages/vipMenber/qrcode"
   ],
   "window": {
     "backgroundTextStyle": "dark",

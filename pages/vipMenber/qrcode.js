@@ -1,5 +1,6 @@
-// pages/index/index.js
-
+const app = getApp()
+const UTILS = app.requirejs('util')
+const BASE_URL = app.globalData.BASE_URL
 Page({
   /**
    * 页面的初始数据
@@ -10,12 +11,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {},
+  /**
+   * 启动倒计时
+   */
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {},
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -29,20 +32,25 @@ Page({
    * 获取基本信息
    */
   getInfo() {},
-  showMemberPicker(e) {
-    let id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: `/pages/vipMenber/unit?id=${id}`
-    })
-  },
+  showMemberPicker(e) {},
   /**
    * 扫一扫
    */
   scanCode() {},
   /**
-   * 跳转小程序
+   * 长按保存二维码
    */
-
+  saveQrcode() {
+    wx.saveImageToPhotosAlbum({
+      filePath: '/images/scgc.png',
+      success: () => {
+        wx.showToast({ title: '已保存到相册，可在微信添加客服', icon: 'none' })
+      },
+      fail: () => {
+        wx.showToast({ title: '保存失败，请检查权限', icon: 'none' })
+      }
+    })
+  },
   onClose() {},
 
   /**

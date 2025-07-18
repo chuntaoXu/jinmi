@@ -26,7 +26,12 @@ Page({
     page: 1,
     hasMore: true,
     isLoading: true,
-    share: ''
+    share: '',
+    showGo: false,
+    columns: [
+      { text: '入会须知', value: '1' },
+      { text: '会员查询', value: '2' }
+    ]
   },
 
   /**
@@ -247,7 +252,28 @@ Page({
       })
     }
   },
-
+  // 会员之家
+  showMemberPicker() {
+    this.setData({
+      showGo: true
+    })
+  },
+  onCancelPicker() {
+    this.setData({
+      showGo: false
+    })
+  },
+  onConfirmPicker(e) {
+    if (e.detail.index == 0) {
+      console.log('1', 1)
+      wx.navigateTo({
+        url: '/pages/vipMenber/index'
+      })
+    }
+    this.setData({
+      showGo: false
+    })
+  },
   /**
    * 扫一扫
    */

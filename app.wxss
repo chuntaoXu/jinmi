@@ -2,37 +2,35 @@
 
 /**app.wxss**/
 page {
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
-    Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
   background-color: #f7f7f7;
   --page: #f7f7f7;
   --develop-color: #f2f3f5;
-  --theme-color: #3FBB5D;
-  --dark-theme-color: #40BC5E;
-  --plain-theme-color: #F6FCF7;
-  --color-red: #F90F1F;
-  --color-orange: #FAA114;
+  --theme-color: #3fbb5d;
+  --dark-theme-color: #40bc5e;
+  --plain-theme-color: #f6fcf7;
+  --color-red: #f90f1f;
+  --color-orange: #faa114;
   --text-primary: #333;
   --text-secondary: #999;
   --text-light: #666;
   --text-size: 30rpx;
   --border: #ccc;
   --light-border: #e1e1e1;
-  --dark-border: #9A9A9A;
+  --dark-border: #9a9a9a;
   --button-normal-font-size: 32rpx;
   --button-border-radius: 10rpx;
-  --button-primary-background-color: #3FBB5D;
-  --button-primary-border-color: #3FBB5D;
+  --button-primary-background-color: #3fbb5d;
+  --button-primary-border-color: #3fbb5d;
   --tab-text-color: #333;
   --cell-font-size: 30rpx;
   --field-label-color: #333;
   --tab-font-size: 30rpx;
-  --tab-active-text-color: #3FBB5D;
+  --tab-active-text-color: #3fbb5d;
   --tabs-bottom-bar-height: 10rpx;
-  --tabs-bottom-bar-color: #3FBB5D;
+  --tabs-bottom-bar-color: #3fbb5d;
   --index-anchor-line-height: 88rpx;
-  --tag-primary-color: #3FBB5D;
+  --tag-primary-color: #3fbb5d;
 }
 
 .page {
@@ -47,7 +45,7 @@ page {
 
 .arrow-right::after,
 .arrow-down::after {
-  content: " ";
+  content: ' ';
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -175,4 +173,15 @@ page {
 /* reset vant */
 .van-tab {
   font-weight: 500 !important;
+}
+
+.padleft30 {
+  padding-left: 32rpx;
+}
+.blick_title {
+  padding: 32rpx 32rpx;
+  color: rgba(69, 90, 100, 0.6);
+  font-weight: normal;
+  font-size: 28rpx;
+  line-height: 32rpx;
 }

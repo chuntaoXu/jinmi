@@ -1,0 +1,10 @@
+<view class="page">
+	<view class="container">
+		<view class="message">资料审核中，请添加微信客服了解审核进度。</view>
+		<view class="qrcode">
+			<image src="/images/qr.jpg" mode="aspectFit" show-menu-by-longpress="{{true}}" />
+		</view>
+		<view class="footer">长按二维码添加微信客服，获取审核进度更新。</view>
+	</view>
+</view>
+

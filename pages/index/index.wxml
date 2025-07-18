@@ -43,12 +43,12 @@
 	<!-- navs -->
 	<view class="section-cube">
 		<!-- navs -->
-		<view>会员之家</view>
+		<view bindtap="showMemberPicker">会员之家</view>
 		<block wx:for="{{ navs }}" wx:key="index">
 			<view class="section-cube__item" wx:if="{{ item.url == 'scanCode' }}">
 				<view class="section-cube__item-entry" bindtap="scanCode" wx:if="{{!reAuth}}">
 					<image src="{{ item.icon }}" class="section-cube__item-entry--icon" />
-					<view class="section-cube__item-entry--text">{{ item.navname }}22</view>
+					<view class="section-cube__item-entry--text">{{ item.navname }}</view>
 				</view>
 				<button
 				 class="section-cube__item-entry btn-normal"
@@ -58,7 +58,7 @@
 				 bindopensetting="checkOpenSetting"
 				>
 					<image src="{{ item.icon }}" class="section-cube__item-entry--icon" />
-					<view class="section-cube__item-entry--text">{{ item.navname }}22</view>
+					<view class="section-cube__item-entry--text">{{ item.navname }}</view>
 				</button>
 			</view>
 			<view class="section-cube__item" wx:else>
@@ -188,5 +188,23 @@
 	<view class="scancode-result-handle">
 		<van-button type="primary" bindtap="navToMp">确认跳转</van-button>
 	</view>
+</van-popup>
+
+<van-popup
+ show="{{ showGo }}"
+ destroy-on-close
+ round
+ position="bottom"
+ bind:close="onClosePicker"
+ custom-style="height:360rpx"
+>
+	<van-picker
+	 show-toolbar
+	 title="会员之家"
+	 value="{{ pickerValue }}"
+	 columns="{{ columns }}"
+	 bind:cancel="onCancelPicker"
+	 bind:confirm="onConfirmPicker"
+	/>
 </van-popup>
 

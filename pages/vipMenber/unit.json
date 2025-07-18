@@ -1,6 +1,6 @@
 {
-  "navigationBarTitleText": "入会须知",
-  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
   "usingComponents": {
     "van-popup": "@vant/weapp/popup/index",
     "van-sticky": "@vant/weapp/sticky/index",
