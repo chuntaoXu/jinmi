@@ -1,0 +1,62 @@
+<view class="page">
+	<view class="notice-content">
+		<view class="form-card">
+			<van-cell-group>
+				<van-field
+				 label="姓名"
+				 placeholder="请输入姓名"
+				 value="{{ msgCode }}"
+				 clearable
+				 center
+				 custom-class="field-item"
+				 required="true"
+				/>
+				<van-field
+				 label="联系电话"
+				 placeholder="请输入联系电话"
+				 value="{{ contactName }}"
+				 clearable
+				 center
+				 custom-class="field-item"
+				 required="true"
+				/>
+				<van-field
+				 label="报考城市"
+				 placeholder="请输入报考城市"
+				 value="{{ contactPhone }}"
+				 clearable
+				 center
+				 custom-class="field-item"
+				 required="true"
+				/>
+				<view>
+					<view class="blick_title goPadding">
+						<span style="color: #ee0a24; position: absolute;left: 16rpx;  font-size: 32rpx;">*</span>
+						资料上传
+					</view>
+					<view class="blick_titleGo">
+						<text style="color:#ee0a24;font-weight:bold;">温馨提示：</text>
+						<br/>
+						至少上传1个文件，最多上传6个文件，上传格式仅限： .jpg .png .pdf，单文件小于2M</view>
+					<view class="padleft30">
+						<van-uploader
+						 accept="image"
+						 max-count="6"
+						 max-size="2097152"
+						 preview-size="180rpx"
+						 name="licenseimg"
+						 use-before-read
+						 bind:before-read="beforeRead"
+						 file-list="{{ licenseimgFile }}"
+						 bind:after-read="afterRead"
+						 bind:delete="removeFile"
+						/>
+					</view>
+				</view>
+				<view class="button-section">提交报名</view>
+			</van-cell-group>
+		</view>
+	</view>
+
+</view>
+

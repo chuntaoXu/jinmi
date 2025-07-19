@@ -1,0 +1,353 @@
+<view class="page">
+	<view class="notice-content">
+		<view wx:if="{{number == 1}}">
+			<view class="notice-section">
+				<view class="notice-section-content">室内设计水平集中展现企业在室内空间规划方面的能力，能够依
+					据空间用途、使用者行为习惯及需求，科学合理地划分空间区域、功
+					能布局与流线，实现空间的高效利用；在功能布局设计上，精准布局
+					各功能区域，确保不同功能空间相互协调，满足室内设计的科学性、
+					合理性、实用性、经济性、艺术性、安全性，满足人们日常生活与工
+					作的多样化需求；美学设计方面，运用色彩搭配原理、材质特性及造
+					型设计手法，营造出具有独特美感与艺术氛围的室内环境。 </view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">1.项目经验：</view>
+				<view class="fornitSize comeCenter">1.1特级 </view>
+				<view class="notice-section-content comeCenter">
+					8近 3 年内，企业累计独立承担不少于 5 项大型室内设计项目（包
+					括大型商业综合体、高端酒店、养老院、图书馆、大型三甲医院、大
+					型公共交通枢纽、甲级写字楼等），项目面积累计超过 3 万平方米。
+					在设计成果方面表现卓越，至少有 3 个项目荣获国家级设计奖项，充
+					分证明其在行业内顶尖的设计实力与广泛影响力。 </view>
+				<view class="fornitSize comeCenter">1.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计承担不少于 3 项中型室内设计项目，项目面积累
+					计超过 1 万平方米。至少有 1 个项目获得省级设计奖项，在区域设计
+					领域具有较强竞争力。 </view>
+				<view class="fornitSize comeCenter">1.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计承担不少于 2 项室内设计项目，项目面积累计超
+					过 2500 平方米。企业能够准确把握客户需求，设计方案在功能布局
+					与美学设计上满足客户期望，且在项目实施过程中未出现因设计不合
+					理导致的重大设计变更，展现出扎实的设计能力。 </view>
+				<view class="fornitSize comeCenter">1.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计承担室内设计项目面积不低于 1000 平方米。企
+					业能够较好地完成项目设计任务，为客户提供优质的设计服务，具备
+					一定的室内设计实践经验。 </view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">2. 设计团队：</view>
+				<view class="fornitSize comeCenter">2.1 特级</view>
+				<view class="notice-section-content comeCenter">
+					拥有一支高素质、多专业、多元化的设计团队，具备统筹大型项
+					目总体方案设计的能力，团队成员不少于 20 名持证室内设计师，所
+					持证书为国家有关部门或协会颁发。其中，持有高级设计师证书占比
+					不低于 30%。团队具备跨学科知识结构，成员不仅精通室内设计专业
+					知识，还涵盖建筑、机电、智能化、艺术等相关领域知识，能够熟练
+					9运用前沿设计理念，以及先进的设计技术，为项目提供全方位创新设
+					计解决方案。 </view>
+				<view class="fornitSize comeCenter">2.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					团队拥有不少于 10 名持证室内设计师，其中持有高级设计师证
+					书占比不低于 20%。团队成员熟练掌握相关设计软件，能够高效完成
+					设计方案的绘制与表现。团队注重学习与交流，参加行业培训与研讨
+					会，及时掌握行业最新设计趋势与技术，将其应用于实际项目中，提
+					升项目设计质量。 </view>
+				<view class="fornitSize comeCenter">2.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					拥有不少于 5 名持证室内设计师，团队成员具备扎实的专业基础
+					知识与丰富的实践经验，能够独立完成常规室内设计项目，从项目前
+					期沟通、方案设计到施工图绘制、现场指导等，均能按照行业标准与
+					规范操作。团队内部注重协作与沟通，确保设计方案的顺利推进与有
+					效实施。 </view>
+				<view class="fornitSize comeCenter">2.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					拥有不少于 3 名持证室内设计师，这些人员经过专业培训，掌握
+					室内设计技能，具有一定设计经验。 </view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">3.设计创新 ：</view>
+				<view class="fornitSize comeCenter">3.1特级 </view>
+				<view class="notice-section-content comeCenter">
+					在设计理念方面，勇于突破传统，引领行业设计潮流，提出并实
+					践具有前瞻性的设计理念，积极将人工智能技术应用于室内设计。在
+					技术应用上，拥有自主研发的创新设计技术，如新型空间建模技术、
+					智能灯光设计系统等，并在行业内推广应用，为推动室内设计行业技
+					术进步做出重要贡献。 </view>
+				<view class="fornitSize comeCenter">3.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					有设计创新成果，在行业内具有一定影响力。能够积极引入国内
+					外先进的设计方法与技术，并根据本地实际情况进行优化与创新，融
+					入实际项目中，提升项目的创新性与市场竞争力。 </view>
+				<view class="fornitSize comeCenter">3.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					能够在项目中熟练应用成熟的创新设计方法和技术，如模块化设
+					计、无障碍设计等，满足客户日益多样化的个性化需求。通过深入了
+					解客户工作生活习惯与审美偏好，在设计方案中巧妙融入创新元素，
+					为客户提供具有独特体验的室内空间设计。 </view>
+				<view class="fornitSize comeCenter">3.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					具备基本的设计创新意识，在设计项目中尝试采用新的设计思路
+					和方法</view>
+			</view>
+
+		</view>
+		<view wx:if="{{number == 2}}">
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">1.项目经验：</view>
+				<view class="fornitSize comeCenter">1.1特级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计完成不少于 10 项大型陈设艺术设计项目，项目
+					类型包括高端酒店、顶级私人会所、大型艺术展厅等，或项目合同金
+					额累计超过 1500 万元，含设计、采买、落地金额。在设计成果方面
+					表现突出，至少有 3 个项目获得国家级相关奖项，在全国陈设艺术设
+					计领域处于领先地位，具有广泛的行业影响力。 </view>
+				<view class="fornitSize comeCenter">1.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计完成不少于 8 项中型陈设艺术设计项目，项目合
+					同金额累计超过 1000 万元。企业凭借创新的设计方案，至少有 1 个
+					项目获得省级相关奖项，在陈设艺术设计市场具有较强竞争力，能够
+					为客户提供高品质的陈设艺术设计服务。 </view>
+				<view class="fornitSize comeCenter">1.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计完成不少于 5 项陈设艺术设计项目，项目合同金
+					额累计超过 500 万元。企业能够深入了解客户需求，提供专业的陈设
+					艺术设计方案，并确保项目顺利实施，在行业内积累了良好的口碑。 </view>
+				<view class="fornitSize comeCenter">1.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计完成至少 3 项陈设艺术设计项目，项目合同金额
+					累计不低于 300 万元。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">2. 设计团队：</view>
+				<view class="fornitSize comeCenter">2.1 特级</view>
+				<view class="notice-section-content comeCenter">
+					拥有一支专业且富有创造力的设计团队，团队成员不少于 15 名
+					持证陈设艺术设计师，所持证书为国家有关部门或协会颁发。其中，
+					高级设计师证书占比不低于 30%。企业能够将前沿艺术理念与高端品
+					牌资源融入设计项目中。团队具备强大的创新能力与项目执行能力，
+					能够应对各类复杂项目的设计需求。 </view>
+				<view class="fornitSize comeCenter">2.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					拥有不少于 8 名陈设艺术设计师，其中高级设计师占比不低于
+					20%。企业具备敏锐的时尚洞察力与创新思维，能够准确把握市场流
+					行趋势，为客户打造具有创新性与市场竞争力的设计方案。在项目执
+					行过程中，团队能够高效协调各方资源，确保设计方案的完美落地。 </view>
+				<view class="fornitSize comeCenter">2.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					拥有不少于 5 名陈设艺术设计师，团队成员具备丰富的陈设艺术
+					设计实践经验，熟悉各类陈设产品的特性与搭配技巧。能够根据不同
+					项目特点，制定合理的陈设艺术设计方案，并在项目实施过程中，与客户保持密切沟通，及时调整方案，确保客户满意度。 </view>
+				<view class="fornitSize comeCenter">2.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					拥有不少于 3 名陈设艺术设计师，这些人员经过专业培训，具有
+					陈设艺术设计经验。 </view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">3.创意与效果 ：</view>
+				<view class="fornitSize comeCenter">3.1特级 </view>
+				<view class="notice-section-content comeCenter">
+					设计作品具有很高的艺术价值与创新性，在行业内具有广泛影响
+					力，能够引领陈设艺术设计潮流。作品在空间氛围营造上独具匠心，
+					通过巧妙的设计，打造出独特的艺术氛围；在陈设搭配上，突破传统
+					思维，将不同风格、材质的陈设产品进行创新组合，形成极具视觉冲
+					击力的效果，提升室内空间的品质和氛围，给人在满足使用功能前提
+					下，有视觉的艺术享受，成为行业学习与借鉴的典范。 </view>
+				<view class="fornitSize comeCenter">3.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					设计作品具有较强的创意与市场竞争力，在区域内具有较高知名
+					度。能够深入挖掘客户需求，结合室内空间的特点，将创意元素与实
+					用功能相结合，为客户打造独特的空间氛围。 </view>
+				<view class="fornitSize comeCenter">3.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					设计作品能够满足客户需求，在空间氛围营造和陈设搭配上具有
+					专业性与美感。注重色彩协调、材质质感与空间比例，营造出和谐舒
+					适的空间氛围，提升客户使用体验。 </view>
+				<view class="fornitSize comeCenter">3.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					设计作品能够体现陈设艺术设计原则，达到客户对空间装饰的要
+					求</view>
+			</view>
+		</view>
+		<view wx:if="{{number == 3}}">
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">1.项目经验：</view>
+				<view class="fornitSize comeCenter">1.1特级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计完成不少于 5000 套家装项目，或项目面积累计
+					超过 15 万平方米。这些家装项目在设计风格上融合国际前沿潮流与
+					本土文化特色，施工工艺采用行业顶尖标准，选用的材料均为国际国
+					内一线品牌。凭借卓越的服务品质，客户满意度较高，企业通过这些
+					优质项目积累了丰富的客户资源，在家装市场树立了良好的口碑与品
+					牌形象。 </view>
+				<view class="fornitSize comeCenter">1.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计完成不少于 1500 套家装项目，或项目面积累计
+					超过 5 万平方米。项目涵盖不同价位段，满足多样化的客户需求。通
+					过优质的服务与出色的项目成果，客户满意度高，在区域家装市场具
+					有一定的影响力，拥有稳定的客户群体和市场份额。 </view>
+				<view class="fornitSize comeCenter">1.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计完成不少于 900 套家装项目，或项目面积累计超
+					过 3 万平方米。企业严格按照合同约定，从设计方案的精心制定，到
+					施工过程的严格把控，再到项目的按时交付，均做到质量可靠、服务
+					周到。客户满意度高，注重客户口碑，积极收集客户反馈，不断改进
+					服务质量。 </view>
+				<view class="fornitSize comeCenter">1.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					近 3 年内，累计完成至少 300 套家装项目，或项目面积累计超过
+					2 万平方米。企业能够完成家装项目的施工任务，为客户提供优质家
+					装服务。客户满意度高，在服务过程中，不断总结经验，提升服务水
+					平，逐步积累客户资源。 </view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">2. 服务体系：</view>
+				<view class="fornitSize comeCenter">2.1 特级</view>
+				<view class="notice-section-content comeCenter">
+					建立了一套完善且精细的家装家居服务全流程管理体系。在项目
+					前期，通过深入的客户需求调研，运用大数据分析和个性化咨询服务，
+					为客户量身定制设计方案；施工过程中，利用先进的项目管理软件，
+					实现对工程质量、进度、安全的实时监控与精准管理，严格执行标准
+					化施工工艺；材料供应方面，与国内外优质供应商建立长期战略合作
+					关系，确保材料品质与供应稳定性；售后服务环节，设立客户服务热
+					线，提供定期回访、免费维修保养、产品升级等全方位服务，服务流
+					程标准化、信息化程度高，为客户提供一站式、全方位的优质服务体
+					验。 </view>
+				<view class="fornitSize comeCenter">2.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					建立了较为完善的施工质量管理和售后服务制度。在施工质量管
+					理方面，制定了详细的施工标准和验收流程，对施工过程中的每一个
+					环节进行严格把控，采用先进的检测设备和技术，确保工程质量符合
+					行业规范；售后服务方面，设立了专门的售后客服团队，配备专业的
+					维修人员，能够及时响应客户售后需求，为客户提供快速、高效的售
+					后保障。 </view>
+				<view class="fornitSize comeCenter">2.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					建立了施工管理和售后服务流程。施工管理方面，明确了施工人
+					员的职责和操作规范，对施工过程进行分段验收，确保施工质量；售
+					后服务方面，制定了售后流程，能够及时处理客户的常见问题，为客
+					户提供一定期限的质保服务，保障客户售后需求。 </view>
+				<view class="fornitSize comeCenter">2.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					具备施工组织和售后服务能力。施工组织上，能够合理安排施工
+					15人员和施工进度，完成家装项目的施工任务；售后服务方面，能够在
+					客户提出售后需求后的合理时间内进行响应与处理，为客户提供一定
+					期限的质保服务，逐步提升售后服务水平。 </view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">3.创意与效果 ：</view>
+				<view class="fornitSize comeCenter">3.1特级 </view>
+				<view class="notice-section-content comeCenter">
+					在全国范围内具有较高的品牌知名度和美誉度，成为家装家居服
+					务领域的标杆企业。通过积极参与国内外行业展会，展示最新的设计
+					理念和施工工艺；举办高端品牌推广活动，邀请行业专家、知名设计
+					师和高端客户参与；在行业内树立了卓越的品牌形象，品牌影响力辐
+					射全国。 </view>
+				<view class="fornitSize comeCenter">3.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					在省内具有较强的品牌影响力，通过有效的市场推广策略，提升
+					品牌知名度；凭借优质的服务和良好的项目成果，在当地获得较高的
+					市场份额和客户认可度，成为当地消费者信赖的家装品牌。 </view>
+				<view class="fornitSize comeCenter">3.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					在当地市场具有一定的品牌知名度，通过客户口碑传播和参与本
+					地小型家装展会等方式，逐渐积累品牌知名度。能够为客户提供具有
+					性价比的家装服务，在当地市场形成一定的客户群体，品牌形象逐步
+					树立。 </view>
+				<view class="fornitSize comeCenter">3.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					通过优质的家装服务，在当地市场开始积累客户资源和口碑。积
+					极参与社区活动、与周边商家合作等方式，提升品牌在当地的曝光度，
+					逐步建立品牌形象</view>
+			</view>
+		</view>
+		<view wx:if="{{number == 4}}">
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">1.技术应用 ：</view>
+				<view class="fornitSize comeCenter">1.1特级 </view>
+				<view class="notice-section-content comeCenter">
+					在项目中全面且深入地应用绿色环保技术。从设计阶段开始，融
+					入绿色设计理念；施工阶段，应用先进的绿色施工工艺，如装配式装
+					修技术，减少现场施工污染和资源浪费；材料选用上，严格筛选符合
+					国际高环保标准的材料，应用面积达 50％以上，确保室内空气质量。
+					企业具备强大的技术研发能力，至少有 3 项自主研发的绿色环保技术
+					成果，并在实际项目中得到成功应用和广泛推广。 </view>
+				<view class="fornitSize comeCenter">1.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					在项目中广泛应用绿色环保技术，且在技术创新方面表现突出；
+					在环保材料替代方面，研发并应用新型环保材料，减少甲醛等有害物
+					质释放。拥有 1 项以上绿色环保技术创新成果，在行业内具有示范作
+					用，引领行业绿色发展潮流。 </view>
+				<view class="fornitSize comeCenter">1.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					在项目中应用绿色环保技术，将绿色环保理念融入项目实施过程。
+					在材料管理方面，建立了完善的绿色环保材料采购和使用管理制度，
+					从源头上确保材料的环保性。制定详细的绿色环保材料采购标准，优
+					先选用获得环保认证、低污染、低能耗的材料，并建立材料使用台账，
+					对材料的使用情况进行跟踪记录，确保材料使用的合理性与环保性。
+					在施工过程中，严格按照绿色施工规范进行操作，减少施工过程中的
+					污染与能耗。 </view>
+				<view class="fornitSize comeCenter">1.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					在项目中应用绿色环保技术，逐步提升企业的绿色环保意识与能
+					力。在材料选用环节，严格遵循环保标准，优先选用符合国家标准的
+					装饰材料，减少有害物质的使用。建立材料筛选机制，对供应商提供
+					17的材料进行严格审查，确保材料的环保性能。在满足项目设计与功能
+					需求的前提下，选用环保材料，为客户打造相对健康的室内环境。 </view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">2. 环保认证 ：</view>
+				<view class="fornitSize comeCenter">2.1 特级</view>
+				<view class="notice-section-content comeCenter">
+					积极参与各类绿色环保认证，获得至少 2 项国家级绿色环保认
+					证。企业在绿色环保领域具有卓越表现与领先地位，在绿色设计、绿
+					色施工、绿色材料生产与应用等方面具有较强综合实力。 </view>
+				<view class="fornitSize comeCenter">2.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					获得省级绿色环保认证，企业在行业内的绿色环保工作得到认可。
+					企业通过认证不断完善自身的绿色环保管理体系，提升绿色发展能力，
+					树立了良好的绿色环保形象。 </view>
+				<view class="fornitSize comeCenter">2.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					获得相关绿色环保产品认证或企业环保资质认证，证明其在绿色
+					环保方面的努力和成效。通过认证，企业进一步规范自身环保行为，
+					加强环保管理，提高环保水平。 </view>
+				<view class="fornitSize comeCenter">2.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					积极参与绿色环保认证工作，主动了解和学习绿色环保认证标准
+					和要求，具备基本的环保合规条件，逐步完善企业的环保措施和管理
+					体系。 </view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title fornitSize">3.节能减排 ：</view>
+				<view class="fornitSize comeCenter">3.1特级 </view>
+				<view class="notice-section-content comeCenter">
+					在项目实施过程中，通过优化设计、采用节能设备和技术等措施，
+					显著降低能源消耗和污染物排放；在设备选型上，通过智能控制系统
+					18实现能源的精准管理。在施工过程中，采用先进的节水、节电技术和
+					设备，对施工废弃物进行分类回收和再利用，在节能减排方面具有突
+					出表现，为行业树立了节能减排的典范。 </view>
+				<view class="fornitSize comeCenter">3.2一级 </view>
+				<view class="notice-section-content comeCenter">
+					能够采取有效措施实现节能减排目标，在施工过程中合理控制能
+					源消耗和废弃物排放。制定详细的节能减排计划，明确各阶段的节能
+					减排目标和措施，提高设备能源利用效率。对施工废弃物进行分类处
+					理，回收可再利用的材料，减少废弃物的排放。 </view>
+				<view class="fornitSize comeCenter">3.3二级 </view>
+				<view class="notice-section-content comeCenter">
+					具备节能减排意识，在项目中采取基本的节能措施和环保施工方
+					法；降低施工过程中的能源消耗；对施工产生的粉尘、噪声等污染物
+					采取有效的控制措施，减少对周边环境的影响。 </view>
+				<view class="fornitSize comeCenter">3.4三级 </view>
+				<view class="notice-section-content comeCenter">
+					关注节能减排问题，逐步改进施工过程中的能源利用和环保措施。
+					对施工废弃物进行分类处理，积极学习节能减排知识，不断提高节能
+					减排意识和能力。</view>
+			</view>
+		</view>
+	</view>
+	<view class="button-section{{time !== 0 ? ' button-disabled' : ''}}" wx:if="{{time !== 0}}"> 请阅读文件（{{time}}秒后可操作</view>
+	<view class="button-section" wx:else bindtap="onSubmit">申报企业水平评价</view>
+</view>
+

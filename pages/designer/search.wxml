@@ -1,0 +1,43 @@
+<!--pages/index/index.wxml-->
+<view class="page">
+	<!-- 吸顶的搜索区域 -->
+	<view class="search-container">
+		<view class="search-bar">
+			<van-field
+			 class="name-input"
+			 value="{{ name }}"
+			 placeholder="请输入证件标号（可选）"
+			 border="{{ true }}"
+			/>
+
+		</view>
+		<view class="search-row">
+			<van-field
+			 class="name-input"
+			 value="{{ name }}"
+			 placeholder="请输入证件标号（可选）"
+			 border="{{ true }}"
+			/>
+			<van-button type="primary" size="small" bind:click="onSearch">
+				查询
+			</van-button>
+		</view>
+	</view>
+
+	<!-- 内容区域（需要添加顶部间距，避免被吸顶区域遮挡） -->
+	<view class="container">
+		<view wx:for="{{loopArray}}" wx:key="index" class="result-item">
+			<van-cell-group>
+				<van-cell title="姓名" border="{{ false }}" value="{{ selectedName }}" />
+				<van-cell title="性别" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="类别" border="{{ false }}" value="{{ selectedGender }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
+				<van-cell title="证书有效期" border="{{ false }}" value="{{ selectedIssueDate }}" />
+				<van-cell title="工作单位" border="{{ false }}" value="{{ selectedWorkUnit }}" />
+			</van-cell-group>
+		</view>
+
+	</view>
+	<view class="button-section" bindtap="comeGo">点击报名</view>
+</view>
+

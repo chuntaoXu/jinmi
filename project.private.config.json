@@ -7,6 +7,41 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/interior/index",
+          "pathName": "pages/interior/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/interior/unit",
+          "pathName": "pages/interior/unit",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/designer/search",
+          "pathName": "pages/designer/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/designer/chose",
+          "pathName": "pages/designer/chose",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/designer/unit",
+          "pathName": "pages/designer/unit",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/vipMenber/search",
           "pathName": "pages/vipMenber/search",
           "query": "",

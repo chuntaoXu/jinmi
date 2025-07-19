@@ -1,0 +1,82 @@
+<view class="page">
+	<view class="notice-content">
+		<view>
+			<view class="notice-title">室内设计师专业技能（水平）评价介绍</view>
+			<view class="notice-section">
+				<view class="notice-section-content">中室协室内设计师专业技能（水平）评价考试是中国室内装饰协会（CIDA）组织的一项职业技能评价考试，旨在推动室内装饰行业人才战略实施，构建符合我国国情的室内设计专业人才培养体系3。以下是具体介绍：</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">
+					<view class="notice-section-title-icon" />
+					认证级别：
+				</view>
+				<view class="notice-section-content comeCenter">
+					<view class="emptyRound" />
+					初级室内设计师：侧重考查理论知识，适合室内设计相关专业在校学生、初级室内设计从业者、准从业者等报考。
+				</view>
+				<view class="notice-section-content comeCenter">
+					<view class="emptyRound" />
+					中级室内设计师：侧重考查理论知识和实践技能，适合相关企业管理人员、项目经理人、有一定项目设计经验从业者报考。
+				</view>
+				<view class="notice-section-content comeCenter">
+					<view class="emptyRound" />
+					高级室内设计师：侧重考查综合素质和专业水平，适合资深室内设计从业人员、室内设计行业高级管理人员、高校教师等报考。
+				</view>
+			</view>
+
+			<view class="notice-section">
+				<view class="notice-section-title">
+					<view class="notice-section-title-icon" />
+					报考条件：
+				</view>
+				<view class="notice-section-content comeCenter">
+					<view class="emptyRound" />
+					初级：从事设计等相关工作、就读或毕业于室内设计等相关专业。
+				</view>
+				<view class="notice-section-content comeCenter">
+					<view class="emptyRound" />
+					中级：在满足初级申报条件的基础上，至少满足一项以下条件：在室内设计等相关领域工作满 3 年；毕业于室内设计等相关专业；获得过室内设计相关的省级及以上比赛奖项；通过室内设计师专业技能 (水平) 评价初级考试。
+				</view>
+				<view class="notice-section-content comeCenter">
+					<view class="emptyRound" />
+					高级：在满足中级申报条件的基础上，至少满足一项以下条件：获得室内设计相关专业本科及以上学历；在室内设计等相关领域工作满 5 年；获得室内设计相关的全国性比赛奖项；出版过室内设计相关书籍或发表过室内设计等相关领域高水平学术论文；独立主持过设计项目或在室内设计等相关领域教育教学成果突出；参加室内设计师专业技能 (水平) 评价中级考试且以 “优秀” 成绩通过考试。
+				</view>
+			</view>
+
+			<view class="notice-section">
+				<view class="notice-section-title">
+					<view class="notice-section-title-icon" />
+					考试时间：采用全国统一命题、统一考试的形式。所有科目每月开考一次，一般为每月最后一个周末，具体考试时间通过网站通知及短信提醒。
+				</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">
+					<view class="notice-section-title-icon" />
+					考试方式：采取试卷考查制，各级别考试采用全国命题、在线统考的方式。基础理论知识采用在线笔试的考查方式；手绘综合表现部分和方案设计与绘图部分采用现场手绘并扫描上传到考试系统的考查方式。
+				</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">
+					<view class="notice-section-title-icon" />
+					考试内容：初级考试科目为室内设计原理、手绘综合表现；中级考试科目为室内设计原理、手绘综合表现、现场方案设计；高级考试科目为室内设计原理、方案设计与分析、设计类管理与应用。
+				</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">
+					<view class="notice-section-title-icon" />
+					报名方式：考生可通过中国室内装饰协会官网、“中国室内装饰协会 CIDA” 官方公众号，或在室内设计师考试报名平台（www.zhrccp.com/cida）进行注册和报名，也可通过合作高校和合作培训机构报名。
+				</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title">
+					<view class="notice-section-title-icon" />
+					证书作用：证书由中国室内装饰协会权威认证和颁发，可作为个人能力证明、求职应聘、申请留学的有效依据，也可作为政府机关、企事业单位、高等院校选人用人、评奖评优的重要参考。
+				</view>
+			</view>
+
+		</view>
+	</view>
+	<view class="button-section{{time !== 0 ? ' button-disabled' : ''}}" wx:if="{{time !== 0}}"> 请阅读文件（{{time}}) 秒后可操作</view>
+	<view class="button-section" wx:else bindtap="comeGo">报考设计师</view>
+</view>
+

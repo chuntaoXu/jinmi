@@ -54,7 +54,19 @@
     "pages/vipMenber/addform",
     "pages/vipMenber/qrcode",
     "pages/vipMenber/member",
-    "pages/vipMenber/search"
+    "pages/vipMenber/search",
+    "pages/designer/unit",
+    "pages/designer/index",
+    "pages/designer/info",
+    "pages/designer/addform",
+    "pages/designer/chose",
+    "pages/designer/check",
+    "pages/designer/search",
+    "pages/interior/unit",
+    "pages/interior/index",
+    "pages/interior/addform",
+    "pages/interior/unitder",
+    "pages/interior/check"
   ],
   "window": {
     "backgroundTextStyle": "dark",

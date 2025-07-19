@@ -28,9 +28,22 @@ Page({
     isLoading: true,
     share: '',
     showGo: false,
+    showdesigner: false,
     columns: [
       { text: '入会须知', value: '1' },
       { text: '会员查询', value: '2' }
+    ],
+    columnsdesigner: [
+      { text: '设计师证书介绍', value: '1' },
+      { text: '设计师自测系统', value: '2' },
+      { text: '认证设计师查询', value: '3' }
+    ],
+    showInter: false,
+    interior: [
+      { text: '室内装饰企业水平评价', value: '1' },
+      { text: '申报室内装饰企业水平评价', value: '2' },
+      { text: '企业水平评价自测系统', value: '3' },
+      { text: '企业水平评价查询', value: '4' }
     ]
   },
 
@@ -253,16 +266,33 @@ Page({
     }
   },
   // 会员之家
-  showMemberPicker() {
-    this.setData({
-      showGo: true
-    })
+  showMemberPicker(e) {
+    if (e.currentTarget.dataset.id == 4) {
+      wx.navigateTo({
+        url: '/pages/vipMenber/qrcode'
+      })
+    } else if (e.currentTarget.dataset.id == 1) {
+      this.setData({
+        showGo: true
+      })
+    } else if (e.currentTarget.dataset.id == 2) {
+      this.setData({
+        showdesigner: true
+      })
+    } else if (e.currentTarget.dataset.id == 3) {
+      this.setData({
+        showInter: true
+      })
+    }
   },
   onCancelPicker() {
     this.setData({
-      showGo: false
+      showGo: false,
+      showdesigner: false,
+      showInter: false
     })
   },
+  // 会员之家跳转
   onConfirmPicker(e) {
     if (e.detail.index == 0) {
       wx.navigateTo({
@@ -277,6 +307,24 @@ Page({
       showGo: false
     })
   },
+  //室内设计师
+  onCancelDesigner(e) {
+    wx.navigateTo({
+      url: e.detail.index == 0 ? '/pages/designer/unit' : e.detail.index == 1 ? '/pages/designer/chose' : '/pages/designer/check'
+    })
+  },
+  onCancelInter(e) {
+    let obj = {
+      0: '/pages/interior/unit',
+      1: '/pages/interior/index',
+      2: '/pages/interior/addform',
+      3: '/pages/interior/check'
+    }
+    wx.navigateTo({
+      url: obj[e.detail.index]
+    })
+  },
+
   /**
    * 扫一扫
    */

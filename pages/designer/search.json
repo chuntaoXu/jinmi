@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "证书查询",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index"
+  }
+}

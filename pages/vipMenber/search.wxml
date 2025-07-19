@@ -28,7 +28,7 @@
 			 required="{{ true }}"
 			/>
 			<van-button type="primary" size="small" bind:click="onSearch">
-				查询 {{title}}
+				查询
 			</van-button>
 		</view>
 	</view>

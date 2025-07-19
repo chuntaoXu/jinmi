@@ -43,7 +43,10 @@
 	<!-- navs -->
 	<view class="section-cube">
 		<!-- navs -->
-		<view bindtap="showMemberPicker">会员之家</view>
+		<view bindtap="showMemberPicker" data-id="1">会员之家</view>
+		<view bindtap="showMemberPicker" data-id="2">室内师证</view>
+		<view bindtap="showMemberPicker" data-id="3">会员之家</view>
+		<view bindtap="showMemberPicker" data-id="4">在线咨询</view>
 		<block wx:for="{{ navs }}" wx:key="index">
 			<view class="section-cube__item" wx:if="{{ item.url == 'scanCode' }}">
 				<view class="section-cube__item-entry" bindtap="scanCode" wx:if="{{!reAuth}}">
@@ -205,6 +208,42 @@
 	 columns="{{ columns }}"
 	 bind:cancel="onCancelPicker"
 	 bind:confirm="onConfirmPicker"
+	/>
+</van-popup>
+
+<van-popup
+ show="{{ showdesigner }}"
+ destroy-on-close
+ round
+ position="bottom"
+ bind:close="onClosePicker"
+ custom-style="height:360rpx"
+>
+	<van-picker
+	 show-toolbar
+	 title="室内设计师专业技能"
+	 value="{{ pickerValue }}"
+	 columns="{{ columnsdesigner }}"
+	 bind:cancel="onCancelPicker"
+	 bind:confirm="onCancelDesigner"
+	/>
+</van-popup>
+
+<van-popup
+ show="{{ showInter }}"
+ destroy-on-close
+ round
+ position="bottom"
+ bind:close="onClosePicker"
+ custom-style="height:360rpx"
+>
+	<van-picker
+	 show-toolbar
+	 title="室内装饰企业水平评价"
+	 value="{{ pickerValue }}"
+	 columns="{{ interior }}"
+	 bind:cancel="onCancelPicker"
+	 bind:confirm="onCancelInter"
 	/>
 </van-popup>
 

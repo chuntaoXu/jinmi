@@ -1,0 +1,89 @@
+<view class="page">
+	<view class="container" wx:if="{{condition ==3}}">
+		<view class="info-card">
+			<view class="info-desc">报考高级的考生须至少满足一项以下条件：</view>
+			<view class="info-list">
+				<view class="info-item">
+					<text class="emptyRound"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+获得室内设计相关专业本科及以上学历；
+</view>
+				<view class="info-item">
+					<text class="emptyRound"/>
+在室内设计领域工作满5年；
+</view>
+				<view class="info-item">
+					<text class="emptyRound"/>
+获得室内设计相关的全国性比赛奖项；
+</view>
+				<view class="info-item">
+					<text class="emptyRound"/>
+出版过室内设计相关书籍；
+</view>
+				<view class="info-item">
+					<text class="emptyRound"/>
+独立主持过设计项目；
+</view>
+				<view class="info-item">
+					<text class="emptyRound"/>
+参加室内设计师中级考试且以“优秀”成绩通过考试。
+</view>
+			</view>
+		</view>
+		<view class="button-section" bindtap="comeGo">点击报名</view>
+	</view>
+
+
+  	<view class="container" wx:if="{{condition == 2}}">
+		<view class="info-card">
+			<view class="info-desc">报考中级的考生须至少满足一项以下条件：</view>
+			<view class="info-list">
+				<view class="info-item">
+					<text class="emptyRound"/>
+
+
+在室内设计等相关领域工作满3年；
+</view>
+				<view class="info-item">
+					<text class="emptyRound"/>
+毕业于室内设计等相关专业;
+</view>
+				<view class="info-item">
+					<text class="emptyRound"/>
+获得过室内设计相关的省级及以上比赛奖项;
+</view>
+				<view class="info-item">
+					<text class="emptyRound"/>
+通过室内设计师专业技能(水平)评价认证初级考试;
+</view>
+	</view>
+		</view>
+		<view class="button-section" bindtap="comeGo">点击报名</view>
+	</view>
+	<view class="container" wx:if="{{condition == 1}}">
+		<view class="info-card">
+			<view class="info-desc">​初级室内设计师的申报条件：</view>
+			<view class="info-list">
+				<view class="info-item">
+					<text class="emptyRound"/>
+从事设计等相关工作、就读或毕业于室内设计等相关专业
+</view>
+	</view>
+		</view>
+		<view class="button-section" bindtap="comeGo">点击报名</view>
+	</view>
+</view>
+

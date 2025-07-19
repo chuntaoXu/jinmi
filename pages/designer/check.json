@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "认证设计师查询（涉及中室协官方授权）",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-picker": "@vant/weapp/picker/index"
+  }
+}

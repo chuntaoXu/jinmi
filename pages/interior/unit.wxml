@@ -1,0 +1,55 @@
+<view class="page">
+	<view class="notice-content">
+		<view>
+			<view class="notice-title">关于开展室内装饰企业水平评价</view>
+			<view class="notice-section">
+				<view class="notice-section-content">为提振消费，优化室内装饰消费环境，助力会员企业提升专业水平，以高质量供给创造有效需求，我协会决定开展室内装饰企业水平评价工作。依据《室内装饰企业水平评价规范》（T/CIDAA 005 - 2025），现将有关事项通知如下：</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title idea">一、评价目的：</view>
+				<view class="notice-section-content">
+					评价旨在建立一套全面、客观、公正的评价体系，对室内装饰企业在设计、施工、环保、服务等多个专业领域的水平进行综合评估，为企业提供清晰的自我定位和发展方向指引，为消费者选择优质室内装饰企业提供可靠依据，增强市场信任度，优化市场资源配置。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title idea">二、评价对象：</view>
+				<view class="notice-section-content">中国室内装饰协会会员企业。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title idea">三、评价内容：</view>
+				<view class="notice-section-content">评价内容涵盖 “室内设计水平”、“陈设艺术设计水平”、“家装家居服务水平”、“绿色环保服务水平” 4 个关键专业领域。企业可根据自身业务发展战略和市场定位，选择其中一个专业领域申请进行评价。评价结果划分为特级、一级、二级、三级 4 个等级，每个等级分别代表企业在相应专业领域的不同水平层次，具体评价指标详见《室内装饰企业水平评价规范》。</view>
+
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title idea">四、评价流程：</view>
+				<view>（一）申请</view>
+				<view class="notice-section-content">企业根据自身发展需求和业务情况，自愿向中国室内装饰协会提交《室内装饰企业水平评价申请表》，并按要求如实提供相关证明材料，包括企业营业执照、相关合同、人员技能水平证书、获奖证书、环保认证证书等。</view>
+				<view>（二）初审</view>
+				<view class="notice-section-content">协会组织专业人员对申请材料进行初步审核，重点审查材料的完整性、真实性和合规性。若材料存在问题，将及时通知企业补充或修改。</view>
+				<view>（三）评审</view>
+				<view class="notice-section-content">初审通过的企业，协会将组织专家组成评审小组开展评审。评审小组将采用多种科学、严谨的评估方式，对企业进行全面评估。</view>
+				<view>（四）综合评定</view>
+				<view class="notice-section-content">协会依据初审和评审收集到的信息和数据，遵循公平、公正、公开的原则，运用科学合理的评定方法，对企业进行综合评定，确定企业的专业水平等级。</view>
+				<view>（五）公示与公告</view>
+				<view class="notice-section-content">评定结果将在协会官方网站进行公示，公示期为 5 个工作日。公示期间接受社会监督，若无疑义或异议处理后不影响评定结果，协会将发布正式公告，并向企业颁发相应的专业水平等级证书和牌匾。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title idea">五、监督管理：</view>
+				<view class="notice-section-content">
+					评价结果有效期为两年。对获得评价的企业，若发现不符合原评定等级要求，将依据实际情况降低或取消其等级。</view>
+			</view>
+			<view class="notice-section">
+				<view class="notice-section-title idea">六、其他事项：</view>
+				<view class="notice-section-content">
+					请各会员企业根据《室内装饰企业水平评价规范》的标准和要求，确定申报的评价等级。有意参与评价的会员企业请扫描下方二维码，提交申请材料。</view>
+			</view>
+		</view>
+	</view>
+	<view class="container">
+		<view class="qrcode">
+			<image src="/images/qr.jpg" mode="aspectFit" show-menu-by-longpress="{{true}}" />
+		</view>
+		<view class="footer">长按二维码添加微信客服，获取审核进度更新。</view>
+	</view>
+
+</view>
+

@@ -1,0 +1,28 @@
+/* pages/index/index.wxss */
+
+page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.company {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #e3f2fd;
+  border-radius: 10rpx;
+  margin: 40rpx 0;
+  text-align: center;
+  padding: 0 20rpx;
+  color: #1976d2;
+}
+.person {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+.book {
+  background-color: #fffde7;
+  color: #bfa100;
+}

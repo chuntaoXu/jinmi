@@ -1,0 +1,77 @@
+/* pages/index/index.wxss */
+
+page {
+  background: #fff;
+}
+.notice-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin: 24rpx 0 24rpx 0;
+  color: #1976d2;
+}
+.notice-card {
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.06);
+  padding: 32rpx 24rpx;
+  margin: 0 24rpx;
+}
+.notice-content {
+  color: #333;
+  font-size: 28rpx;
+  line-height: 2.2;
+  word-break: break-all;
+  padding-bottom: 120rpx;
+}
+.notice-section {
+  margin: 12rpx 24rpx;
+}
+.indent {
+  text-indent: 3em;
+}
+.button-section {
+  width: 80%;
+  text-align: center;
+  position: fixed;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 88rpx;
+  line-height: 88rpx;
+  background: rgba(25, 137, 250, 1);
+  border-radius: 16rpx;
+  color: #fff;
+}
+.button-disabled {
+  background: #ccc !important;
+  color: #fff !important;
+}
+.comeCenter {
+  padding-left: 40rpx;
+}
+.fornitSize {
+  font-weight: bold;
+}
+.notice-section-title-icon {
+  color: #1976d2;
+  width: 10rpx;
+  height: 10rpx;
+  background: #1976d2;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8rpx;
+  position: relative;
+  top: -6rpx; /* 负值可微调 */
+}
+.emptyRound {
+  width: 8rpx;
+  height: 8rpx;
+  border: 1rpx solid #1976d2;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8rpx;
+  background: transparent; /* 关键，确保无填充色 */
+  position: relative;
+  top: -2rpx; /* 负值可微调 */
+}

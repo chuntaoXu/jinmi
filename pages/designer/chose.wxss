@@ -1,0 +1,52 @@
+.container {
+  padding: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  margin: 30rpx 0;
+  color: #333;
+}
+
+.instructions {
+  padding: 15rpx;
+  background-color: #f7f7f7;
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+}
+
+.instructions text {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.question-wrapper {
+  margin-bottom: 40rpx;
+}
+
+.question-item {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+}
+
+.question-text {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin-bottom: 15rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.submit-button {
+  margin: 0 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

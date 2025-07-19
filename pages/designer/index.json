@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "室内设计师专业技能证书报考",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-picker": "@vant/weapp/picker/index"
+  }
+}

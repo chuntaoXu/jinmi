@@ -1,0 +1,98 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+	<view class="question-wrapper">
+		<!-- 第1题 -->
+		<view class="question-item">
+			<text class="question-text">1. 获得室内设计相关专业本科及以上学历</text>
+			<van-radio-group
+			 value="{{answers.q1}}"
+			 bind:change="onQuestionChange"
+			 data-question="q1"
+			 style="display: flex;justify-content: space-around ;"
+			>
+				<van-radio name="yes">是</van-radio>
+				<van-radio name="no">否</van-radio>
+			</van-radio-group>
+		</view>
+
+		<!-- 第2题 -->
+		<view class="question-item">
+			<text class="question-text">2. 在室内设计领域工作满5年</text>
+			<van-radio-group
+			 bind:change="onQuestionChange"
+			 value="{{answers.q2}}"
+			 data-question="q2"
+			 style="display: flex;justify-content: space-around ;"
+			>
+				<van-radio name="yes">是</van-radio>
+				<van-radio name="no">否</van-radio>
+			</van-radio-group>
+		</view>
+
+		<!-- 第3题 -->
+		<view class="question-item">
+			<text class="question-text">3. 获得室内设计相关的全国性比赛奖项</text>
+			<van-radio-group
+			 bind:change="onQuestionChange"
+			 data-question="q3"
+			 value="{{answers.q3}}"
+			 style="display: flex;justify-content: space-around ;"
+			>
+				<van-radio name="yes">是</van-radio>
+				<van-radio name="no">否</van-radio>
+			</van-radio-group>
+		</view>
+
+		<!-- 第4题 -->
+		<view class="question-item">
+			<text class="question-text">4. 出版过室内设计相关书籍</text>
+			<van-radio-group
+			 bind:change="onQuestionChange"
+			 data-question="q4"
+			 value="{{answers.q4}}"
+			 style="display: flex;justify-content: space-around ;"
+			>
+				<van-radio name="yes">是</van-radio>
+				<van-radio name="no">否</van-radio>
+			</van-radio-group>
+		</view>
+
+		<!-- 第5题 -->
+		<view class="question-item">
+			<text class="question-text">5. 独立主持过设计项目</text>
+			<van-radio-group
+			 bind:change="onQuestionChange"
+			 data-question="q5"
+			 value="{{answers.q5}}"
+			 style="display: flex;justify-content: space-around ;"
+			>
+				<van-radio name="yes">是</van-radio>
+				<van-radio name="no">否</van-radio>
+			</van-radio-group>
+		</view>
+
+		<!-- 第6题 -->
+		<view class="question-item">
+			<text class="question-text">6. 参加室内设计师中级考试且以“优秀”成绩通过考试</text>
+			<van-radio-group
+			 bind:change="onQuestionChange"
+			 data-question="q6"
+			 value="{{answers.q6}}"
+			 style="display: flex;justify-content: space-around;"
+			>
+				<van-radio name="yes">是</van-radio>
+				<van-radio name="no">否</van-radio>
+			</van-radio-group>
+		</view>
+	</view>
+
+	<van-button
+	 type="primary"
+	 class="submit-button"
+	 bind:click="submitEvaluation"
+	 disabled="{{!canSubmit}}"
+	>
+		提交查看结果
+	</van-button>
+</view>
+
