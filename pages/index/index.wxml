@@ -45,7 +45,7 @@
 		<!-- navs -->
 		<view bindtap="showMemberPicker" data-id="1">会员之家</view>
 		<view bindtap="showMemberPicker" data-id="2">室内师证</view>
-		<view bindtap="showMemberPicker" data-id="3">会员之家</view>
+		<view bindtap="showMemberPicker" data-id="3">室内装饰</view>
 		<view bindtap="showMemberPicker" data-id="4">在线咨询</view>
 		<block wx:for="{{ navs }}" wx:key="index">
 			<view class="section-cube__item" wx:if="{{ item.url == 'scanCode' }}">

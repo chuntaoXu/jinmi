@@ -18,7 +18,7 @@
 			 placeholder="请输入证件标号（可选）"
 			 border="{{ true }}"
 			/>
-			<van-button type="primary" size="small" bind:click="onSearch">
+			<van-button type="primary" size="small" bind:click="getCertRecord">
 				查询
 			</van-button>
 		</view>

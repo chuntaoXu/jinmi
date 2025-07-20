@@ -28,6 +28,8 @@ Page({
     this.setData({
       number: options.id || 2
     })
+    // 页面加载时请求证书记录
+    this.getCertRecord()
   },
 
   /**
@@ -49,9 +51,24 @@ Page({
    */
 
   /**
-   * 获取基本信息
+   * 获取证书记录
    */
-  getInfo() {},
+  getCertRecord() {
+    const cert_no = this.data.number
+    wx.request({
+      url: `https://zhrccp-api.cecctm.com/c/orders/certs/record?cert_no=${cert_no}`,
+      method: 'GET',
+      success: res => {
+        console.log('证书记录:', res.data)
+        // 这里可以 setData 到页面上
+        // this.setData({ certRecord: res.data })
+      },
+      fail: err => {
+        wx.showToast({ title: '请求失败', icon: 'none' })
+        console.error('证书记录请求失败', err)
+      }
+    })
+  },
 
   /**
    * 扫一扫
