@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "加入协会",
+  "navigationBarTitleText": "设计师报名",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "van-popup": "@vant/weapp/popup/index",

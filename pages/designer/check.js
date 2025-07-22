@@ -32,7 +32,7 @@ Page({
   showMemberPicker(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: id == 1 ? '/pages/designer/search' : '/pages/designer/index'
+      url: id == 1 ? '/pages/vipMenber/search' : '/pages/designer/index'
     })
   },
   /**

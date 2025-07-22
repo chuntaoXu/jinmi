@@ -40,7 +40,6 @@ Page({
   },
 
   onPhoneChange(event) {
-    console.log(event.detail, '!111')
     this.setData({
       phone: event.detail
     })
@@ -92,7 +91,7 @@ Page({
       .request(
         'evaluation.homes.addHome',
         {
-          type: 1,
+          type: this.data.number,
           enterprise_name: this.data.enterprise_name,
           name: this.data.name,
           phone: this.data.phone,

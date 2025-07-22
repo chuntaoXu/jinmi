@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "测评提交",
+  "navigationBarTitleText": "自测系统",
   "enablePullDownRefresh": true,
   "usingComponents": {
     "van-radio-group": "@vant/weapp/radio-group/index",

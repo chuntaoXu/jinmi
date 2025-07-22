@@ -9,12 +9,10 @@ Page({
     time: 10,
     timer: null,
     number: 1,
-    username: '',
-    content: '',
-    msgCode: '',
-    contactPhone: '',
-    contactName: '',
-    licenseimg: '',
+    name: '',
+    phone: '',
+    city: '',
+    licenseimg: [],
     licenseimgFile: []
   },
 
@@ -26,6 +24,90 @@ Page({
       number: options.id
     })
   },
+  onCityChange(event) {
+    this.setData({
+      city: event.detail
+    })
+  },
+  onNameChange(event) {
+    this.setData({
+      name: event.detail
+    })
+  },
+
+  onPhoneChange(event) {
+    this.setData({
+      phone: event.detail
+    })
+  },
+  validatePhone(phone) {
+    const phoneReg = /^1[3-9]\d{9}$/
+    return phoneReg.test(phone)
+  },
+  joinAssociation() {
+    if (!this.data.city) {
+      wx.showToast({
+        title: '请输入报考城市',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.name) {
+      wx.showToast({
+        title: '请输入联系人姓名',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.phone) {
+      wx.showToast({
+        title: '请输入联系人电话',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.validatePhone(this.data.phone)) {
+      wx.showToast({
+        title: '请输入正确的手机号格式',
+        icon: 'none'
+      })
+      return
+    }
+    if (this.data.licenseimgFile.length === 0) {
+      wx.showToast({
+        title: '请上传企业营业执照',
+        icon: 'none'
+      })
+      return
+    }
+    app
+      .request(
+        'evaluation.designer.addDesigner',
+        {
+          type: this.data.number,
+          city: this.data.city,
+          name: this.data.name,
+          phone: this.data.phone,
+          file_info: JSON.stringify(this.data.licenseimgFile)
+        },
+        true
+      )
+      .then(res => {
+        if (res.error == 0) {
+          wx.showToast({
+            title: '提交成功',
+            icon: 'success',
+            duration: 1500
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/vipMember/qrcode'
+            })
+          }, 1500)
+        }
+      })
+  },
+
   /**
    * 启动倒计时
    */
@@ -52,7 +134,6 @@ Page({
     }
   },
   afterRead({ detail: { file, index, name } }) {
-    console.log(file, 'file')
     this.uploadFiles(file, name)
   },
   uploadFiles(file, name) {

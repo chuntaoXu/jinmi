@@ -38,16 +38,10 @@ Page({
    * 获取基本信息
    */
   getInfo() {},
-  showMemberPicker(e) {
-    let id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: `/pages/vipMenber/unit?id=${id}`
-    })
-  },
 
   comeGo() {
     wx.navigateTo({
-      url: '/pages/designer/addform'
+      url: '/pages/designer/addform?id=' + this.data.condition
     })
   },
   /**

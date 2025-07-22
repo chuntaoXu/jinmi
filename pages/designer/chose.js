@@ -1,5 +1,7 @@
 // pages/index/index.js
-
+const app = getApp()
+const UTILS = app.requirejs('util')
+const BASE_URL = app.globalData.BASE_URL
 Page({
   /**
    * 页面的初始数据
@@ -39,7 +41,7 @@ Page({
     this.setData({
       [`answers.${questionId}`]: answer
     })
-
+    console.log(this.data.answers, ' this.data.answers')
     // 检查是否所有问题都已回答
     this.checkAllAnswered()
   },
@@ -53,6 +55,61 @@ Page({
     })
   },
   submitEvaluation() {
+    const contentd = {
+      content: [
+        {
+          name: '获得室内设计相关专业本科及以上学历；',
+          choose: this.data.answers.q1
+        },
+        {
+          name: '在室内设计领域工作满5年；',
+          choose: this.data.answers.q2
+        },
+        {
+          name: '获得室内设计相关的全国性比赛奖项；',
+          choose: this.data.answers.q3
+        },
+        {
+          name: '出版过室内设计相关书籍；',
+          choose: this.data.answers.q4
+        },
+        {
+          name: '独立主持过设计项目；',
+          choose: this.data.answers.q5
+        },
+        {
+          name: '参加室内设计师中级考试且以“优秀”成绩通过考试；',
+          choose: this.data.answers.q6
+        }
+      ]
+    }
+    app
+      .request(
+        'evaluation.evaluating.addEvaluating',
+        {
+          content: JSON.stringify(contentd)
+        },
+        true
+      )
+      .then(res => {
+        if (res.error == 0) {
+          wx.showToast({
+            title: '提交成功',
+            icon: 'success',
+            duration: 1500
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/vipMenber/qrcode?type=1'
+            })
+          }, 1500)
+        }
+      })
+      .catch(err => {
+        console.error('提交失败:', err)
+      })
+
+    return
     if (this.data.canSubmit) {
       // 跳转到结果页面（微信二维码展示页）
       wx.navigateTo({

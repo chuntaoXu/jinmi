@@ -5,7 +5,7 @@
 			<view class="back" bindtap="goback">
 				<image class="downArrow" src="/images/down_arrow.png" />
 			</view>
-			<view class="title">选材详情</view>
+			<view class="title">资料审核</view>
 		</view>
 	</view>
 	<view class="container">

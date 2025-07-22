@@ -5,29 +5,32 @@
 				<van-field
 				 label="姓名"
 				 placeholder="请输入姓名"
-				 value="{{ msgCode }}"
+				 value="{{ name }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 bind:change="onNameChange"
 				/>
 				<van-field
 				 label="联系电话"
 				 placeholder="请输入联系电话"
-				 value="{{ contactName }}"
+				 value="{{ phone }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 bind:change="onPhoneChange"
 				/>
 				<van-field
 				 label="报考城市"
 				 placeholder="请输入报考城市"
-				 value="{{ contactPhone }}"
+				 value="{{ city }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 bind:change="onCityChange"
 				/>
 				<view>
 					<view class="blick_title goPadding">
@@ -53,7 +56,7 @@
 						/>
 					</view>
 				</view>
-				<view class="button-section">提交报名</view>
+				<view class="button-section" bindtap="joinAssociation">提交报名</view>
 			</van-cell-group>
 		</view>
 	</view>

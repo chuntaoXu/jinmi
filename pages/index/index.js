@@ -307,8 +307,34 @@ Page({
   },
   //室内设计师
   onCancelDesigner(e) {
-    wx.navigateTo({
-      url: e.detail.index == 0 ? '/pages/designer/unit' : e.detail.index == 1 ? '/pages/designer/chose' : '/pages/designer/check'
+    if (e.detail.index == 1) {
+      app.request('evaluation.evaluating.checkSubmits', {}, true).then(res => {
+        console.log('object', res)
+        if (res.error == 0) {
+          if (res.data.is_submit == 1) {
+            wx.showToast({
+              title: '您已提交过申请',
+              icon: 'none'
+            })
+            setTimeout(() => {
+              wx.navigateTo({
+                url: '/pages/vipMenber/qrcode?type=1'
+              })
+            }, 1500)
+          } else {
+            wx.navigateTo({
+              url: `/pages/designer/chose`
+            })
+          }
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: e.detail.index == 0 ? '/pages/designer/unit' : '/pages/designer/check'
+      })
+    }
+    this.setData({
+      showdesigner: false
     })
   },
   onCancelInter(e) {
