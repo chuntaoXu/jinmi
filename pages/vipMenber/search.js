@@ -39,9 +39,7 @@ Page({
     title: '个人会员',
     name: '',
     // 详情信息
-
-    loopArray: [],
-    qrCodeText: 'https://www.baidu.com'
+    loopArray: []
   },
 
   /**
@@ -137,7 +135,6 @@ Page({
         canvasId: canvasId,
         text: qrUrl,
         callback(e) {
-          console.log(`二维码 ${canvasId} 生成完成:`, e)
           wx.hideLoading()
           // 二维码生成完成，更新数据
         }
