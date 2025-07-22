@@ -9,12 +9,11 @@ Page({
     time: 10,
     timer: null,
     number: 1,
-    username: '',
-    content: '',
-    msgCode: '',
-    contactPhone: '',
+    enterprise_name: '',
+    name: '',
+    phone: '',
     contactName: '',
-    licenseimg: '',
+    licenseimg: [],
     licenseimgFile: []
   },
 
@@ -25,6 +24,97 @@ Page({
     this.setData({
       number: options.id
     })
+  },
+
+  // 输入事件处理函数
+  onEnterpriseNameChange(event) {
+    this.setData({
+      enterprise_name: event.detail
+    })
+  },
+
+  onNameChange(event) {
+    this.setData({
+      name: event.detail
+    })
+  },
+
+  onPhoneChange(event) {
+    console.log(event.detail, '!111')
+    this.setData({
+      phone: event.detail
+    })
+  },
+
+  // 验证手机号格式
+  validatePhone(phone) {
+    const phoneReg = /^1[3-9]\d{9}$/
+    return phoneReg.test(phone)
+  },
+
+  joinAssociation() {
+    if (!this.data.enterprise_name) {
+      wx.showToast({
+        title: '请输入申报企业名称',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.name) {
+      wx.showToast({
+        title: '请输入联系人姓名',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.phone) {
+      wx.showToast({
+        title: '请输入联系人电话',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.validatePhone(this.data.phone)) {
+      wx.showToast({
+        title: '请输入正确的手机号格式',
+        icon: 'none'
+      })
+      return
+    }
+    if (this.data.licenseimgFile.length === 0) {
+      wx.showToast({
+        title: '请上传企业营业执照',
+        icon: 'none'
+      })
+      return
+    }
+    app
+      .request(
+        'evaluation.homes.addHome',
+        {
+          type: 1,
+          enterprise_name: this.data.enterprise_name,
+          name: this.data.name,
+          phone: this.data.phone,
+          business_license: JSON.stringify(this.data.licenseimgFile)
+        },
+        true
+      )
+      .then(res => {
+        console.log('object', res)
+        if (res.error == 0) {
+          wx.showToast({
+            title: '提交成功',
+            icon: 'success',
+            duration: 1500
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/vipMenber/qrcode'
+            })
+          }, 1500)
+        }
+      })
   },
   /**
    * 启动倒计时
@@ -95,26 +185,28 @@ Page({
         const ret = JSON.parse(res.data)
         if (ret.error == 0) {
           const data = ret.data.files[0]
-          if (dataType === 'String') {
-            _this.setData({
-              [name]: data.url,
-              [name + 'File']: [
-                {
-                  url: data.url
-                }
-              ]
-            })
-          } else {
-            // 保证 key 和 fileList 一定为数组
-            const newKey = Array.isArray(key) ? key : []
-            const newFileList = Array.isArray(fileList) ? fileList : []
-            newKey.push(data.url)
-            newFileList.push({ url: data.url })
-            _this.setData({
-              [name]: newKey,
-              [name + 'File']: newFileList
-            })
-          }
+          // 始终按数组方式处理，支持多文件上传
+          const newKey = Array.isArray(key) ? [...key] : []
+          const newFileList = Array.isArray(fileList) ? [...fileList] : []
+
+          newKey.push(data.url)
+          newFileList.push({ url: data.url })
+
+          _this.setData({
+            [name]: newKey,
+            [name + 'File']: newFileList
+          })
+
+          wx.showToast({
+            title: '上传成功',
+            icon: 'success',
+            duration: 1500
+          })
+        } else {
+          wx.showToast({
+            title: '上传失败，请重试',
+            icon: 'none'
+          })
         }
       },
       fail: err => {
@@ -128,20 +220,18 @@ Page({
   },
   removeFile({ detail: { index, name } }) {
     const { [name]: key, [name + 'File']: fileList } = this.data
-    const dataType = Object.prototype.toString.call(key).slice(8, -1)
-    if (dataType === 'String') {
-      this.setData({
-        [name]: '',
-        [name + 'File']: []
-      })
-    } else {
-      key.splice(index, 1)
-      fileList.splice(index, 1)
-      this.setData({
-        [name]: key,
-        [name + 'File']: fileList
-      })
-    }
+    // 确保都是数组
+    const newKey = Array.isArray(key) ? [...key] : []
+    const newFileList = Array.isArray(fileList) ? [...fileList] : []
+
+    // 删除指定索引的文件
+    newKey.splice(index, 1)
+    newFileList.splice(index, 1)
+
+    this.setData({
+      [name]: newKey,
+      [name + 'File']: newFileList
+    })
   },
 
   /**

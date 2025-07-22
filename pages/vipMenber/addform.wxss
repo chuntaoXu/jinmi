@@ -20,7 +20,7 @@ page {
   color: rgba(69, 90, 100, 0.6);
   font-weight: normal;
   font-size: 24rpx;
-  padding: 0 32rpx;
+  padding: 12rpx 32rpx;
 }
 .goPadding {
   position: relative;

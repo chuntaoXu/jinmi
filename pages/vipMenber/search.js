@@ -1,5 +1,7 @@
 // pages/index/index.js
-
+const app = getApp()
+const UTILS = app.requirejs('util')
+const BASE_URL = app.globalData.BASE_URL
 Page({
   /**
    * 页面的初始数据
@@ -29,18 +31,15 @@ Page({
       { text: '室内设计、施工企业', value: '室内设计、施工企业' },
       { text: '室内装饰监理企业', value: '室内装饰监理企业' }
     ],
+    type: '',
+    nameOrNo: '',
     // 表单数据
     profession: '会员',
     title: '个人会员',
     name: '',
     // 详情信息
-    selectedName: '徐长权',
-    selectedGender: '男',
-    selectedWorkUnit: '天津金蚂蚁装饰工程有限公司天津金蚂蚁装饰工程有限公司',
-    selectedCertificateLevel: '中级',
-    selectedCertificateNumber: 'SH2070047Y',
-    selectedIssueDate: '2007.08.26-2019.08.26',
-    loopArray: new Array(10)
+
+    loopArray: []
   },
 
   /**
@@ -63,7 +62,6 @@ Page({
     })
   },
   onProfessionChange(e) {
-    console.log(e, '111')
     this.setData({
       twoOption: e.detail == '会员' ? this.data.titleOptions : e.detail == '专业会员' ? this.data.titleOptions1 : this.data.titleOptions2,
       title: e.detail == '会员' ? this.data.titleOptions[0].text : e.detail == '专业会员' ? this.data.titleOptions1[0].text : this.data.titleOptions2[0].text,
@@ -76,6 +74,69 @@ Page({
     this.setData({
       title: e.detail
     })
+  },
+  onNameChange(event) {
+    this.setData({
+      nameOrNo: event.detail
+    })
+  },
+  onSearch() {
+    console.log(this.data.profession, '11111')
+    console.log(this.data.title, this.data.nameOrNo, 'type nameOrNo')
+    if (!this.data.nameOrNo) {
+      wx.showToast({
+        title: '请输入姓名/企业名称/证书编号',
+        icon: 'none'
+      })
+      return
+    }
+    app
+      .request(
+        'evaluation.homes.getMember',
+        {
+          type: this.data.title,
+          nameOrNo: this.data.profession == '企业评价' ? '' : this.data.nameOrNo,
+          legalOrNameOrNo: this.data.profession !== '企业评价' ? '' : this.data.nameOrNo
+        },
+        true
+      )
+      .then(res => {
+        console.log('object', res)
+        if (res.error == 0) {
+          res.data.forEach(item => {
+            // 通过 item.memberNo 生成二维码链接
+            item.qrCodeUrl = this.generateQRCode(item.memberNo)
+
+            console.log(item.qrCodeUrl, '111')
+          })
+          this.setData({
+            loopArray: res.data
+          })
+        }
+      })
+  },
+
+  /**
+   * 生成并显示二维码
+   */
+  generateQRCode(memberNo) {
+    if (!memberNo) {
+      return
+    }
+    const qrUrl = `http://www.cida.org.cn/hycx?sid=${memberNo}`
+    // 方案一：使用第三方服务（需要配置域名白名单）
+    const qrCodeImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrUrl)}`
+    // 方案二：使用自己的服务器API（推荐）
+    // const qrCodeImageUrl = `${BASE_URL}/api/qrcode?url=${encodeURIComponent(qrUrl)}&size=300`
+    return qrCodeImageUrl
+  },
+
+  /**
+   * 点击生成二维码按钮
+   */
+  onGenerateQRCode(e) {
+    const memberNo = e.currentTarget.dataset.memberno
+    this.generateQRCode(memberNo)
   },
 
   /**
@@ -118,5 +179,18 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {}
+  onReachBottom: function () {},
+
+  /**
+   * 预览二维码
+   */
+  previewQRCode: function (e) {
+    const url = e.currentTarget.dataset.url
+    if (url) {
+      wx.previewImage({
+        current: url,
+        urls: [url]
+      })
+    }
+  }
 })

@@ -7,6 +7,41 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/vipMenber/search",
+          "pathName": "pages/vipMenber/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/vipMenber/addform",
+          "pathName": "pages/vipMenber/addform",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/vipMenber/unit",
+          "pathName": "pages/vipMenber/unit",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/vipMenber/index",
+          "pathName": "pages/vipMenber/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/vipMenber/qrcode",
+          "pathName": "pages/vipMenber/qrcode",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/designer/search",
           "pathName": "pages/designer/search",
           "query": "id=1",

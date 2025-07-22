@@ -5,29 +5,34 @@
 				<van-field
 				 label="申报企业名称"
 				 placeholder="请输入申报企业名称"
-				 value="{{ msgCode }}"
+				 value="{{ enterprise_name }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 bind:change="onEnterpriseNameChange"
 				/>
 				<van-field
 				 label="联系人姓名"
 				 placeholder="请输入联系人姓名"
-				 value="{{ contactName }}"
+				 value="{{ name }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 bind:change="onNameChange"
 				/>
 				<van-field
 				 label="联系人电话"
-				 placeholder="请输入联系人电话"
-				 value="{{ contactPhone }}"
+				 placeholder="请输入11位手机号"
+				 value="{{ phone }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 type="number"
+				 maxlength="11"
+				 bind:change="onPhoneChange"
 				/>
 				<view>
 					<view class="blick_title goPadding">
@@ -53,7 +58,7 @@
 						/>
 					</view>
 				</view>
-				<view class="button-section">加入协会</view>
+				<view class="button-section" bindtap="joinAssociation">提交报名</view>
 			</van-cell-group>
 		</view>
 	</view>

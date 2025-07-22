@@ -1,7 +1,25 @@
 <!--pages/index/index.wxml-->
 <view class="page">
-	<view class="company" bindtap="showMemberPicker" data-id="1">单位会员入会须知</view>
-	<view class="company person" bindtap="showMemberPicker" data-id="2">个人会员入会须知</view>
-	<view class="company book" bindtap="showMemberPicker" data-id="3">会员证书年检须知</view>
+	<view
+	 class="company"
+	 bindtap="showMemberPicker"
+	 data-id="1"
+	 data-type="unit"
+	>单位会员入会须知
+	</view>
+	<view
+	 class="company"
+	 bindtap="showMemberPicker"
+	 data-id="2"
+	 data-type="personal"
+	>个人会员入会须知
+	</view>
+	<view
+	 class="company"
+	 bindtap="showMemberPicker"
+	 data-id="3"
+	 data-type="annual"
+	>会员证书年检须知
+	</view>
 </view>
 

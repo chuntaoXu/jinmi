@@ -24,6 +24,12 @@ Page({
    */
   onShow: function () {},
 
+  goback() {
+    wx.navigateBack({
+      delta: 2
+    })
+  },
+
   /**
    * 刷新
    */

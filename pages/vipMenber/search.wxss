@@ -79,3 +79,20 @@ page {
 .result-item {
   margin-bottom: 20rpx;
 }
+
+/* 二维码按钮容器 */
+.qr-button-container {
+  padding: 20rpx;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-top: 1rpx solid #eee;
+}
+
+/* 二维码按钮样式 */
+.qr-button {
+  --button-primary-background-color: #1677ff !important;
+  --button-primary-border-color: #1677ff !important;
+  --button-border-radius: 8rpx !important;
+  --button-font-size: 26rpx !important;
+  width: 200rpx !important;
+}

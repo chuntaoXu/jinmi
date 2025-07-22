@@ -1,28 +1,72 @@
 /* pages/index/index.wxss */
-
 page {
+  /* 改用更灵活的弹性布局基础，避免内容挤压 */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #fafafa;
 }
+
+/* 容器统一化，差异化用变量控制 */
 .company {
-  width: 100%;
+  /* 动态计算宽度，适配不同设备 */
+  width: calc(100% - 40rpx);
   height: 100rpx;
   line-height: 100rpx;
-  background-color: #e3f2fd;
-  border-radius: 10rpx;
-  margin: 40rpx 0;
+  margin: 48rpx 0;
+  padding: 0 30rpx;
+  border-radius: 16rpx;
   text-align: center;
-  padding: 0 20rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  /* 增加交互反馈过渡 */
+  transition: all 0.2s ease;
+  /* 防止文字溢出 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 单位会员 - 科技蓝 */
+.company[data-id='1'] {
+  background: linear-gradient(120deg, #e3f2fd, #c8e6fc);
   color: #1976d2;
+  box-shadow: 0 4rpx 12rpx rgba(25, 118, 210, 0.1);
 }
-.person {
-  background-color: #e8f5e9;
+
+/* 个人会员 - 生态绿 */
+.company.person,
+.company[data-id='2'] {
+  background: linear-gradient(120deg, #e8f5e9, #d4edda);
   color: #388e3c;
+  box-shadow: 0 4rpx 12rpx rgba(56, 142, 60, 0.1);
 }
-.book {
-  background-color: #fffde7;
+
+/* 证书年检 - 活力黄 */
+.company.book,
+.company[data-id='3'] {
+  background: linear-gradient(120deg, #fffde7, #fff9c4);
   color: #bfa100;
+  box-shadow: 0 4rpx 12rpx rgba(191, 161, 0, 0.1);
+}
+
+/* 交互反馈：按压缩放+阴影变化 */
+.company:active {
+  transform: scale(0.98);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+}
+.company[data-type='unit'] {
+  background: linear-gradient(120deg, #e3f2fd, #c8e6fc);
+  color: #1976d2;
+  box-shadow: 0 4rpx 12rpx rgba(25, 118, 210, 0.1);
+}
+.company[data-type='personal'] {
+  background: linear-gradient(120deg, #e8f5e9, #d4edda);
+  color: #388e3c;
+  box-shadow: 0 4rpx 12rpx rgba(56, 142, 60, 0.1);
+}
+.company[data-type='annual'] {
+  background: linear-gradient(120deg, #fffde7, #fff9c4);
+  color: #bfa100;
+  box-shadow: 0 4rpx 12rpx rgba(191, 161, 0, 0.1);
 }

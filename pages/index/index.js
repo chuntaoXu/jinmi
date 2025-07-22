@@ -269,19 +269,15 @@ Page({
   },
   // 会员之家
   showMemberPicker(e) {
-    if (e.currentTarget.dataset.id == 4) {
-      wx.navigateTo({
-        url: '/pages/vipMenber/qrcode'
-      })
-    } else if (e.currentTarget.dataset.id == 1) {
+    if (e.currentTarget.dataset.name == '会员之家') {
       this.setData({
         showGo: true
       })
-    } else if (e.currentTarget.dataset.id == 2) {
+    } else if (e.currentTarget.dataset.name == '室内设计师') {
       this.setData({
         showdesigner: true
       })
-    } else if (e.currentTarget.dataset.id == 3) {
+    } else if (e.currentTarget.dataset.name == '室内装饰') {
       this.setData({
         showInter: true
       })

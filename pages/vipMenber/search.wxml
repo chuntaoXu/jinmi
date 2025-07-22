@@ -37,80 +37,128 @@
 	<view class="container">
 		<view
 		 wx:for="{{loopArray}}"
+		 data-date="{{ item }}"
 		 wx:key="index"
 		 class="result-item"
 		 wx:if="{{ title == '个人会员'}}"
 		>
 			<van-cell-group>
-				<van-cell title="姓名" border="{{ false }}" value="{{ selectedName }}" />
-				<van-cell title="性别" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="类别" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
-				<van-cell title="证书有效期" border="{{ false }}" value="{{ selectedIssueDate }}" />
-				<van-cell title="工作单位" border="{{ false }}" value="{{ selectedWorkUnit }}" />
+				<van-cell title="姓名" border="{{ false }}" value="{{ item.name}}" />
+				<van-cell title="性别" border="{{ false }}" value="{{ item.info.gender }}" />
+				<van-cell title="类别" border="{{ false }}" value="{{ item.info.classes }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ item.memberNo }}" />
+				<van-cell title="证书有效期" border="{{ false }}" value="{{ item.indate }}" />
+				<van-cell title="工作单位" border="{{ false }}" value="{{item.info.organization}}" />
+				<van-cell title="扫描查询" border="{{ false }}">
+					<image
+					 src="{{item.qrCodeUrl}}"
+					 mode="aspectFit"
+					 style="width: 200rpx; height: 200rpx;"
+					 bindtap="previewQRCode"
+					 data-url="{{item.qrCodeUrl}}"
+					/>
+				</van-cell>
 			</van-cell-group>
+
 		</view>
 		<view
 		 wx:for="{{loopArray}}"
+		 data-date="{{ item }}"
 		 wx:key="index"
 		 class="result-item"
 		 wx:if="{{ title == '单位会员'}}"
 		>
 			<van-cell-group>
-				<van-cell title="单位名称" border="{{ false }}" value="{{ selectedName }}" />
-				<van-cell title="类别" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="法人" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
-				<van-cell title="证书有效期" border="{{ false }}" value="{{ selectedIssueDate }}" />
-				<van-cell title="工作单位" border="{{ false }}" value="{{ selectedWorkUnit }}" />
+				<van-cell title="单位名称" border="{{ false }}" value="{{ item.name }}" />
+				<van-cell title="类别" border="{{ false }}" value="{{ item.info.classes  }}" />
+				<van-cell title="法人" border="{{ false }}" value="{{  item.info.legal }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ item.memberNo }}" />
+				<van-cell title="证书有效期" border="{{ false }}" value="{{ item.indate }}" />
+				<van-cell title="工作单位" border="{{ false }}" value="{{ item.info.organization }}" />
+				<van-cell title="扫描查询" border="{{ false }}">
+					<image
+					 src="{{item.qrCodeUrl}}"
+					 mode="aspectFit"
+					 style="width: 200rpx; height: 200rpx;"
+					 bindtap="previewQRCode"
+					 data-url="{{item.qrCodeUrl}}"
+					/>
+				</van-cell>
 			</van-cell-group>
 		</view>
 		<view
 		 wx:for="{{loopArray}}"
+		 data-date="{{ item }}"
 		 wx:key="index"
 		 class="result-item"
 		 wx:if="{{ title == 'IFI会员'}}"
 		>
 			<van-cell-group>
-				<van-cell title="姓名" border="{{ false }}" value="{{ selectedName }}" />
-				<van-cell title="性别" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="发证日期" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
-				<van-cell title="发证日期" border="{{ false }}" value="{{ selectedIssueDate }}" />
-
+				<van-cell title="姓名" border="{{ false }}" value="{{ item.name }}" />
+				<van-cell title="性别" border="{{ false }}" value="{{ item.info.gender  }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ item.memberNo }}" />
+				<van-cell title="发证日期" border="{{ false }}" value="{{ item.indate }}" />
+				<van-cell title="扫描查询" border="{{ false }}">
+					<image
+					 src="{{item.qrCodeUrl}}"
+					 mode="aspectFit"
+					 style="width: 200rpx; height: 200rpx;"
+					 bindtap="previewQRCode"
+					 data-url="{{item.qrCodeUrl}}"
+					/>
+				</van-cell>
 			</van-cell-group>
 		</view>
 
 		<view
 		 wx:for="{{loopArray}}"
+		 data-date="{{ item }}"
 		 wx:key="index"
 		 class="result-item"
 		 wx:if="{{ profession == '专业会员'}}"
 		>
 			<van-cell-group>
-				<van-cell title="姓名" border="{{ false }}" value="{{ selectedName }}" />
-				<van-cell title="性别" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="工作单位" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="证书等级" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
-				<van-cell title="发证日期" border="{{ false }}" value="{{ selectedIssueDate }}" />
-
+				<van-cell title="姓名" border="{{ false }}" value="{{ item.name  }}" />
+				<van-cell title="性别" border="{{ false }}" value="{{ item.info.gender }}" />
+				<van-cell title="工作单位" border="{{ false }}" value="{{ item.info.organization }}" />
+				<van-cell title="证书等级" border="{{ false }}" value="{{ item.info.certLevel }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ item.memberNo }}" />
+				<van-cell title="发证日期" border="{{ false }}" value="{{ item.indate }}" />
+				<van-cell title="扫描查询" border="{{ false }}">
+					<image
+					 src="{{item.qrCodeUrl}}"
+					 mode="aspectFit"
+					 style="width: 200rpx; height: 200rpx;"
+					 bindtap="previewQRCode"
+					 data-url="{{item.qrCodeUrl}}"
+					/>
+				</van-cell>
 			</van-cell-group>
 		</view>
 
 		<view
 		 wx:for="{{loopArray}}"
+		 data-date="{{ item }}"
 		 wx:key="index"
 		 class="result-item"
 		 wx:if="{{ profession == '企业评价'}}"
 		>
 			<van-cell-group>
-				<van-cell title="企业名称" border="{{ false }}" value="{{ selectedName }}" />
-				<van-cell title="注册地址" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="企业法人" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="证书等级" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
-				<van-cell title="发证日期" border="{{ false }}" value="{{ selectedIssueDate }}" />
+				<van-cell title="企业名称" border="{{ false }}" value="{{  item.name   }}" />
+				<van-cell title="注册地址" border="{{ false }}" value="{{ item.info.location }}" />
+				<van-cell title="企业法人" border="{{ false }}" value="{{ item.info.legal }}" />
+				<van-cell title="证书等级" border="{{ false }}" value="{{ item.info.certLevel }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ item.memberNo }}" />
+				<van-cell title="发证日期" border="{{ false }}" value="{{ item.indate }}" />
+				<van-cell title="扫描查询" border="{{ false }}">
+					<image
+					 src="{{item.qrCodeUrl}}"
+					 mode="aspectFit"
+					 style="width: 200rpx; height: 200rpx;"
+					 bindtap="previewQRCode"
+					 data-url="{{item.qrCodeUrl}}"
+					/>
+				</van-cell>
 
 			</van-cell-group>
 		</view>

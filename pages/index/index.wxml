@@ -8,10 +8,30 @@
 			{{ city ? city : '去选择' }}
 		</navigator>
 		<view class="navigation-search">
-			<view class="navigation-search__scan" bindtap="scanCode" wx:if="{{!reAuth}}">
-				<van-icon name="/images/sy_sao.png" custom-style="margin-right: 10rpx" size="36rpx" />
-				扫一扫
-			</view>
+			<!-- <view class="navigation-search__scan" bindtap="scanCode" wx:if="{{!reAuth}}">
+        <van-icon
+          name="/images/sy_sao.png"
+          custom-style="margin-right: 10rpx"
+          size="36rpx"
+        />
+        扫一扫
+      </view>
+      <button
+        class="navigation-search__scan btn-normal"
+        bindtap="checkAuth"
+        wx:else
+        open-type="openSetting"
+        bindopensetting="checkOpenSetting"
+      >
+        <van-icon
+          name="/images/sy_sao.png"
+          custom-style="margin-right: 10rpx"
+          size="36rpx"
+        />
+        扫一扫
+      </button> -->
+			<van-icon name="search" size="36rpx" color="#999" />
+			<navigator hover-class="none" class="navigation-search__placeholder" url="/pages/goods/list">建材/无甲醛/装修</navigator>
 		</view>
 	</view>
 
@@ -43,10 +63,6 @@
 	<!-- navs -->
 	<view class="section-cube">
 		<!-- navs -->
-		<view bindtap="showMemberPicker" data-id="1">会员之家</view>
-		<view bindtap="showMemberPicker" data-id="2">室内师证</view>
-		<view bindtap="showMemberPicker" data-id="3">室内装饰</view>
-		<view bindtap="showMemberPicker" data-id="4">在线咨询</view>
 		<block wx:for="{{ navs }}" wx:key="index">
 			<view class="section-cube__item" wx:if="{{ item.url == 'scanCode' }}">
 				<view class="section-cube__item-entry" bindtap="scanCode" wx:if="{{!reAuth}}">
@@ -64,8 +80,20 @@
 					<view class="section-cube__item-entry--text">{{ item.navname }}</view>
 				</button>
 			</view>
-			<view class="section-cube__item" wx:else>
 
+			<view class="section-cube__item" wx:elif="{{ item.navname == '室内设计师'||item.navname == '会员之家'||item.navname == '室内装饰' }}">
+				<view
+				 class="section-cube__item-entry"
+				 hover-class="none"
+				 bindtap="showMemberPicker"
+				 data-name="{{ item.url }}"
+				>
+					<image src="{{ item.icon }}" class="section-cube__item-entry--icon" />
+					<view class="section-cube__item-entry--text">{{ item.navname }}</view>
+				</view>
+			</view>
+
+			<view class="section-cube__item" wx:else>
 				<navigator
 				 class="section-cube__item-entry"
 				 hover-class="none"

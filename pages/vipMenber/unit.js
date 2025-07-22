@@ -15,12 +15,17 @@ Page({
    */
   onLoad: function (options) {
     this.startCountdown()
-    console.log(options, 'options')
     wx.setNavigationBarTitle({
       title: options.id == 1 ? '单位会员入会须知' : options.id == 2 ? '个人会员入会须知' : '会员证书年检须知'
     })
     this.setData({
       number: options.id
+    })
+  },
+  showMemberPicker() {
+    console.log('!', 111)
+    wx.navigateTo({
+      url: '/pages/vipMenber/addform?id=' + this.data.number
     })
   },
   /**
@@ -60,7 +65,7 @@ Page({
    * 获取基本信息
    */
   getInfo() {},
-  showMemberPicker(e) {},
+
   /**
    * 扫一扫
    */
