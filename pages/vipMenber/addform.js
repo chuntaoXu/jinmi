@@ -100,7 +100,6 @@ Page({
         true
       )
       .then(res => {
-        console.log('object', res)
         if (res.error == 0) {
           wx.showToast({
             title: '提交成功',
@@ -109,7 +108,7 @@ Page({
           })
           setTimeout(() => {
             wx.navigateTo({
-              url: '/pages/vipMenber/qrcode'
+              url: '/pages/vipMenber/qrcode?type=3'
             })
           }, 1500)
         }

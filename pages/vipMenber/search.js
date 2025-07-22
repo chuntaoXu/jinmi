@@ -2,6 +2,7 @@
 const app = getApp()
 const UTILS = app.requirejs('util')
 const BASE_URL = app.globalData.BASE_URL
+import drawQrcode from '../../utils/map'
 Page({
   /**
    * 页面的初始数据
@@ -39,7 +40,8 @@ Page({
     name: '',
     // 详情信息
 
-    loopArray: []
+    loopArray: [],
+    qrCodeText: 'https://www.baidu.com'
   },
 
   /**
@@ -81,8 +83,6 @@ Page({
     })
   },
   onSearch() {
-    console.log(this.data.profession, '11111')
-    console.log(this.data.title, this.data.nameOrNo, 'type nameOrNo')
     if (!this.data.nameOrNo) {
       wx.showToast({
         title: '请输入姓名/企业名称/证书编号',
@@ -103,15 +103,16 @@ Page({
       .then(res => {
         console.log('object', res)
         if (res.error == 0) {
-          res.data.forEach(item => {
-            // 通过 item.memberNo 生成二维码链接
-            item.qrCodeUrl = this.generateQRCode(item.memberNo)
+          res.data.forEach((item, index) => {
+            // 为每个项目生成二维码
+            this.generateQRCode(item.memberNo, index)
+          })
 
-            console.log(item.qrCodeUrl, '111')
-          })
-          this.setData({
-            loopArray: res.data
-          })
+          setTimeout(() => {
+            this.setData({
+              loopArray: res.data
+            })
+          }, 500)
         }
       })
   },
@@ -119,24 +120,29 @@ Page({
   /**
    * 生成并显示二维码
    */
-  generateQRCode(memberNo) {
+  generateQRCode(memberNo, index) {
     if (!memberNo) {
       return
     }
-    const qrUrl = `http://www.cida.org.cn/hycx?sid=${memberNo}`
-    // 方案一：使用第三方服务（需要配置域名白名单）
-    const qrCodeImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrUrl)}`
-    // 方案二：使用自己的服务器API（推荐）
-    // const qrCodeImageUrl = `${BASE_URL}/api/qrcode?url=${encodeURIComponent(qrUrl)}&size=300`
-    return qrCodeImageUrl
-  },
-
-  /**
-   * 点击生成二维码按钮
-   */
-  onGenerateQRCode(e) {
-    const memberNo = e.currentTarget.dataset.memberno
-    this.generateQRCode(memberNo)
+    wx.showLoading({
+      title: '二维码生成中...'
+    })
+    const qrUrl = `https://www.cida.org.cn/hycx?sid=${memberNo}`
+    const canvasId = `qrcode-${index}` // 使用动态的canvas ID
+    // 确保DOM已渲染完成后再绘制二维码
+    setTimeout(() => {
+      drawQrcode({
+        width: 100,
+        height: 100,
+        canvasId: canvasId,
+        text: qrUrl,
+        callback(e) {
+          console.log(`二维码 ${canvasId} 生成完成:`, e)
+          wx.hideLoading()
+          // 二维码生成完成，更新数据
+        }
+      })
+    }, 0) // 延迟100ms确保canvas已渲染
   },
 
   /**

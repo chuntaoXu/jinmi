@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "加入协会",
   "enablePullDownRefresh": false,
+    "navigationStyle": "custom",
   "usingComponents": {
     "van-popup": "@vant/weapp/popup/index",
     "van-sticky": "@vant/weapp/sticky/index",

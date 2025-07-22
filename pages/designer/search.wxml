@@ -5,18 +5,22 @@
 		<view class="search-bar">
 			<van-field
 			 class="name-input"
-			 value="{{ name }}"
+			 clearable
+			 value="{{ id_number }}"
 			 placeholder="请输入证件标号（可选）"
 			 border="{{ true }}"
+			 bind:change="onEnterpriseNameChange"
 			/>
 
 		</view>
 		<view class="search-row">
 			<van-field
 			 class="name-input"
-			 value="{{ name }}"
+			 clearable
+			 value="{{ cert_no }}"
 			 placeholder="请输入证件标号（可选）"
 			 border="{{ true }}"
+			 bind:change="onCertNoChange"
 			/>
 			<van-button type="primary" size="small" bind:click="getCertRecord">
 				查询
@@ -28,16 +32,16 @@
 	<view class="container">
 		<view wx:for="{{loopArray}}" wx:key="index" class="result-item">
 			<van-cell-group>
-				<van-cell title="姓名" border="{{ false }}" value="{{ selectedName }}" />
-				<van-cell title="性别" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="类别" border="{{ false }}" value="{{ selectedGender }}" />
-				<van-cell title="证书编号" border="{{ false }}" value="{{ selectedCertificateNumber }}" />
-				<van-cell title="证书有效期" border="{{ false }}" value="{{ selectedIssueDate }}" />
-				<van-cell title="工作单位" border="{{ false }}" value="{{ selectedWorkUnit }}" />
+				<van-cell title="姓名" border="{{ false }}" value="{{ item.name }}" />
+				<van-cell title="证件编号" border="{{ false }}" value="{{ item.id_number }}" />
+				<van-cell title="认证项目" border="{{ false }}" value="{{ item.cert_name }}" />
+				<van-cell title="证书编号" border="{{ false }}" value="{{ item.cert_no }}" />
+				<van-cell title="颁发日期" border="{{ false }}" value="{{ item.issue_at }}" />
+				<van-cell title="有效期至" border="{{ false }}" value="{{ item.expire_at }}" />
 			</van-cell-group>
 		</view>
 
 	</view>
-	<view class="button-section" bindtap="comeGo">点击报名</view>
+	<view class="button-section" bindtap="comeGo">报考设计师</view>
 </view>
 

@@ -32,9 +32,15 @@ Page({
   onShow: function () {},
 
   goback() {
-    wx.navigateBack({
-      delta: this.data.type == 1 ? 1 : 2
-    })
+    if (this.data.type == 3) {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    } else {
+      wx.navigateBack({
+        delta: this.data.type == 1 ? 1 : this.data.type
+      })
+    }
   },
 
   /**

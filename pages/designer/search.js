@@ -1,5 +1,7 @@
 // pages/index/index.js
-
+const app = getApp()
+const UTILS = app.requirejs('util')
+const BASE_URL = app.globalData.BASE_URL
 Page({
   /**
    * 页面的初始数据
@@ -17,14 +19,15 @@ Page({
     selectedCertificateNumber: 'SH2070047Y',
     selectedIssueDate: '2007.08.26-2019.08.26',
     loopArray: new Array(10),
-    number: 2
+    number: 2,
+    cert_no: '',
+    id_number: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options, 'options')
     this.setData({
       number: options.id || 2
     })
@@ -36,6 +39,16 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {},
+  onEnterpriseNameChange(e) {
+    this.setData({
+      id_number: e.detail
+    })
+  },
+  onCertNoChange(e) {
+    this.setData({
+      cert_no: e.detail
+    })
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -43,7 +56,7 @@ Page({
   onShow: function () {},
   comeGo() {
     wx.navigateTo({
-      url: this.data.number === 2 ? '/pages/designer/index' : '/pages/interior/index'
+      url: '/pages/interior/index'
     })
   },
   /**
@@ -54,20 +67,46 @@ Page({
    * 获取证书记录
    */
   getCertRecord() {
-    const cert_no = this.data.number
-    wx.request({
-      url: `https://zhrccp-api.cecctm.com/c/orders/certs/record?cert_no=${cert_no}`,
-      method: 'GET',
-      success: res => {
-        console.log('证书记录:', res.data)
-        // 这里可以 setData 到页面上
-        // this.setData({ certRecord: res.data })
-      },
-      fail: err => {
-        wx.showToast({ title: '请求失败', icon: 'none' })
-        console.error('证书记录请求失败', err)
-      }
+    this.setData({
+      loopArray: []
     })
+    if (!this.data.cert_no && !this.data.id_number) {
+      wx.showToast({
+        title: '请填写证件编号或证书编号',
+        icon: 'none'
+      })
+      return
+    }
+    app
+      .request(
+        'evaluation.homes.getRecord',
+        {
+          cert_no: this.data.cert_no,
+          id_number: this.data.id_number
+        },
+        true
+      )
+      .then(res => {
+        if (res.error == 0) {
+          this.setData({
+            loopArray: res.data
+          })
+        }
+      })
+    // const cert_no = this.data.number
+    // wx.request({
+    //   url: `https://zhrccp-api.cecctm.com/c/orders/certs/record?id_number=${cert_no}`,
+    //   method: 'GET',
+    //   success: res => {
+    //     console.log('证书记录:', res.data)
+    //     // 这里可以 setData 到页面上
+    //     // this.setData({ certRecord: res.data })
+    //   },
+    //   fail: err => {
+    //     wx.showToast({ title: '请求失败', icon: 'none' })
+    //     console.error('证书记录请求失败', err)
+    //   }
+    // })
   },
 
   /**

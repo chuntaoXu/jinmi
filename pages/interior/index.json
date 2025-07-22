@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "室内装饰企业水平评价",
+  "navigationBarTitleText": "室内设计师专业技能报考",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "van-popup": "@vant/weapp/popup/index",

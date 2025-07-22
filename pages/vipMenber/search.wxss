@@ -40,6 +40,14 @@ page {
   --cell-line-height: 1.6;
   --cell-vertical-padding: 24rpx;
 }
+
+/* 二维码容器样式 */
+.qr-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
 /* 吸顶容器样式 */
 .search-container {
   position: fixed;
@@ -95,4 +103,10 @@ page {
   --button-border-radius: 8rpx !important;
   --button-font-size: 26rpx !important;
   width: 200rpx !important;
+}
+.no-result {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  margin: 300rpx auto;
 }

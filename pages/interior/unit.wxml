@@ -46,7 +46,12 @@
 	</view>
 	<view class="container">
 		<view class="qrcode">
-			<image src="/images/qr.jpg" mode="aspectFit" show-menu-by-longpress="{{true}}" />
+			<image
+			 src="/images/qr.jpg"
+			 mode="aspectFit"
+			 show-menu-by-longpress="{{true}}"
+			 class="qrcode-image"
+			/>
 		</view>
 		<view class="footer">长按二维码添加微信客服，获取审核进度更新。</view>
 	</view>

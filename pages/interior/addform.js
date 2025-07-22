@@ -14,16 +14,26 @@ Page({
     msgCode: '',
     contactPhone: '',
     contactName: '',
-    licenseimg: '',
-    licenseimgFile: []
+    licenseimg: [],
+    licenseimgFile: [],
+    title: '室内设计水平'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let obj = {
+      1: '室内设计水平',
+      2: '陈设艺术设计水平',
+      3: '家装家居服务水平',
+      4: '绿色环保服务水平',
+      5: '企业水平评价自测',
+      6: '企业水平评价'
+    }
     this.setData({
-      number: options.id
+      number: options.id,
+      title: obj[options.id] || '室内设计水平'
     })
   },
   /**
@@ -38,6 +48,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {},
+
+  goback() {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
 
   beforeRead(event) {
     const { file, callback } = event.detail
@@ -144,6 +160,89 @@ Page({
     }
   },
 
+  onEnterpriseNameChange(event) {
+    this.setData({
+      enterprise_name: event.detail
+    })
+  },
+  onNameChange(event) {
+    this.setData({
+      name: event.detail
+    })
+  },
+  onPhoneChange(event) {
+    this.setData({
+      phone: event.detail
+    })
+  },
+  // 验证手机号格式
+  validatePhone(phone) {
+    const phoneReg = /^1[3-9]\d{9}$/
+    return phoneReg.test(phone)
+  },
+  joinAssociation() {
+    if (!this.data.enterprise_name) {
+      wx.showToast({
+        title: '请输入申报企业名称',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.name) {
+      wx.showToast({
+        title: '请输入联系人姓名',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.phone) {
+      wx.showToast({
+        title: '请输入联系人电话',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.validatePhone(this.data.phone)) {
+      wx.showToast({
+        title: '请输入正确的手机号格式',
+        icon: 'none'
+      })
+      return
+    }
+    if (this.data.licenseimgFile.length === 0) {
+      wx.showToast({
+        title: '请上传企业营业执照',
+        icon: 'none'
+      })
+      return
+    }
+    app
+      .request(
+        'evaluation.evaluation.addEvaluation',
+        {
+          type: this.data.number,
+          enterprise_name: this.data.enterprise_name,
+          name: this.data.name,
+          phone: this.data.phone,
+          business_license: JSON.stringify(this.data.licenseimgFile)
+        },
+        true
+      )
+      .then(res => {
+        if (res.error == 0) {
+          wx.showToast({
+            title: '提交成功',
+            icon: 'success',
+            duration: 1500
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/vipMenber/qrcode?type=2'
+            })
+          }, 1500)
+        }
+      })
+  },
   /**
    * 刷新
    */

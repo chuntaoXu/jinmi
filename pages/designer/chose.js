@@ -87,7 +87,7 @@ Page({
       .request(
         'evaluation.evaluating.addEvaluating',
         {
-          content: JSON.stringify(contentd)
+          content: JSON.stringify(contentd.content)
         },
         true
       )
@@ -100,7 +100,7 @@ Page({
           })
           setTimeout(() => {
             wx.navigateTo({
-              url: '/pages/vipMenber/qrcode?type=1'
+              url: '/pages/vipMenber/qrcode?type=3'
             })
           }, 1500)
         }

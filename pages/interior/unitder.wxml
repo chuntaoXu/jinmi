@@ -347,7 +347,7 @@
 			</view>
 		</view>
 	</view>
-	<view class="button-section{{time !== 0 ? ' button-disabled' : ''}}" wx:if="{{time !== 0}}"> 请阅读文件（{{time}}秒后可操作</view>
+	<view class="button-section{{time !== 0 ? ' button-disabled' : ''}}" wx:if="{{time !== 0}}"> 请阅读文件（{{time}}）秒后可操作</view>
 	<view class="button-section" wx:else bindtap="onSubmit">申报企业水平评价</view>
 </view>
 

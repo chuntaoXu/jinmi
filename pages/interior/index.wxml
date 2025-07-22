@@ -1,9 +1,27 @@
 <!--pages/index/index.wxml-->
 <view class="page">
-	<view class="company" bindtap="showMemberPicker" data-id="1">室内设计水平</view>
-	<view class="company person" bindtap="showMemberPicker" data-id="2">陈设艺术设计水平</view>
-	<view class="company book" bindtap="showMemberPicker" data-id="3">家装家居服务水平</view>
-	<view class="company book" bindtap="showMemberPicker" data-id="4">绿色环保服务水平</view>
+	<view
+	 class="company"
+	 bindtap="showMemberPicker"
+	 data-id="1"
+	 data-type="unit"
+	>室内设计水平
+	</view>
+	<view
+	 class="company person"
+	 bindtap="showMemberPicker"
+	 data-id="2"
+	 data-type="personal"
+	>陈设艺术设计水平
+	</view>
+	<view
+	 class="company book"
+	 bindtap="showMemberPicker"
+	 data-id="3"
+	 data-type="annual"
+	>家装家居服务水平
+	</view>
+	<view class="company book green-eco" bindtap="showMemberPicker" data-id="4">绿色环保服务水平</view>
 
 	<van-popup
 	 show="{{ show }}"

@@ -1,3 +1,40 @@
+page {
+  /* 优化渐变色彩，更柔和的蓝白过渡 */
+  min-height: 100vh;
+  /* 防止内容溢出 */
+  overflow-x: hidden;
+}
+
+.header-box {
+  width: 100vw;
+  background-color: #fff;
+}
+
+.header {
+  width: 100%;
+  height: 88rpx;
+  color: #000000;
+  font-size: 34rpx;
+  font-weight: 500;
+  position: relative;
+  text-align: center;
+  line-height: 88rpx;
+}
+.downArrow {
+  width: 38rpx;
+  height: 38rpx;
+  transform: rotate(90deg);
+  position: absolute;
+  left: 34rpx;
+  top: 25rpx;
+  z-index: 999;
+}
+.title {
+  font-weight: 400;
+  font-size: 28rpx;
+  color: #000000;
+}
+
 .form-card {
   background: #fff;
   border-radius: 16rpx;
@@ -20,7 +57,7 @@ page {
   color: rgba(69, 90, 100, 0.6);
   font-weight: normal;
   font-size: 24rpx;
-  padding: 0 32rpx;
+  padding: 12rpx 32rpx;
 }
 .goPadding {
   position: relative;

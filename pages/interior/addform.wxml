@@ -1,33 +1,47 @@
 <view class="page">
+	<view class="header-box">
+		<view style="height: 88rpx;" />
+		<view class="header">
+			<view class="back" bindtap="goback">
+				<image class="downArrow" src="/images/down_arrow.png" />
+			</view>
+			<view class="title">{{ title }}</view>
+		</view>
+	</view>
 	<view class="notice-content">
 		<view class="form-card">
 			<van-cell-group>
 				<van-field
 				 label="申报企业名称"
 				 placeholder="请输入申报企业名称"
-				 value="{{ msgCode }}"
+				 value="{{ enterprise_name }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 bind:change="onEnterpriseNameChange"
 				/>
 				<van-field
 				 label="联系人姓名"
 				 placeholder="请输入联系人姓名"
-				 value="{{ contactName }}"
+				 value="{{ name }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 bind:change="onNameChange"
 				/>
 				<van-field
 				 label="联系人电话"
 				 placeholder="请输入联系人电话"
-				 value="{{ contactPhone }}"
+				 value="{{ phone }}"
 				 clearable
 				 center
 				 custom-class="field-item"
 				 required="true"
+				 type="number"
+				 maxlength="11"
+				 bind:change="onPhoneChange"
 				/>
 				<view>
 					<view class="blick_title goPadding">
@@ -37,7 +51,7 @@
 					<view class="blick_titleGo">
 						<text style="color:#ee0a24;font-weight:bold;">温馨提示：</text>
 						<br/>
-						至少上传1个文件，最多上传6个文件，上传格式仅限： .jpg .png .pdf，单文件小于2M</view>
+						至少上传1个文件，最多上传6个文件，上传格式仅限： .jpg .png ，单文件小于2M</view>
 					<view class="padleft30">
 						<van-uploader
 						 accept="image"
@@ -53,7 +67,7 @@
 						/>
 					</view>
 				</view>
-				<view class="button-section">加入协会</view>
+				<view class="button-section" bindtap="joinAssociation">提交</view>
 			</van-cell-group>
 		</view>
 	</view>

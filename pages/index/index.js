@@ -338,14 +338,47 @@ Page({
     })
   },
   onCancelInter(e) {
-    let obj = {
-      0: '/pages/interior/unit',
-      1: '/pages/interior/index',
-      2: '/pages/interior/addform',
-      3: '/pages/interior/check'
+    if (e.detail.index == 2) {
+      app
+        .request(
+          'evaluation.evaluation.checkSubmits',
+          {
+            type: 5
+          },
+          true
+        )
+        .then(res => {
+          if (res.error == 0) {
+            if (res.data.is_submit == 1) {
+              wx.showToast({
+                title: '您已提交过申请',
+                icon: 'none'
+              })
+              setTimeout(() => {
+                wx.navigateTo({
+                  url: '/pages/vipMenber/qrcode?type=1'
+                })
+              }, 1500)
+            } else {
+              wx.navigateTo({
+                url: `/pages/interior/addform?id=5`
+              })
+            }
+          }
+        })
+    } else {
+      let obj = {
+        0: '/pages/interior/unit',
+        1: '/pages/interior/index',
+        2: '/pages/interior/addform?id=5',
+        3: '/pages/interior/check'
+      }
+      wx.navigateTo({
+        url: obj[e.detail.index]
+      })
     }
-    wx.navigateTo({
-      url: obj[e.detail.index]
+    this.setData({
+      showInter: false
     })
   },
 

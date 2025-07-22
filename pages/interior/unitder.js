@@ -15,7 +15,6 @@ Page({
    */
   onLoad: function (options) {
     this.startCountdown()
-    console.log(options, 'options')
     let obj = {
       1: '室内设计水平评价介绍',
       2: '陈设艺术设计水平评价介绍',

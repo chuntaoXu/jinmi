@@ -78,3 +78,102 @@ page {
   justify-content: center;
   background-color: #fff;
 }
+/* 二维码容器 */
+.qrcode {
+  width: 420rpx;
+  height: 420rpx;
+  border-radius: 50%;
+  margin-bottom: 70rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 优化阴影，更自然的立体效果 */
+  box-shadow: 0 12rpx 40rpx rgba(100, 149, 237, 0.2);
+  border: 10rpx solid #fff;
+  position: relative;
+  /* 增加悬浮动画过渡 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 悬停效果（提升交互感知） */
+.qrcode:active {
+  transform: scale(0.98);
+  box-shadow: 0 8rpx 24rpx rgba(100, 149, 237, 0.15);
+}
+
+/* 渐变边框优化 */
+.qrcode::after {
+  content: '';
+  position: absolute;
+  top: -6rpx;
+  left: -6rpx;
+  right: -6rpx;
+  bottom: -6rpx;
+  border-radius: 50%;
+  /* 更有层次的渐变色彩 */
+  background: linear-gradient(135deg, #1677ff, #36cbcb, #50bfff);
+  z-index: -1;
+  /* 增加光效动画（缓慢旋转） */
+  animation: rotate 8s linear infinite;
+}
+
+/* 二维码图片容器 */
+.qrcode-image {
+  width: 92%;
+  height: 92%;
+  border-radius: 50%;
+  object-fit: cover;
+  /* 增加内边距，避免内容贴边 */
+  padding: 12rpx;
+  background-color: #fff;
+}
+
+/* 底部提示文字 */
+.footer {
+  color: #4a6fa5;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 520rpx;
+  padding: 24rpx 30rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 24rpx;
+  /* 优化阴影，更精致 */
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  /* 增加边框点缀 */
+  border: 1rpx solid rgba(220, 231, 255, 0.8);
+}
+
+/* 新增：长按提示小图标（增强交互引导） */
+.footer::before {
+  content: '💡';
+  display: inline-block;
+  margin-right: 8rpx;
+  vertical-align: middle;
+}
+
+/* 渐变旋转动画 */
+@keyframes rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 适配小屏设备 */
+@media (max-width: 375rpx) {
+  .qrcode {
+    width: 360rpx;
+    height: 360rpx;
+  }
+  .message {
+    font-size: 30rpx;
+    margin-bottom: 60rpx;
+  }
+}

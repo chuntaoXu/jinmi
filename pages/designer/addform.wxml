@@ -40,7 +40,7 @@
 					<view class="blick_titleGo">
 						<text style="color:#ee0a24;font-weight:bold;">温馨提示：</text>
 						<br/>
-						至少上传1个文件，最多上传6个文件，上传格式仅限： .jpg .png .pdf，单文件小于2M</view>
+						至少上传1个文件，最多上传6个文件，上传格式仅限： .jpg .png ，单文件小于2M</view>
 					<view class="padleft30">
 						<van-uploader
 						 accept="image"

@@ -50,13 +50,9 @@
 				<van-cell title="证书有效期" border="{{ false }}" value="{{ item.indate }}" />
 				<van-cell title="工作单位" border="{{ false }}" value="{{item.info.organization}}" />
 				<van-cell title="扫描查询" border="{{ false }}">
-					<image
-					 src="{{item.qrCodeUrl}}"
-					 mode="aspectFit"
-					 style="width: 200rpx; height: 200rpx;"
-					 bindtap="previewQRCode"
-					 data-url="{{item.qrCodeUrl}}"
-					/>
+					<view class="qr-container">
+						<canvas canvas-id="qrcode-{{index}}" style="width:250rpx;height:250rpx;" />
+					</view>
 				</van-cell>
 			</van-cell-group>
 
@@ -76,13 +72,7 @@
 				<van-cell title="证书有效期" border="{{ false }}" value="{{ item.indate }}" />
 				<van-cell title="工作单位" border="{{ false }}" value="{{ item.info.organization }}" />
 				<van-cell title="扫描查询" border="{{ false }}">
-					<image
-					 src="{{item.qrCodeUrl}}"
-					 mode="aspectFit"
-					 style="width: 200rpx; height: 200rpx;"
-					 bindtap="previewQRCode"
-					 data-url="{{item.qrCodeUrl}}"
-					/>
+					<canvas canvas-id="qrcode-{{index}}" style="width:250rpx;height:250rpx;" />
 				</van-cell>
 			</van-cell-group>
 		</view>
@@ -99,13 +89,7 @@
 				<van-cell title="证书编号" border="{{ false }}" value="{{ item.memberNo }}" />
 				<van-cell title="发证日期" border="{{ false }}" value="{{ item.indate }}" />
 				<van-cell title="扫描查询" border="{{ false }}">
-					<image
-					 src="{{item.qrCodeUrl}}"
-					 mode="aspectFit"
-					 style="width: 200rpx; height: 200rpx;"
-					 bindtap="previewQRCode"
-					 data-url="{{item.qrCodeUrl}}"
-					/>
+					<canvas canvas-id="qrcode-{{index}}" style="width:250rpx;height:250rpx;" />
 				</van-cell>
 			</van-cell-group>
 		</view>
@@ -125,13 +109,7 @@
 				<van-cell title="证书编号" border="{{ false }}" value="{{ item.memberNo }}" />
 				<van-cell title="发证日期" border="{{ false }}" value="{{ item.indate }}" />
 				<van-cell title="扫描查询" border="{{ false }}">
-					<image
-					 src="{{item.qrCodeUrl}}"
-					 mode="aspectFit"
-					 style="width: 200rpx; height: 200rpx;"
-					 bindtap="previewQRCode"
-					 data-url="{{item.qrCodeUrl}}"
-					/>
+					<canvas canvas-id="qrcode-{{index}}" style="width:250rpx;height:250rpx;" />
 				</van-cell>
 			</van-cell-group>
 		</view>
@@ -151,17 +129,12 @@
 				<van-cell title="证书编号" border="{{ false }}" value="{{ item.memberNo }}" />
 				<van-cell title="发证日期" border="{{ false }}" value="{{ item.indate }}" />
 				<van-cell title="扫描查询" border="{{ false }}">
-					<image
-					 src="{{item.qrCodeUrl}}"
-					 mode="aspectFit"
-					 style="width: 200rpx; height: 200rpx;"
-					 bindtap="previewQRCode"
-					 data-url="{{item.qrCodeUrl}}"
-					/>
+					<canvas canvas-id="qrcode-{{index}}" style="width:250rpx;height:250rpx;" />
 				</van-cell>
-
 			</van-cell-group>
 		</view>
+		<view class="no-result" wx:if="{{!loopArray.length}}">暂无数据</view>
 	</view>
+
 </view>
 
