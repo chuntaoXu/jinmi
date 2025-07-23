@@ -5,14 +5,14 @@
 			<view class="back" bindtap="goback">
 				<image class="downArrow" src="/images/down_arrow.png" />
 			</view>
-			<view class="title">资料审核</view>
+			<view class="title">在线咨询</view>
 		</view>
 	</view>
 	<view class="container">
 		<view class="message">资料审核中，请添加微信客服了解审核进度。</view>
 		<view class="qrcode">
 			<image
-			 src="/images/qr.jpg"
+			 src="{{url}}"
 			 mode="aspectFit"
 			 show-menu-by-longpress="{{true}}"
 			 class="qrcode-image"

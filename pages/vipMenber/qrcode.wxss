@@ -2,7 +2,6 @@
 page {
   /* 优化渐变色彩，更柔和的蓝白过渡 */
   background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-  min-height: 100vh;
   /* 防止内容溢出 */
   overflow-x: hidden;
 }
@@ -40,7 +39,7 @@ page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+
   /* 优化内边距，适配不同屏幕 */
   padding: 40rpx 30rpx;
   /* 增加背景模糊效果，提升层次感 */

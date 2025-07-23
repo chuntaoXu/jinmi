@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    type: 2
+    type: 2,
+    url: ''
   },
 
   /**
@@ -29,7 +30,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+    this.getInfo()
+  },
 
   goback() {
     if (this.data.type == 3) {
@@ -50,7 +53,17 @@ Page({
   /**
    * 获取基本信息
    */
-  getInfo() {},
+  getInfo() {
+    app.request('evaluation.homes.getQrcode', {}, true).then(res => {
+      if (res.error == 0) {
+        console.log('object', res)
+        this.setData({
+          url: 'https://jmwq.jiancedaojia.com/attachment/' + res.data.url
+        })
+        console.log('111', this.data.url)
+      }
+    })
+  },
   showMemberPicker(e) {},
   /**
    * 扫一扫
@@ -61,7 +74,7 @@ Page({
    */
   saveQrcode() {
     wx.saveImageToPhotosAlbum({
-      filePath: '/images/scgc.png',
+      filePath: this.data.url,
       success: () => {
         wx.showToast({ title: '已保存到相册，可在微信添加客服', icon: 'none' })
       },

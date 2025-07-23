@@ -130,6 +130,7 @@ Page({
     // 确保DOM已渲染完成后再绘制二维码
     setTimeout(() => {
       drawQrcode({
+        // 加一个层级为 1
         width: 100,
         height: 100,
         canvasId: canvasId,

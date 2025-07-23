@@ -40,8 +40,9 @@
 				<van-cell title="有效期至" border="{{ false }}" value="{{ item.expire_at }}" />
 			</van-cell-group>
 		</view>
-
+		<view class="no-result" wx:if="{{!loopArray.length}}">暂无数据</view>
 	</view>
+
 	<view class="button-section" bindtap="comeGo">报考设计师</view>
 </view>
 

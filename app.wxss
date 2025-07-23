@@ -176,7 +176,7 @@ page {
 }
 
 .padleft30 {
-  padding-left: 32rpx;
+  padding-left: 30rpx;
 }
 .blick_title {
   padding: 32rpx 32rpx;
@@ -184,4 +184,11 @@ page {
   font-weight: normal;
   font-size: 28rpx;
   line-height: 32rpx;
+}
+.van-picker__cancel {
+  font-size: 32rpx !important;
+}
+
+.van-picker__confirm {
+  font-size: 32rpx !important;
 }

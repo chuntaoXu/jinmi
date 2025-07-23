@@ -82,7 +82,7 @@ page {
   border-radius: 30px;
   margin: 0 6rpx;
   transition: width 300ms;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .section-banner__dots-dot.current {
@@ -145,7 +145,7 @@ page {
   padding: 0 30rpx;
 }
 
-.section-article{
+.section-article {
   margin-bottom: 30rpx;
 }
 
@@ -273,4 +273,8 @@ page {
   font-size: 28rpx;
   color: var(--text-primary);
   text-align: center;
+}
+
+.van-picker__cancel {
+  font-size: 32rpx !important;
 }

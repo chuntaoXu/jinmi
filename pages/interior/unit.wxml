@@ -47,7 +47,7 @@
 	<view class="container">
 		<view class="qrcode">
 			<image
-			 src="/images/qr.jpg"
+			 src="{{url}}"
 			 mode="aspectFit"
 			 show-menu-by-longpress="{{true}}"
 			 class="qrcode-image"

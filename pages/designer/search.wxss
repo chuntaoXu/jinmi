@@ -77,7 +77,7 @@ page {
 
 /* 结果项间距 */
 .result-item {
-  margin-bottom: 20rpx;
+  margin-bottom: 60rpx;
 }
 .button-section {
   width: 80%;

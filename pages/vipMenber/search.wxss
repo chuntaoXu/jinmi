@@ -3,14 +3,11 @@
 page {
   background-color: #fff;
 }
-.contain {
-}
 .container {
   padding: 20rpx;
   background-color: #f5f5f5;
-  min-height: 100vh;
+  min-height: calc(100vh - 200rpx);
 }
-
 .search-bar {
   display: flex;
   align-items: center;
@@ -20,20 +17,17 @@ page {
   margin-bottom: 20rpx;
   box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
 }
-
 .van-dropdown-menu {
   flex: 1;
   --dropdown-menu-height: 80rpx;
   width: 90vw;
 }
-
 .name-input {
   flex: 1;
   height: 80rpx;
   padding: 0 20rpx;
   --input-font-size: 28rpx;
 }
-
 /* 调整单元格样式 */
 .van-cell {
   --cell-font-size: 28rpx;
@@ -50,10 +44,6 @@ page {
 }
 /* 吸顶容器样式 */
 .search-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   background-color: #fff;
   padding: 16rpx;
   box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
@@ -80,7 +70,7 @@ page {
 /* 内容区域样式 */
 .container {
   padding: 16rpx;
-  margin-top: 220rpx; /* 留出吸顶区域的高度，避免内容被遮挡 */
+  z-index: 999;
 }
 
 /* 结果项间距 */

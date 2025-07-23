@@ -6,7 +6,8 @@ Page({
    */
   data: {
     time: 10,
-    timer: null
+    timer: null,
+    url: ''
   },
 
   /**
@@ -42,7 +43,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+    this.getInfo()
+  },
 
   /**
    * 刷新
@@ -51,7 +54,16 @@ Page({
   /**
    * 获取基本信息
    */
-  getInfo() {},
+  getInfo() {
+    app.request('evaluation.homes.getQrcode', {}, true).then(res => {
+      if (res.error == 0) {
+        console.log('object', res)
+        this.setData({
+          url: 'https://jmwq.jiancedaojia.com/attachment/' + res.data.url
+        })
+      }
+    })
+  },
   showMemberPicker(e) {},
   /**
    * 扫一扫
@@ -84,7 +96,17 @@ Page({
       clearInterval(this.data.timer)
     }
   },
-
+  saveQrcode() {
+    wx.saveImageToPhotosAlbum({
+      filePath: this.data.url,
+      success: () => {
+        wx.showToast({ title: '已保存到相册，可在微信添加客服', icon: 'none' })
+      },
+      fail: () => {
+        wx.showToast({ title: '保存失败，请检查权限', icon: 'none' })
+      }
+    })
+  },
   /**
    * 页面上拉触底事件的处理函数
    */

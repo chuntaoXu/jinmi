@@ -1,8 +1,6 @@
 <!--pages/auth/index.wxml-->
 <view class="page">
-
 	<image class="auth-logo mgt120" src="/images/auth.png" />
-	{{openid }}
 	<view class="full-handle mgt120" wx:if="{{ !userInfo }}">
 		<van-button
 		 type="primary"

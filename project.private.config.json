@@ -7,6 +7,27 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/designer/search",
+          "pathName": "pages/designer/search",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/vipMenber/search",
+          "pathName": "pages/vipMenber/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/vipMenber/qrcode",
+          "pathName": "pages/vipMenber/qrcode",
+          "query": "type=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/designer/index",
           "pathName": "pages/designer/index",
           "query": "",
