@@ -7,7 +7,10 @@ Page({
    */
   data: {
     type: 2,
-    url: ''
+    url: '',
+    typeGo: '',
+    title: '',
+    titleTrue: false
   },
 
   /**
@@ -16,7 +19,8 @@ Page({
   onLoad: function (options) {
     console.log(options, 'options')
     this.setData({
-      type: options.type
+      type: options.type,
+      typeGo: options.typeGo || ''
     })
   },
   /**
@@ -32,18 +36,91 @@ Page({
    */
   onShow: function () {
     this.getInfo()
+    if (this.data.typeGo == 1) {
+      app
+        .request(
+          'evaluation.homes.checkSubmits',
+          {
+            type: this.data.type
+          },
+          true
+        )
+        .then(res => {
+          if (res.error == 0) {
+            if (res.data.is_submit == 1) {
+              console.log('!11', this.data.typeGo)
+              this.setData({
+                titleTrue: true,
+                title: this.data.type == 1 ? '单位会员入会已提交资料' : this.data.type == 2 ? '个人会员入会已提交资料' : '会员证书年检已提交资料'
+              })
+            }
+          }
+        })
+    } else if (this.data.typeGo == 2) {
+      app
+        .request(
+          'evaluation.designer.checkSubmits',
+          {
+            type: this.data.type
+          },
+          true
+        )
+        .then(res => {
+          if (res.error == 0) {
+            if (res.data.is_submit == 1) {
+              this.setData({
+                titleTrue: true,
+                title: this.data.type == 1 ? '高级设计师已提交资料' : this.data.type == 2 ? '中级设计师已提交资料' : '初级设计师已提交资料'
+              })
+            }
+          }
+        })
+    } else if (this.data.typeGo == 3) {
+      app
+        .request(
+          'evaluation.evaluating.checkSubmits',
+          {
+            type: this.data.type
+          },
+          true
+        )
+        .then(res => {
+          if (res.error == 0) {
+            if (res.data.is_submit == 1) {
+              this.setData({
+                titleTrue: true,
+                title: '自测数据已提交资料'
+              })
+            }
+          }
+        })
+    } else if (this.data.typeGo == 4) {
+      app
+        .request(
+          'evaluation.evaluation.checkSubmits',
+          {
+            type: this.data.type
+          },
+          true
+        )
+        .then(res => {
+          if (res.error == 0) {
+            if (res.data.is_submit == 1) {
+              this.setData({
+                titleTrue: true,
+                title: this.data.type == 1 ? '室内设计已提交资料' : this.data.type == 2 ? '陈设艺术设计已提交资料' : this.data.type == 3 ? '家装家居服务已提交资料' : this.data.type == 4 ? '绿色环保已提交资料' : this.data.type == 5 ? '企业水平自测已提交资料' : '企业水平评价已提交资料'
+              })
+            }
+          }
+        })
+    }
   },
 
   goback() {
-    if (this.data.type == 3) {
-      wx.switchTab({
-        url: '/pages/index/index'
-      })
-    } else {
-      wx.navigateBack({
-        delta: this.data.type == 1 ? 1 : this.data.type
-      })
-    }
+    // 指定去首页
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
   },
 
   /**
@@ -56,11 +133,9 @@ Page({
   getInfo() {
     app.request('evaluation.homes.getQrcode', {}, true).then(res => {
       if (res.error == 0) {
-        console.log('object', res)
         this.setData({
           url: 'https://jmwq.jiancedaojia.com/attachment/' + res.data.url
         })
-        console.log('111', this.data.url)
       }
     })
   },

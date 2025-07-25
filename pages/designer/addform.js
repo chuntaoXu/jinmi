@@ -6,14 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: 10,
+    time: 5,
     timer: null,
     number: 1,
     name: '',
     phone: '',
     city: '',
     licenseimg: [],
-    licenseimgFile: []
+    licenseimgFile: [],
+    typeGo: ''
   },
 
   /**
@@ -21,7 +22,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      number: options.id
+      number: options.id,
+      typeGo: options.typeGo || ''
     })
   },
   onCityChange(event) {
@@ -101,7 +103,7 @@ Page({
           })
           setTimeout(() => {
             wx.navigateTo({
-              url: '/pages/vipMenber/qrcode?type=3'
+              url: `/pages/vipMenber/qrcode?type=${this.data.number}&typeGo=${this.data.typeGo}`
             })
           }, 1500)
         }

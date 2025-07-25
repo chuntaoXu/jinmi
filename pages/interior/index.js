@@ -40,42 +40,18 @@ Page({
    */
   getInfo() {},
   showMemberPicker(e) {
-    app
-      .request(
-        'evaluation.evaluation.checkSubmits',
-        {
-          type: e.currentTarget.dataset.id
-        },
-        true
-      )
-      .then(res => {
-        if (res.error == 0) {
-          if (res.data.is_submit == 1) {
-            wx.showToast({
-              title: '您已提交过申请',
-              icon: 'none'
-            })
-            setTimeout(() => {
-              wx.navigateTo({
-                url: '/pages/vipMenber/qrcode?type=1'
-              })
-            }, 1500)
-          } else {
-            let obj = {
-              1: '室内设计水平',
-              2: '陈设艺术设计水平',
-              3: '家装家居服务水平',
-              4: '绿色环保服务水平'
-            }
-            this.setData({
-              number: e.currentTarget.dataset.id,
-              show: true,
-              title: obj[e.currentTarget.dataset.id],
-              ['interior[0].text']: obj[e.currentTarget.dataset.id] + '介绍'
-            })
-          }
-        }
-      })
+    let obj = {
+      1: '室内设计水平',
+      2: '陈设艺术设计水平',
+      3: '家装家居服务水平',
+      4: '绿色环保服务水平'
+    }
+    this.setData({
+      number: e.currentTarget.dataset.id,
+      show: true,
+      title: obj[e.currentTarget.dataset.id],
+      ['interior[0].text']: obj[e.currentTarget.dataset.id] + '介绍'
+    })
   },
   onCancelPicker() {
     this.setData({
@@ -85,11 +61,11 @@ Page({
   onCancelInter(e) {
     if (e.detail.index == 0) {
       wx.navigateTo({
-        url: '/pages/interior/unitder?id=' + this.data.number
+        url: '/pages/interior/unitder?id=' + this.data.number + '&typeGo=4'
       })
     } else {
       wx.navigateTo({
-        url: '/pages/interior/addform?id=' + this.data.number
+        url: '/pages/interior/addform?id=' + this.data.number + '&typeGo=4'
       })
     }
     this.setData({

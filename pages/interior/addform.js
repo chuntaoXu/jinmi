@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: 10,
+    time: 5,
     timer: null,
     number: 1,
     username: '',
@@ -16,7 +16,8 @@ Page({
     contactName: '',
     licenseimg: [],
     licenseimgFile: [],
-    title: '室内设计水平'
+    title: '室内设计水平',
+    typeGo: ''
   },
 
   /**
@@ -33,6 +34,7 @@ Page({
     }
     this.setData({
       number: options.id,
+      typeGo: options.typeGo || '',
       title: obj[options.id] || '室内设计水平'
     })
   },
@@ -237,7 +239,7 @@ Page({
           })
           setTimeout(() => {
             wx.navigateTo({
-              url: '/pages/vipMenber/qrcode?type=3'
+              url: `/pages/vipMenber/qrcode?type=${this.data.number}&typeGo=${this.data.typeGo}`
             })
           }, 1500)
         }

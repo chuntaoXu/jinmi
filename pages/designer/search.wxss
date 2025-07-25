@@ -92,3 +92,9 @@ page {
   border-radius: 16rpx;
   color: #fff;
 }
+.no-result {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  margin: 300rpx auto;
+}

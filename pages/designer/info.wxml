@@ -1,10 +1,11 @@
 <view class="page">
-	<view class="container" wx:if="{{condition ==3}}">
+	<view class="container" wx:if="{{condition ==1}}">
 		<view class="info-card">
 			<view class="info-desc">报考高级的考生须至少满足一项以下条件：</view>
 			<view class="info-list">
 				<view class="info-item">
 					<text class="emptyRound"/>
+
 
 
 
@@ -63,7 +64,7 @@
 		</view>
 		<view class="button-section" bindtap="comeGo">点击报名</view>
 	</view>
-	<view class="container" wx:if="{{condition == 1}}">
+	<view class="container" wx:if="{{condition == 3}}">
 		<view class="info-card">
 			<view class="info-desc">​初级室内设计师的申报条件：</view>
 			<view class="info-list">

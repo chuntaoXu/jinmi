@@ -100,7 +100,7 @@ Page({
           })
           setTimeout(() => {
             wx.navigateTo({
-              url: '/pages/vipMenber/qrcode?type=3'
+              url: '/pages/vipMenber/qrcode?typeGo=3'
             })
           }, 1500)
         }

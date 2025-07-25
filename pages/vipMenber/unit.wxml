@@ -118,7 +118,7 @@
 		<view wx:if="{{number == 3}}">
 			<view class="notice-title">中国室内装饰协会会员证书年检须知</view>
 			<view class="notice-section">
-				<view class="notice-section-title fornitSize">一、纸质资料</view>
+				<view class="notice-section-title fornitSize">一、提交资料</view>
 				<view class="notice-section-content comeCenter "> 旧证书原件；</view>
 				<view class="notice-section-content comeCenter"> 一张一寸证件照（底色不限）；</view>
 				<view class="notice-section-content comeCenter"> 证书回寄信息（姓名、联系电话、邮寄地址、邮箱）；</view>

@@ -7,6 +7,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/vipMenber/qrcode",
+          "pathName": "pages/vipMenber/qrcode",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/designer/search",
           "pathName": "pages/designer/search",
           "query": "id=1",

@@ -62,18 +62,30 @@ Page({
     })
   },
   onProfessionChange(e) {
+    // 清空现有数据，避免Canvas ID冲突
     this.setData({
-      twoOption: e.detail == '会员' ? this.data.titleOptions : e.detail == '专业会员' ? this.data.titleOptions1 : this.data.titleOptions2,
-      title: e.detail == '会员' ? this.data.titleOptions[0].text : e.detail == '专业会员' ? this.data.titleOptions1[0].text : this.data.titleOptions2[0].text,
-      profession: e.detail
+      loopArray: []
     })
-
-    console.log(this.data.twoOption, 'twoOption')
+    setTimeout(() => {
+      this.setData({
+        twoOption: e.detail == '会员' ? this.data.titleOptions : e.detail == '专业会员' ? this.data.titleOptions1 : this.data.titleOptions2,
+        title: e.detail == '会员' ? this.data.titleOptions[0].text : e.detail == '专业会员' ? this.data.titleOptions1[0].text : this.data.titleOptions2[0].text,
+        profession: e.detail
+      })
+    }, 100)
+    this.onSearch()
   },
   onTitleChange(e) {
+    // 清空现有数据，避免Canvas ID冲突
     this.setData({
-      title: e.detail
+      loopArray: []
     })
+    setTimeout(() => {
+      this.setData({
+        title: e.detail
+      })
+    }, 100)
+    this.onSearch()
   },
   onNameChange(event) {
     this.setData({
@@ -101,16 +113,24 @@ Page({
       .then(res => {
         console.log('object', res)
         if (res.error == 0) {
+          // 为每个项目添加唯一的canvas ID
+          const timestamp = Date.now()
           res.data.forEach((item, index) => {
-            // 为每个项目生成二维码
-            this.generateQRCode(item.memberNo, index)
+            item.canvasId = `qrcode-${timestamp}-${index}`
+            item.qrIndex = index
           })
 
+          // 先设置数据
+          this.setData({
+            loopArray: res.data
+          })
+
+          // 延迟生成二维码，确保DOM渲染完成
           setTimeout(() => {
-            this.setData({
-              loopArray: res.data
+            res.data.forEach((item, index) => {
+              this.generateQRCode(item.memberNo, item.canvasId)
             })
-          }, 500)
+          }, 200)
         }
       })
   },
@@ -118,29 +138,28 @@ Page({
   /**
    * 生成并显示二维码
    */
-  generateQRCode(memberNo, index) {
-    if (!memberNo) {
+  generateQRCode(memberNo, canvasId) {
+    if (!memberNo || !canvasId) {
       return
     }
-    wx.showLoading({
-      title: '二维码生成中...'
-    })
     const qrUrl = `https://www.cida.org.cn/hycx?sid=${memberNo}`
-    const canvasId = `qrcode-${index}` // 使用动态的canvas ID
+    console.log('生成二维码，Canvas ID:', canvasId)
     // 确保DOM已渲染完成后再绘制二维码
     setTimeout(() => {
-      drawQrcode({
-        // 加一个层级为 1
-        width: 100,
-        height: 100,
-        canvasId: canvasId,
-        text: qrUrl,
-        callback(e) {
-          wx.hideLoading()
-          // 二维码生成完成，更新数据
-        }
-      })
-    }, 0) // 延迟100ms确保canvas已渲染
+      try {
+        drawQrcode({
+          width: 100,
+          height: 100,
+          canvasId: canvasId,
+          text: qrUrl,
+          callback(e) {
+            console.log('二维码生成完成:', canvasId)
+          }
+        })
+      } catch (error) {
+        console.error('二维码生成失败:', error, canvasId)
+      }
+    }, 100)
   },
 
   /**

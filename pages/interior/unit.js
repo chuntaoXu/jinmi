@@ -1,11 +1,13 @@
 // pages/index/index.js
-
+const app = getApp()
+const UTILS = app.requirejs('util')
+const BASE_URL = app.globalData.BASE_URL
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    time: 10,
+    time: 5,
     timer: null,
     url: ''
   },

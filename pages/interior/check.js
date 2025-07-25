@@ -32,40 +32,9 @@ Page({
    */
   getInfo() {},
   showMemberPicker(e) {
-    if (e.currentTarget.dataset.id == 2) {
-      app
-        .request(
-          'evaluation.evaluation.checkSubmits',
-          {
-            type: 6
-          },
-          true
-        )
-        .then(res => {
-          if (res.error == 0) {
-            if (res.data.is_submit == 1) {
-              wx.showToast({
-                title: '您已提交过申请',
-                icon: 'none'
-              })
-              setTimeout(() => {
-                wx.navigateTo({
-                  url: '/pages/vipMenber/qrcode?type=1'
-                })
-              }, 1500)
-            } else {
-              wx.navigateTo({
-                url: '/pages/interior/addform?id=6'
-              })
-            }
-          }
-        })
-    } else {
-      let id = e.currentTarget.dataset.id
-      wx.navigateTo({
-        url: id == 1 ? '/pages/designer/search?id=1' : '/pages/interior/addform?id=6'
-      })
-    }
+    wx.navigateTo({
+      url: e.currentTarget.dataset.id == 1 ? '/pages/designer/search?id=1' : '/pages/interior/addform?id=6&typeGo=4'
+    })
   },
   /**
    * 扫一扫

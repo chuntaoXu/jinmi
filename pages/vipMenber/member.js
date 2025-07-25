@@ -32,7 +32,7 @@ Page({
   showMemberPicker(e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: id == 2 ? '/pages/vipMenber/qrcode' : '/pages/vipMenber/search'
+      url: id == 2 ? '/pages/vipMenber/index' : '/pages/vipMenber/search'
     })
   },
   /**

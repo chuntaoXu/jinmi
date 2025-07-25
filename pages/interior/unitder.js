@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: 10,
+    time: 5,
     timer: null,
     number: 1
   },
@@ -31,7 +31,7 @@ Page({
 
   onSubmit() {
     wx.navigateTo({
-      url: '/pages/interior/addform?id=' + this.data.number
+      url: '/pages/interior/addform?id=' + this.data.number + '&typeGo=4'
     })
   },
   /**

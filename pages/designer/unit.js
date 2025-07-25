@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: 10,
+    time: 5,
     timer: null
   },
 

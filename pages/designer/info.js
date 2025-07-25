@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    condition: 1
+    condition: 1,
+    typeGo: ''
   },
 
   /**
@@ -13,10 +14,11 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      condition: options.id
+      condition: options.id,
+      typeGo: options.typeGo || ''
     })
     wx.setNavigationBarTitle({
-      title: options.id == 1 ? '初级设计师' : options.id == 2 ? '中级设计师' : '高级设计师'
+      title: options.id == 1 ? '高级设计师' : options.id == 2 ? '中级设计师' : '初级设计师'
     })
   },
 
@@ -41,7 +43,7 @@ Page({
 
   comeGo() {
     wx.navigateTo({
-      url: '/pages/designer/addform?id=' + this.data.condition
+      url: '/pages/designer/addform?id=' + this.data.condition + '&typeGo=' + this.data.typeGo
     })
   },
   /**

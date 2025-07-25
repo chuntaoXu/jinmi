@@ -53,7 +53,7 @@
 			 class="qrcode-image"
 			/>
 		</view>
-		<view class="footer">长按二维码添加微信客服，获取审核进度更新。</view>
+		<view class="footer">长按二维码添加微信客服，了解更多。</view>
 	</view>
 
 </view>

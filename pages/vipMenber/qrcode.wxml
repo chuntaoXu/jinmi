@@ -9,7 +9,12 @@
 		</view>
 	</view>
 	<view class="container">
-		<view class="message">资料审核中，请添加微信客服了解审核进度。</view>
+		<view class="message" wx:if="{{titleTrue}}">
+
+			<view>{{title}}</view>
+			<view>请联系客服了解结果</view>
+
+		</view>
 		<view class="qrcode">
 			<image
 			 src="{{url}}"
@@ -18,7 +23,7 @@
 			 class="qrcode-image"
 			/>
 		</view>
-		<view class="footer">长按二维码添加微信客服，获取审核进度更新。</view>
+		<view class="footer">长按二维码添加微信客服，了解更多。</view>
 	</view>
 </view>
 

@@ -132,7 +132,7 @@ page {
 /* 底部提示文字 */
 .footer {
   color: #4a6fa5;
-  font-size: 28rpx;
+  font-size: 38rpx;
   text-align: center;
   line-height: 1.6;
   max-width: 520rpx;

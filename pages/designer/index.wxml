@@ -3,7 +3,7 @@
 	<view
 	 class="company book"
 	 bindtap="showMemberPicker"
-	 data-id="3"
+	 data-id="1"
 	 data-type="annual"
 	>高级设计师
 	</view>
@@ -17,7 +17,7 @@
 	<view
 	 class="company"
 	 bindtap="showMemberPicker"
-	 data-id="1"
+	 data-id="3"
 	 data-type="unit"
 	>初级设计师
 	</view>

@@ -34,34 +34,35 @@ Page({
    */
   getInfo() {},
   showMemberPicker(e) {
-    app
-      .request(
-        'evaluation.homes.checkSubmits',
-        {
-          type: e.currentTarget.dataset.id
-        },
-        true
-      )
-      .then(res => {
-        console.log('object', res)
-        if (res.error == 0) {
-          if (res.data.is_submit == 1) {
-            wx.showToast({
-              title: '您已提交过申请',
-              icon: 'none'
-            })
-            setTimeout(() => {
-              wx.navigateTo({
-                url: '/pages/vipMenber/qrcode?type=1'
-              })
-            }, 1500)
-          } else {
-            wx.navigateTo({
-              url: `/pages/vipMenber/unit?id=${e.currentTarget.dataset.id}`
-            })
-          }
-        }
-      })
+    wx.navigateTo({
+      url: `/pages/vipMenber/unit?id=${e.currentTarget.dataset.id}`
+    })
+    // app
+    //   .request(
+    //     'evaluation.homes.checkSubmits',
+    //     {
+    //       type: e.currentTarget.dataset.id
+    //     },
+    //     true
+    //   )
+    //   .then(res => {
+    //     console.log('object', res)
+    //     if (res.error == 0) {
+    //       if (res.data.is_submit == 1) {
+    //         wx.showToast({
+    //           title: '您已提交过申请',
+    //           icon: 'none'
+    //         })
+    //         setTimeout(() => {
+    //           wx.navigateTo({
+    //             url: '/pages/vipMenber/qrcode?type=1'
+    //           })
+    //         }, 1500)
+    //       } else {
+
+    //       }
+    //     }
+    //   })
   },
   /**
    * 扫一扫

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: 10,
+    time: 5,
     timer: null,
     number: 1
   },
@@ -23,9 +23,8 @@ Page({
     })
   },
   showMemberPicker() {
-    console.log('!', 111)
     wx.navigateTo({
-      url: '/pages/vipMenber/addform?id=' + this.data.number
+      url: '/pages/vipMenber/addform?id=' + this.data.number + '&typeGo=1'
     })
   },
   /**
