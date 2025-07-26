@@ -10,6 +10,19 @@
 	</view>
 	<view class="notice-content">
 		<view class="form-card">
+			<van-field
+			 wx:if="{{hatype==1}}"
+			 label="室内装饰类型"
+			 placeholder="请选择"
+			 value="{{ enterprise_Type }}"
+			 clearable
+			 center
+			 custom-class="field-item"
+			 extra-event-params
+			 required="true"
+			 readonly
+			 bind:tap="onShowTypePicker"
+			/>
 			<van-cell-group>
 				<van-field
 				 label="申报企业名称"
@@ -71,6 +84,22 @@
 			</van-cell-group>
 		</view>
 	</view>
-
+	<van-popup
+	 show="{{ showdesigner }}"
+	 destroy-on-close
+	 round
+	 position="bottom"
+	 bind:close="onCancelPicker"
+	 custom-style="height:50vh"
+	>
+		<van-picker
+		 show-toolbar
+		 title="请选择"
+		 value="{{ pickerValue }}"
+		 columns="{{ columnsdesigner }}"
+		 bind:cancel="onCancelPicker"
+		 bind:confirm="onCancelDesigner"
+		/>
+	</van-popup>
 </view>
 

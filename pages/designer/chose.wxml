@@ -1,6 +1,33 @@
 <!--pages/index/index.wxml-->
 <view class="container">
 	<view class="question-wrapper">
+		<view class="form-card">
+			<van-cell-group>
+				<van-field
+				 label="联系人姓名"
+				 placeholder="请输入联系人姓名"
+				 value="{{ name }}"
+				 clearable
+				 center
+				 custom-class="field-item"
+				 required="true"
+				 bind:change="onNameChange"
+				/>
+				<van-field
+				 label="联系人电话"
+				 placeholder="请输入11位手机号"
+				 value="{{ phone }}"
+				 clearable
+				 center
+				 custom-class="field-item"
+				 required="true"
+				 type="number"
+				 maxlength="11"
+				 bind:change="onPhoneChange"
+				/>
+			</van-cell-group>
+		</view>
+
 		<!-- 第1题 -->
 		<view class="question-item">
 			<text class="question-text">1. 获得室内设计相关专业本科及以上学历</text>

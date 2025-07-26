@@ -188,7 +188,13 @@ page {
 .van-picker__cancel {
   font-size: 32rpx !important;
 }
-
 .van-picker__confirm {
   font-size: 32rpx !important;
+}
+.van-picker-column {
+  font-size: 38rpx !important;
+}
+.activeClass {
+  color: #ff6a00 !important;
+  font-weight: bold;
 }

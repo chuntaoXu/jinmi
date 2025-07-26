@@ -17,7 +17,17 @@ Page({
     licenseimg: [],
     licenseimgFile: [],
     title: '室内设计水平',
-    typeGo: ''
+    typeGo: '',
+    hatype: '',
+    hatypeName: '',
+    showdesigner: false,
+    enterprise_Type: '',
+    columnsdesigner: [
+      { text: '室内设计水平', number: '1' },
+      { text: '陈设艺术设计水平', number: '2' },
+      { text: '家装家居服务水平', number: '3' },
+      { text: '绿色环保服务水平', number: '4' }
+    ]
   },
 
   /**
@@ -35,7 +45,25 @@ Page({
     this.setData({
       number: options.id,
       typeGo: options.typeGo || '',
-      title: obj[options.id] || '室内设计水平'
+      title: obj[options.id] || '室内设计水平',
+      hatype: options.hatype || ''
+    })
+  },
+  onShowTypePicker() {
+    this.setData({
+      showdesigner: true
+    })
+  },
+  onCancelPicker() {
+    this.setData({
+      showdesigner: false
+    })
+  },
+  onCancelDesigner(e) {
+    this.setData({
+      enterprise_Type: e.detail.value.text,
+      number: e.detail.value.number,
+      showdesigner: false
     })
   },
   /**
@@ -183,6 +211,13 @@ Page({
     return phoneReg.test(phone)
   },
   joinAssociation() {
+    if (!this.data.enterprise_Type && this.data.hatype == 1) {
+      wx.showToast({
+        title: '请选择室内装饰企业水平类型',
+        icon: 'none'
+      })
+      return
+    }
     if (!this.data.enterprise_name) {
       wx.showToast({
         title: '请输入申报企业名称',

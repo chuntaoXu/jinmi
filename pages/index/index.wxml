@@ -9,27 +9,27 @@
 		</navigator>
 		<view class="navigation-search">
 			<!-- <view class="navigation-search__scan" bindtap="scanCode" wx:if="{{!reAuth}}">
-        <van-icon
-          name="/images/sy_sao.png"
-          custom-style="margin-right: 10rpx"
-          size="36rpx"
-        />
-        扫一扫
-      </view>
-      <button
-        class="navigation-search__scan btn-normal"
-        bindtap="checkAuth"
-        wx:else
-        open-type="openSetting"
-        bindopensetting="checkOpenSetting"
-      >
-        <van-icon
-          name="/images/sy_sao.png"
-          custom-style="margin-right: 10rpx"
-          size="36rpx"
-        />
-        扫一扫
-      </button> -->
+		<van-icon
+		  name="/images/sy_sao.png"
+		  custom-style="margin-right: 10rpx"
+		  size="36rpx"
+		/>
+		扫一扫
+	  </view>
+	  <button
+		class="navigation-search__scan btn-normal"
+		bindtap="checkAuth"
+		wx:else
+		open-type="openSetting"
+		bindopensetting="checkOpenSetting"
+	  >
+		<van-icon
+		  name="/images/sy_sao.png"
+		  custom-style="margin-right: 10rpx"
+		  size="36rpx"
+		/>
+		扫一扫
+	  </button> -->
 			<van-icon name="search" size="36rpx" color="#999" />
 			<navigator hover-class="none" class="navigation-search__placeholder" url="/pages/goods/list">建材/无甲醛/装修</navigator>
 		</view>
@@ -227,16 +227,26 @@
  round
  position="bottom"
  bind:close="onClosePicker"
- custom-style="height:360rpx"
+ custom-style="height:50vh"
 >
-	<van-picker
-	 show-toolbar
-	 title="会员之家"
-	 value="{{ pickerValue }}"
-	 columns="{{ columns }}"
-	 bind:cancel="onCancelPicker"
-	 bind:confirm="onConfirmPicker"
-	/>
+
+	<view class="title">
+		<view class="title__cancel" bindtap="onClosePicker">取消</view>
+		<view class="title__text">选择入会类型</view>
+	</view>
+	<view class="content">
+		<view wx:for="{{columns}}" wx:key="index">
+			<view
+			 class="van-popup-content__item"
+			 bindtap="onConfirmPicker"
+			 data-value="{{ item.number }}"
+			 style="{{item.number==0 ? 'color: #ff6a00; font-weight: bold;' : ''}}"
+			>
+				{{ item.text }}
+			</view>
+		</view>
+
+	</view>
 </van-popup>
 
 <van-popup
@@ -245,16 +255,25 @@
  round
  position="bottom"
  bind:close="onClosePicker"
- custom-style="height:360rpx"
+ custom-style="height:50vh"
 >
-	<van-picker
-	 show-toolbar
-	 title="室内设计师专业技能"
-	 value="{{ pickerValue }}"
-	 columns="{{ columnsdesigner }}"
-	 bind:cancel="onCancelPicker"
-	 bind:confirm="onCancelDesigner"
-	/>
+	<view class="title">
+		<view class="title__cancel" bindtap="onCancelPicker">取消</view>
+		<view class="title__text">请选择</view>
+	</view>
+	<view class="content dadd">
+		<view wx:for="{{columnsdesigner}}" wx:key="index">
+			<view
+			 class="van-popup-content__item"
+			 bindtap="onCancelDesigner"
+			 data-value="{{ item.number }}"
+			 style="{{item.number==0 ? 'color: #ff6a00; font-weight: bold;' : ''}}"
+			>
+				{{ item.text }}
+			</view>
+		</view>
+
+	</view>
 </van-popup>
 
 <van-popup
@@ -263,15 +282,26 @@
  round
  position="bottom"
  bind:close="onClosePicker"
- custom-style="height:360rpx"
+ custom-style="height:50vh"
 >
-	<van-picker
-	 show-toolbar
-	 title="室内装饰企业水平评价"
-	 value="{{ pickerValue }}"
-	 columns="{{ interior }}"
-	 bind:cancel="onCancelPicker"
-	 bind:confirm="onCancelInter"
-	/>
+
+	<view class="title">
+		<view class="title__cancel" bindtap="onCancelPicker">取消</view>
+		<view class="title__text">请选择室内装饰企业水平评价</view>
+
+	</view>
+	<view class="content dadd">
+		<view wx:for="{{interior}}" wx:key="index">
+			<view
+			 class="van-popup-content__item last"
+			 bindtap="onCancelInter"
+			 data-value="{{ item.number }}"
+			 style="{{item.number==0 ? 'color: #ff6a00; font-weight: bold;' : ''}}"
+			>
+				{{ item.text }}
+			</view>
+		</view>
+
+	</view>
 </van-popup>
 

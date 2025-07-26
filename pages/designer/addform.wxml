@@ -3,6 +3,19 @@
 		<view class="form-card">
 			<van-cell-group>
 				<van-field
+				 wx:if="{{hatype==1}}"
+				 label="设计师类型"
+				 placeholder="请选择"
+				 value="{{ enterprise_Type }}"
+				 clearable
+				 center
+				 custom-class="field-item"
+				 extra-event-params
+				 required="true"
+				 readonly
+				 bind:tap="onShowTypePicker"
+				/>
+				<van-field
 				 label="姓名"
 				 placeholder="请输入姓名"
 				 value="{{ name }}"
@@ -60,6 +73,22 @@
 			</van-cell-group>
 		</view>
 	</view>
-
+	<van-popup
+	 show="{{ showdesigner }}"
+	 destroy-on-close
+	 round
+	 position="bottom"
+	 bind:close="onCancelPicker"
+	 custom-style="height:50vh"
+	>
+		<van-picker
+		 show-toolbar
+		 title="设计师选择"
+		 value="{{ pickerValue }}"
+		 columns="{{ columnsdesigner }}"
+		 bind:cancel="onCancelPicker"
+		 bind:confirm="onCancelDesigner"
+		/>
+	</van-popup>
 </view>
 

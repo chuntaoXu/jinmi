@@ -14,7 +14,16 @@ Page({
     city: '',
     licenseimg: [],
     licenseimgFile: [],
-    typeGo: ''
+    typeGo: '',
+    hatype: '',
+    hatypeName: '',
+    showdesigner: false,
+    enterprise_Type: '',
+    columnsdesigner: [
+      { text: '高级设计师', number: '1' },
+      { text: '中级设计师', number: '2' },
+      { text: '初级设计师', number: '3' }
+    ]
   },
 
   /**
@@ -23,7 +32,27 @@ Page({
   onLoad: function (options) {
     this.setData({
       number: options.id,
-      typeGo: options.typeGo || ''
+      typeGo: options.typeGo || '',
+      hatype: options.hatype || ''
+    })
+  },
+
+  onShowTypePicker() {
+    console.log('!', 11)
+    this.setData({
+      showdesigner: true
+    })
+  },
+  onCancelPicker() {
+    this.setData({
+      showdesigner: false
+    })
+  },
+  onCancelDesigner(e) {
+    this.setData({
+      enterprise_Type: e.detail.value.text,
+      number: e.detail.value.number,
+      showdesigner: false
     })
   },
   onCityChange(event) {
@@ -47,6 +76,13 @@ Page({
     return phoneReg.test(phone)
   },
   joinAssociation() {
+    if (!this.data.enterprise_Type && this.data.hatype == 1) {
+      wx.showToast({
+        title: '请选择设计师类型',
+        icon: 'none'
+      })
+      return
+    }
     if (!this.data.city) {
       wx.showToast({
         title: '请输入报考城市',

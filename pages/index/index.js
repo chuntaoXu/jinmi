@@ -30,20 +30,23 @@ Page({
     showGo: false,
     showdesigner: false,
     columns: [
-      { text: '入会须知', value: '1' },
-      { text: '会员查询', value: '2' }
+      { text: '一键报名', number: '0' },
+      { text: '入会须知', number: '1' },
+      { text: '会员查询', number: '2' }
     ],
     columnsdesigner: [
-      { text: '设计师证书介绍', value: '1' },
-      { text: '设计师自测系统', value: '2' },
-      { text: '认证设计师查询', value: '3' }
+      { text: '一键报名', number: '0' },
+      { text: '设计师证书介绍', number: '1' },
+      { text: '设计师自测系统', number: '2' },
+      { text: '认证设计师查询', number: '3' }
     ],
     showInter: false,
     interior: [
-      { text: '室内装饰企业水平评价-介绍', value: '1' },
-      { text: '室内装饰企业水平评价-申报', value: '2' },
-      { text: '企业水平评价自测系统', value: '3' },
-      { text: '企业水平评价查询', value: '4' }
+      { text: '一键报名', number: '0' },
+      { text: '室内装饰企业水平评价-介绍', number: '1' },
+      { text: '室内装饰企业水平评价-申报', number: '2' },
+      { text: '企业水平评价自测系统', number: '3' },
+      { text: '企业水平评价查询', number: '4' }
     ]
   },
 
@@ -142,6 +145,14 @@ Page({
       hasMore: true
     }),
       this.getList()
+  },
+
+  onClosePicker() {
+    this.setData({
+      showPicker: false,
+      showGo: false,
+      showdesigner: false
+    })
   },
 
   /**
@@ -292,13 +303,18 @@ Page({
   },
   // 会员之家跳转
   onConfirmPicker(e) {
-    if (e.detail.index == 0) {
+    let arr = e.currentTarget.dataset.value
+    if (arr == 1) {
       wx.navigateTo({
         url: '/pages/vipMenber/index'
       })
-    } else {
+    } else if (arr == 2) {
       wx.navigateTo({
         url: '/pages/vipMenber/member'
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/vipMenber/addform?hatype=1&typeGo=1'
       })
     }
     this.setData({
@@ -307,45 +323,31 @@ Page({
   },
   //室内设计师
   onCancelDesigner(e) {
-    // if (e.detail.index == 1) {
-    //   app.request('evaluation.evaluating.checkSubmits', {}, true).then(res => {
-    //     console.log('object', res)
-    //     if (res.error == 0) {
-    //       if (res.data.is_submit == 1) {
-    //         wx.showToast({
-    //           title: '您已提交过申请',
-    //           icon: 'none'
-    //         })
-    //         setTimeout(() => {
-    //           wx.navigateTo({
-    //             url: '/pages/vipMenber/qrcode?type=1'
-    //           })
-    //         }, 1500)
-    //       } else {
-    //         wx.navigateTo({
-    //           url: `/pages/designer/chose`
-    //         })
-    //       }
-    //     }
-    //   })
-    // } else {
-    // }
+    let arr = e.currentTarget.dataset.value
+    let obj = {
+      0: '/pages/designer/addform?hatype=1&typeGo=2',
+      1: '/pages/designer/unit',
+      2: '/pages/designer/chose',
+      3: '/pages/designer/check'
+    }
     wx.navigateTo({
-      url: e.detail.index == 0 ? '/pages/designer/unit' : e.detail.index == 1 ? '/pages/designer/chose' : '/pages/designer/check'
+      url: obj[arr]
     })
     this.setData({
       showdesigner: false
     })
   },
   onCancelInter(e) {
+    let arr = e.currentTarget.dataset.value
     let obj = {
-      0: '/pages/interior/unit',
-      1: '/pages/interior/index',
-      2: '/pages/interior/addform?id=5&typeGo=4',
-      3: '/pages/interior/check'
+      0: '/pages/interior/addform?hatype=1&typeGo=4',
+      1: '/pages/interior/unit',
+      2: '/pages/interior/index',
+      3: '/pages/interior/addform?id=5&typeGo=4',
+      4: '/pages/interior/check'
     }
     wx.navigateTo({
-      url: obj[e.detail.index]
+      url: obj[arr]
     })
     this.setData({
       showInter: false

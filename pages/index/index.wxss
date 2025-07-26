@@ -278,3 +278,51 @@ page {
 .van-picker__cancel {
   font-size: 32rpx !important;
 }
+.activeClass {
+  color: #ff6a00 !important;
+  font-weight: bold;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 88rpx;
+}
+.title__cancel {
+  position: absolute;
+  left: 32rpx;
+  font-size: 32rpx;
+  color: #999;
+  z-index: 2;
+}
+.title__text {
+  flex: 1;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #222;
+}
+.title__confirm {
+  color: #576b95;
+  font-size: 32rpx;
+}
+.van-popup-content__item {
+  text-align: center;
+  line-height: 140rpx;
+  font-size: 40rpx;
+  margin: 0 auto;
+  padding: 0 20rpx;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.last {
+  line-height: 100rpx;
+}
+
+.dadd {
+  height: 200rpx;
+}

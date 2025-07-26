@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    name: '',
+    phone: '',
     answers: {
       q1: '', // 第1题答案
       q2: '', // 第2题答案
@@ -27,21 +29,31 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {},
-
+  onNameChange(event) {
+    this.setData({
+      name: event.detail
+    })
+  },
+  onPhoneChange(event) {
+    this.setData({
+      phone: event.detail
+    })
+  },
+  validatePhone(phone) {
+    const phoneReg = /^1[3-9]\d{9}$/
+    return phoneReg.test(phone)
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {},
   onQuestionChange(e) {
-    console.log(e.currentTarget.dataset.question, ' e.currentTarget.dataset.question')
-    console.log(e.detail, ' e.detail')
     const questionId = e.currentTarget.dataset.question
     const answer = e.detail
     // 更新答案
     this.setData({
       [`answers.${questionId}`]: answer
     })
-    console.log(this.data.answers, ' this.data.answers')
     // 检查是否所有问题都已回答
     this.checkAllAnswered()
   },
@@ -55,6 +67,27 @@ Page({
     })
   },
   submitEvaluation() {
+    if (!this.data.name) {
+      wx.showToast({
+        title: '请输入联系人姓名',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.data.phone) {
+      wx.showToast({
+        title: '请输入联系人电话',
+        icon: 'none'
+      })
+      return
+    }
+    if (!this.validatePhone(this.data.phone)) {
+      wx.showToast({
+        title: '请输入正确的手机号格式',
+        icon: 'none'
+      })
+      return
+    }
     const contentd = {
       content: [
         {
@@ -87,6 +120,8 @@ Page({
       .request(
         'evaluation.evaluating.addEvaluating',
         {
+          name: this.data.name,
+          phone: this.data.phone,
           content: JSON.stringify(contentd.content)
         },
         true
